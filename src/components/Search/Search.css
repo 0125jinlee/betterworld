@@ -1,0 +1,6 @@
+.charitySearch input {
+  width: 300px;
+  position: inline-block;
+  display: flex;
+  text-align: center;
+}
