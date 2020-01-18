@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import './Posts.css';
+import "./Posts.css";
 
 class Posts extends Component {
   state = {
     posts: []
+  };
+
+  componentDidMount() {
+    axios.get("");
   }
 
-  componentDidMount () {
-    axios.get('')
-  }
-
-  render () {
-    return (
-      {posts}
-    );
+  render() {
+    return { posts };
   }
 }
 

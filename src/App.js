@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Post from './components/Post/Post';
-import Search from './components/Search/Search';
-import './App.css';
+import Post from "./components/Post/Post";
+import Search from "./components/Search/Search";
+import "./App.css";
 
 function App() {
   return (
