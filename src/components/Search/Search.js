@@ -5,38 +5,30 @@ import Button from "@material-ui/core/Button";
 import "./Search.css";
 
 class Search extends Component {
-  state = {
-    query: "",
-    data: null,
-    filteredData: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchData: null,
+      url: ""
+    };
+  }
 
-  handleInputchange = event => {
-    const query = event.target.value;
-
-    this.setState(prevState => {
-      const filteredData = prevState.data.filter(element => {
-        return element.name.toLowerCase().includes(query.toLowerCase());
-      });
-
-      return {
-        query,
-        filteredData
-      };
+  postData() {
+    axios.get(this.state.url).then(response => {
+      this.setState({ searchData: response.data.data });
     });
-  };
+  }
 
-  componentDidMount() {
+  updateSearchTerm(evt) {
     const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
     const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-    const URL =
-      "http://data.orghunter.com/v1/charitysearch?user_key=" +
-      API_KEY +
-      "&searchTerm=red%20cross";
-
-    axios.get(PROXY_URL + URL).then(response => {
-      this.setState({ data: response });
-      console.log(this.state.data.data.data);
+    this.setState({
+      url:
+        PROXY_URL +
+        "http://data.orghunter.com/v1/charitysearch?user_key=" +
+        API_KEY +
+        "&searchTerm=" +
+        evt.target.value.replace(" ", "%20")
     });
   }
 
@@ -45,9 +37,9 @@ class Search extends Component {
       <div className="charitySearch">
         <form>
           <input
+            type="text"
             placeholder="Enter a keyword to search for the charity."
-            value={this.state.query}
-            onChange={this.handleInputChange}
+            onKeyDown={evt => this.updateSearchTerm(evt)}
           />
           <Button variant="contained" color="primary">
             Search
