@@ -7,41 +7,61 @@ import "./Search.css";
 class Search extends Component {
   constructor(props) {
     super(props);
+    const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
     this.state = {
       searchData: null,
-      url: ""
-    };
-  }
-
-  postData() {
-    axios.get(this.state.url).then(response => {
-      this.setState({ searchData: response.data.data });
-    });
-  }
-
-  updateSearchTerm(evt) {
-    const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
-    const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-    this.setState({
       url:
-        PROXY_URL +
-        "http://data.orghunter.com/v1/charitysearch?user_key=" +
+        "https://cors-anywhere.herokuapp.com/http://data.orghunter.com/v1/charitysearch?user_key=" +
         API_KEY +
-        "&searchTerm=" +
-        evt.target.value.replace(" ", "%20")
+        "&searchTerm=",
+      value: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.beginSearch = this.beginSearch.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      ...this.state,
+      value: this.state.url + event.target.value.replace(" ", "%20")
     });
   }
+
+  beginSearch = event => {
+    event.preventDefault();
+
+    const URL = {
+      value: this.state.value
+    };
+
+    axios
+      .post(URL.value)
+      .then(response => {
+        const charities = response.data.data;
+        this.setState({ searchData: charities });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
       <div className="charitySearch">
-        <form>
-          <input
-            type="text"
-            placeholder="Enter a keyword to search for the charity."
-            onKeyDown={evt => this.updateSearchTerm(evt)}
-          />
-          <Button variant="contained" color="primary">
+        <form onSubmit={this.beginSearch}>
+          <label>
+            <input
+              type="text"
+              placeholder="Enter a keyword to search for the charity."
+              onChange={this.handleChange}
+            />
+          </label>
+          {console.log(this.state.searchData)}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.beginSearch}
+          >
             Search
           </Button>
         </form>
