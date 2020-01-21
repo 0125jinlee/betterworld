@@ -4,10 +4,16 @@ import "./Post.css";
 
 const post = props => (
   <article className="Post" onClick={props.clicked}>
-    <h1>Test</h1>
+    <div className="Title">
+      <h1>{props.charityName}</h1>
+    </div>
     <div className="Info">
-      <div className="Charity">Charity</div>
-      <div className="Description">Description</div>
+      <p>{props.ein}</p>
+      <p>{props.website}</p>
+      <p>{props.city}</p>
+      <p>{props.state}</p>
+      <p>{props.zipcode}</p>
+      <p>{props.category}</p>
     </div>
   </article>
 );
