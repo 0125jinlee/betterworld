@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 
-// import Post from "../Post/Post";
+import Post from "../Post/Post";
 import "./Search.css";
 
 class Search extends Component {
@@ -34,7 +34,14 @@ class Search extends Component {
     axios
       .post(this.state.newUrl)
       .then(response => {
-        this.setState({ data: response.data.data });
+        if (
+          response.status === 200 &&
+          (!response || !response.data || !response.data.data)
+        ) {
+          alert("Something went wrong with an API call!");
+        } else {
+          this.setState({ data: response.data.data });
+        }
       })
       .catch(error => {
         alert(error);
@@ -60,18 +67,19 @@ class Search extends Component {
             Search
           </Button>
         </form>
-        {console.log(this.state.data)}
+        {this.state.data && this.state.data[0] && (
+          <Post
+            charityName={this.state.data[0].charityName}
+            ein={this.state.data[0].ein}
+            website={this.state.data[0].url}
+            city={this.state.data[0].city}
+            state={this.state.data[0].state}
+            zipcode={this.state.data[0].zipCode}
+            category={this.state.data[0].category}
+          />
+        )}
       </div>
     );
-    //     <Post
-    //       charityName={this.state.data[0].charityName}
-    //       ein={this.state.data[0].ein}
-    //       website={this.state.data[0].url}
-    //       city={this.state.data[0].city}
-    //       state={this.state.data[0].state}
-    //       zipcode={this.state.data[0].zipCode}
-    //       category={this.state.data[0].category}
-    //     />
   }
 }
 
