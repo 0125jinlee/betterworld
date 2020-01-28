@@ -1,81 +1,35 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 
 import Post from "../Post/Post";
 import "./Search.css";
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
-    this.state = {
-      data: null,
-      baseUrl:
-        "https://cors-anywhere.herokuapp.com/http://data.orghunter.com/v1/charitysearch?user_key=" +
-        API_KEY +
-        "&searchTerm=",
-      newUrl: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange = event => {
-    this.setState({
-      ...this.state,
-      newUrl: this.state.baseUrl + event.target.value.replace(" ", "%20")
-    });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-    axios
-      .post(this.state.newUrl)
-      .then(response => {
-        if (
-          response.status === 200 &&
-          (!response || !response.data || !response.data.data)
-        ) {
-          alert("Something went wrong with an API call!");
-        } else {
-          this.setState({ data: response.data.data });
-        }
-      })
-      .catch(error => {
-        alert(error);
-      });
-  };
-
   render() {
     return (
       <div className="charitySearch">
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label>
             <input
               type="text"
               placeholder="Enter a keyword to search for the charity."
-              onChange={this.handleChange}
+              onChange={this.urlUpdate}
             />
           </label>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={this.handleSubmit}
-          >
+          <Button variant="contained" color="primary" onClick={this.dataCall}>
             Search
           </Button>
         </form>
-        {this.state.data && this.state.data[0] && (
+        {this.props.dt && this.props.dt[0] && (
           <Post
-            charityName={this.state.data[0].charityName}
-            ein={this.state.data[0].ein}
-            website={this.state.data[0].url}
-            city={this.state.data[0].city}
-            state={this.state.data[0].state}
-            zipcode={this.state.data[0].zipCode}
-            category={this.state.data[0].category}
+            charityName={this.props.dt[0].charityName}
+            ein={this.props.dt[0].ein}
+            website={this.props.dt[0].url}
+            city={this.props.dt[0].city}
+            state={this.props.dt[0].state}
+            zipcode={this.props.dt[0].zipCode}
+            category={this.props.dt[0].category}
           />
         )}
       </div>
@@ -83,4 +37,18 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = state => {
+  return {
+    dt: state.data
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    urlUpdate: event =>
+      dispatch({ type: "URL_UPDATE", value: event.target.value }),
+    dataCall: () => dispatch({ type: "DATA_CALL" })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
