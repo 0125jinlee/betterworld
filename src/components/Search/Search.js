@@ -6,18 +6,33 @@ import Post from "../Post/Post";
 import "./Search.css";
 
 class Search extends Component {
+  constructor() {
+    super();
+    this.state = { searchTerm: null };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({ searchTerm: event.target.value });
+  };
+
   render() {
     return (
       <div className="charitySearch">
-        <form>
+        <form onSubmit={console.log(this.state.searchTerm)}>
           <label>
             <input
               type="text"
               placeholder="Enter a keyword to search for the charity."
-              onChange={this.urlUpdate}
+              onChange={this.handleChange}
             />
           </label>
-          <Button variant="contained" color="primary" onClick={this.dataCall}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.props.dataCall}
+          >
             Search
           </Button>
         </form>
@@ -45,8 +60,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    urlUpdate: event =>
-      dispatch({ type: "URL_UPDATE", value: event.target.value }),
+    urlUpdate: () => dispatch({ type: "URL_UPDATE" }),
     dataCall: () => dispatch({ type: "DATA_CALL" })
   };
 };
