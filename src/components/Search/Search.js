@@ -17,17 +17,24 @@ class Search extends Component {
     this.setState({ searchTerm: event.target.value });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.searchTerm);
+  };
+
   render() {
     return (
-      <div className="charitySearch">
-        <form onSubmit={console.log(this.state.searchTerm)}>
-          <label>
-            <input
-              type="text"
-              placeholder="Enter a keyword to search for the charity."
-              onChange={this.handleChange}
-            />
-          </label>
+      <div className="container">
+        <form onSubmit={this.handleSubmit} className="form">
+          <h2 className="title">
+            Search for a charity to donate using any keywords!
+          </h2>
+          <input
+            type="text"
+            placeholder="Enter keywords to search for the charity"
+            required
+            onChange={this.handleChange}
+          />
           <Button
             variant="contained"
             color="primary"
