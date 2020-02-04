@@ -8,10 +8,10 @@ export const fetching_data = () => {
   };
 };
 
-export const received_data = dt => {
+export const received_data = data => {
   return {
     type: "RECEIVED_DATA",
-    data: dt
+    data: data
   };
 };
 
@@ -27,7 +27,7 @@ const baseUrl =
   API_KEY +
   "&searchTerm=";
 
-export const thunk_action_creator = searchTerm => {
+export const apiCallThunk = searchTerm => {
   const newUrl = baseUrl + searchTerm.replace(" ", "%20");
   store.dispatch(fetching_data());
   return function(dispatch, getState) {
@@ -39,9 +39,10 @@ export const thunk_action_creator = searchTerm => {
           (!response || !response.data || !response.data.data)
         ) {
           alert("Something went wrong with an API call!");
-        } else dispatch(received_data(response.data.data));
+        } else {
+          dispatch(received_data(response.data.data));
+        }
       })
       .catch(error => dispatch(received_error()));
-    // event.preventDefault()
   };
 };

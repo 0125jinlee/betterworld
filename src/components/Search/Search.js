@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Button from "@material-ui/core/Button";
+import { apiCallThunk } from "../../store/actions";
 
 import Post from "../Post/Post";
 import "./Search.css";
@@ -8,8 +8,9 @@ import "./Search.css";
 class Search extends Component {
   constructor() {
     super();
-    this.state = { searchTerm: null };
+    this.state = { searchTerm: "" };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = event => {
@@ -19,41 +20,34 @@ class Search extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.searchTerm);
+    const searchTerm = this.state.searchTerm;
+    this.props.dispatch(apiCallThunk(searchTerm));
+    // this.setState({ searchTerm: "" });
   };
 
   render() {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="form">
-          <h2 className="title">
-            Search for a charity to donate using any keywords!
-          </h2>
+          <h2 className="title">LET'S MAKE THE WORLD A BETTER PLACE!</h2>
           <input
             type="text"
             placeholder="Enter keywords to search for the charity"
-            required
             onChange={this.handleChange}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={this.props.dataCall}
-          >
+          <button className="button" onClick={this.handleSubmit}>
             Search
-          </Button>
+          </button>
         </form>
-        {this.props.dt && this.props.dt[0] && (
-          <Post
-            charityName={this.props.dt[0].charityName}
-            ein={this.props.dt[0].ein}
-            website={this.props.dt[0].url}
-            city={this.props.dt[0].city}
-            state={this.props.dt[0].state}
-            zipcode={this.props.dt[0].zipCode}
-            category={this.props.dt[0].category}
-          />
-        )}
+        {/* {this.props.data.isFetching ? <h3>Loading...</h3> : null}
+        {this.props.data.isError ? <h3>No such charity exists.</h3> : null} */}
+        {/* {typeof this.props.data.searchResult !== "undefined" &&
+        this.props.data.searchResult.length > 0
+          ? console.log(this.props.data.searchResult)
+          : console.log("Data is empty!")} */}
+        {this.props.data.searchResult[0] ? (
+          <Post charities={this.props.data.searchResult} />
+        ) : null}
       </div>
     );
   }
@@ -61,15 +55,8 @@ class Search extends Component {
 
 const mapStateToProps = state => {
   return {
-    dt: state.data
+    data: state
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    urlUpdate: () => dispatch({ type: "URL_UPDATE" }),
-    dataCall: () => dispatch({ type: "DATA_CALL" })
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps)(Search);
