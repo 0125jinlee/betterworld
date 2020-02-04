@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import store from "./store";
-
 export const fetching_data = () => {
   return {
     type: "FETCHING_DATA"
@@ -29,7 +27,6 @@ const baseUrl =
 
 export const apiCallThunk = searchTerm => {
   const newUrl = baseUrl + searchTerm.replace(" ", "%20");
-  store.dispatch(fetching_data());
   return function(dispatch, getState) {
     return axios
       .post(newUrl)

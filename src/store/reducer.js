@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCHING_DATA":
       return {
-        searchResult: null,
+        searchResult: {},
         isFetching: true,
         isError: false
       };

@@ -22,7 +22,6 @@ class Search extends Component {
     event.preventDefault();
     const searchTerm = this.state.searchTerm;
     this.props.dispatch(apiCallThunk(searchTerm));
-    // this.setState({ searchTerm: "" });
   };
 
   render() {
@@ -39,12 +38,12 @@ class Search extends Component {
             Search
           </button>
         </form>
-        {/* {this.props.data.isFetching ? <h3>Loading...</h3> : null}
-        {this.props.data.isError ? <h3>No such charity exists.</h3> : null} */}
-        {/* {typeof this.props.data.searchResult !== "undefined" &&
+        {this.props.data.isFetching ? <h3>Loading...</h3> : null}
+        {this.props.data.isError ? <h3>No such charity exists.</h3> : null}
+        {typeof this.props.data.searchResult !== "undefined" &&
         this.props.data.searchResult.length > 0
           ? console.log(this.props.data.searchResult)
-          : console.log("Data is empty!")} */}
+          : console.log("Data is empty!")}
         {this.props.data.searchResult[0] ? (
           <Post charities={this.props.data.searchResult} />
         ) : null}
