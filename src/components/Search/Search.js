@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { apiCallThunk } from "../../store/actions";
+import { apiCallThunk } from "../../store/thunk";
 
 import Post from "../Post/Post";
 import "./Search.css";
@@ -40,10 +40,6 @@ class Search extends Component {
         </form>
         {this.props.data.isFetching ? <h3>Loading...</h3> : null}
         {this.props.data.isError ? <h3>No such charity exists.</h3> : null}
-        {typeof this.props.data.searchResult !== "undefined" &&
-        this.props.data.searchResult.length > 0
-          ? console.log(this.props.data.searchResult)
-          : console.log("Data is empty!")}
         {this.props.data.searchResult[0] ? (
           <Post charities={this.props.data.searchResult} />
         ) : null}
