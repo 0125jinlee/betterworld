@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { apiCallThunk } from "../../store/thunk";
 
-import Post from "../Post/Post";
+import Posts from "../../containers/Posts/Posts";
 import "./Search.css";
 
 class Search extends Component {
@@ -39,10 +39,8 @@ class Search extends Component {
           </button>
         </form>
         {this.props.data.isFetching ? <h3>Loading...</h3> : null}
-        {this.props.data.isError ? <h3>No such charity exists.</h3> : null}
-        {this.props.data.searchResult[0] ? (
-          <Post charities={this.props.data.searchResult} />
-        ) : null}
+        {this.props.data.isError ? <h3>Enter different keywords!</h3> : null}
+        {console.log(this.props.data.searchResult)}
       </div>
     );
   }
