@@ -5,7 +5,7 @@ import Post from "../../components/Post/Post";
 import "./Posts.css";
 
 const posts = props => {
-  if (props.data) {
+  if (Array.isArray(props.data)) {
     const updatedPosts = props.data.map(post => {
       return (
         <Post
@@ -23,6 +23,8 @@ const posts = props => {
         <section className="Posts">{updatedPosts}</section>
       </div>
     );
+  } else {
+    return null;
   }
 };
 
