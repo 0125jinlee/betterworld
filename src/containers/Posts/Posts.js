@@ -1,57 +1,41 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Post from "../../components/Post/Post";
 import "./Posts.css";
 
-class Posts extends Component {
-  state = {
-    posts: {}
-  };
+const posts = props => {
+  useEffect(() => {
+    renderPosts(props);
+  }, [renderPosts]);
 
-  componentDidMount() {
-    console.log(this.props.data.searchResult);
-    const posts = this.props.data.searchResult.slice(0, 9);
+  function renderPosts(props) {
+    const posts = props.data;
     const updatedPosts = posts.map(post => {
-      return {
-        ...post
-      };
+      return (
+        <Post
+          ein={post.ein}
+          website={post.url}
+          city={post.city}
+          state={post.state}
+          zip={post.zipCode}
+          category={post.category}
+        />
+      );
     });
-    this.setState({ posts: updatedPosts });
-  }
 
-  postSelectedHandler = id => {
-    console.log("clicked!");
-  };
-
-  render() {
-    let posts = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
-    if (!this.props.data.isError) {
-      posts = this.state.posts.map(post => {
-        return (
-          <Post
-            ein={post.ein}
-            website={post.url}
-            city={post.city}
-            state={post.state}
-            zip={post.zipCode}
-            category={post.category}
-          />
-        );
-      });
-    }
     return (
       <div>
-        <section className="Posts">{posts}</section>
+        <section className="Posts">{updatedPosts}</section>
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = state => {
   return {
-    data: state
+    data: state.searchResult
   };
 };
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps)(posts);

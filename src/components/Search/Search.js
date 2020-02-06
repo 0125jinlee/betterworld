@@ -41,6 +41,7 @@ class Search extends Component {
         {this.props.data.isFetching ? <h3>Loading...</h3> : null}
         {this.props.data.isError ? <h3>Enter different keywords!</h3> : null}
         {console.log(this.props.data.searchResult)}
+        <Posts />
       </div>
     );
   }
