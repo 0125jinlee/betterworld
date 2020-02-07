@@ -10,7 +10,7 @@ const post = props => (
         <b>EIN:</b> {props.ein}
       </p>
       <p>
-        <b>WEBSITE:</b> {props.url}
+        <b>WEBSITE:</b> {props.website}
       </p>
       <p>
         <b>CITY:</b> {props.city}
@@ -19,10 +19,13 @@ const post = props => (
         <b>STATE:</b> {props.state}
       </p>
       <p>
-        <b>ZIP:</b> {props.zipCode}
+        <b>ZIP:</b> {props.zip}
       </p>
       <p>
         <b>CATEGORY:</b> {props.category}
+      </p>
+      <p>
+        <b>SCORE:</b> {props.score}
       </p>
     </div>
   </article>

@@ -1,12 +1,12 @@
 import React from "react";
 
-import Search from "./components/Search/Search";
+import Blog from "./containers/Blog/Blog";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Search />
+      <Blog />
     </div>
   );
 }
