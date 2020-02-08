@@ -5,8 +5,8 @@ import Post from "../Post/Post";
 import "./Posts.css";
 
 const posts = props => {
-  if (Array.isArray(props.data)) {
-    const updatedPosts = props.data.map(post => {
+  if (Array.isArray(props.searchResult)) {
+    const updatedPosts = props.searchResult.map(post => {
       return (
         <Post
           charityName={post.charityName}
@@ -32,7 +32,7 @@ const posts = props => {
 
 const mapStateToProps = state => {
   return {
-    data: state.searchResult
+    searchResult: state.searchReducer.searchResult
   };
 };
 

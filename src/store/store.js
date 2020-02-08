@@ -1,11 +1,14 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 
-import reducer from "./reducer";
+import searchReducer from "./reducers/searchReducer";
+import authReducer from "./reducers/authReducers";
 
-const store = createStore(
-  reducer /* preloadedState, */,
-  applyMiddleware(thunk)
-);
+const rootReducer = combineReducers({
+  searchReducer: searchReducer,
+  authReducer: authReducer
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;

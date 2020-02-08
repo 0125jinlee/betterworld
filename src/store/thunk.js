@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import * as actionTypes from "./actions";
+import * as searchActions from "./actions/searchActions";
 
 const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
 const baseUrl =
@@ -20,9 +20,9 @@ export const apiCallThunk = searchTerm => {
         ) {
           alert("Something went wrong with an API call!");
         } else {
-          dispatch(actionTypes.received_data(response.data.data));
+          dispatch(searchActions.receivedData(response.data.data));
         }
       })
-      .catch(error => dispatch(actionTypes.received_error()));
+      .catch(error => dispatch(searchActions.receivedError()));
   };
 };

@@ -4,7 +4,7 @@ const initialState = {
   isError: false
 };
 
-const reducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCHING_DATA":
       return {
@@ -28,4 +28,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default searchReducer;
