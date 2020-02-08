@@ -1,12 +1,23 @@
-.Blog {
-  display: flex;
+.Main {
+  display: inline-block;
   flex-flow: row wrap;
   justify-content: center;
   width: 80%;
   margin: auto;
 }
 
-.Blog ul {
+.Main header {
+  display: block;
+  font-weight: bold;
+}
+
+.Title {
+  font-size: 3.5rem;
+  margin-top: 1rem;
+  text-shadow: 2.5px 2.5px gray;
+}
+
+.Main ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -14,18 +25,18 @@
   text-align: center;
 }
 
-.Blog li {
+.Main li {
   display: inline-block;
   margin: 20px;
 }
 
-.Blog a {
+.Main a {
   font-size: 20px;
   text-decoration: none;
   color: black;
 }
 
-.Blog a:hover,
-.Blog a:active {
-  color: orange;
+.Main a:hover,
+.Main a:active {
+  color: gray;
 }

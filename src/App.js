@@ -1,12 +1,12 @@
 import React from "react";
 
-import Blog from "./containers/Blog/Blog";
+import Main from "./containers/Main/Main";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Blog />
+      <Main />
     </div>
   );
 }
