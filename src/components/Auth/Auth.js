@@ -9,7 +9,7 @@ import classes from "./Auth.css";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../shared/utility";
 
-const auth = props => {
+const Auth = props => {
   const [authForm, setAuthForm] = useState({
     email: {
       elementType: "input",
@@ -143,4 +143,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
