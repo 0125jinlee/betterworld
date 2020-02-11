@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import Search from "../../components/Search/Search";
 import Posts from "../../components/Posts/Posts";
+import Auth from "../../components/Auth/Auth";
 import "./Main.css";
 
 const main = props => {
@@ -34,7 +35,15 @@ const main = props => {
           </section>
         )}
       />
-      <Route path="/auth" exact render={() => <h1>Authenticate</h1>} />
+      <Route
+        path="/auth"
+        exact
+        render={() => (
+          <section className="Authenticate">
+            <Auth />
+          </section>
+        )}
+      />
       <Route path="/dona" exact render={() => <h1>Donations</h1>} />
     </div>
   );
