@@ -23,6 +23,7 @@ export const authFail = error => {
   };
 };
 
+//move to reducer
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("expirationDate");
@@ -32,6 +33,7 @@ export const logout = () => {
   };
 };
 
+//move to thunk
 export const checkAuthTimeout = expirationTime => {
   return dispatch => {
     setTimeout(() => {
@@ -39,6 +41,9 @@ export const checkAuthTimeout = expirationTime => {
     }, expirationTime * 1000);
   };
 };
+
+//move to thunk!
+const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
 
 export const auth = (email, password, isSignup) => {
   return dispatch => {
@@ -49,10 +54,12 @@ export const auth = (email, password, isSignup) => {
       returnSecureToken: true
     };
     let url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +
+      FIREBASE_API_KEY;
     if (!isSignup) {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
+        FIREBASE_API_KEY;
     }
     axios
       .post(url, authData)
@@ -79,6 +86,7 @@ export const setAuthRedirectPath = path => {
   };
 };
 
+//move to thunk
 export const authCheckState = () => {
   return dispatch => {
     const token = localStorage.getItem("token");
