@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import * authReducers from "../../../store/reducers/authReducers";
+import * as authReducers from "../../../store/reducers/authReducers";
 
 const Logout = props => {
   const { onLogout } = props;

@@ -19,7 +19,7 @@ const main = props => {
               <Link to="/auth">Login</Link>
             </li>
             <li>
-              <Link to="/dona">Your Influences</Link>
+              <Link to="/impacts">Your Impacts</Link>
             </li>
           </ul>
         </nav>
@@ -44,7 +44,7 @@ const main = props => {
           </section>
         )}
       />
-      <Route path="/dona" exact render={() => <h1>Donations</h1>} />
+      <Route path="/impacts" exact render={() => <h1>Donations</h1>} />
     </div>
   );
 };
