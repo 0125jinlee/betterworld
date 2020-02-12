@@ -29,11 +29,11 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit} className="form">
           <input
             type="text"
-            placeholder="Enter keywords to search for the charity"
+            placeholder="Enter keywords to search for the charities"
             onChange={this.handleChange}
           />
           <button className="button" onClick={this.handleSubmit}>
-            Search
+            SEARCH
           </button>
         </form>
       </div>

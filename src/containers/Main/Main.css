@@ -31,12 +31,12 @@
 }
 
 .Main a {
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
   color: black;
 }
 
 .Main a:hover,
 .Main a:active {
-  color: gray;
+  color: darkgray;
 }

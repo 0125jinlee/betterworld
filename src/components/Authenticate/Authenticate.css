@@ -1,0 +1,11 @@
+.Authenticate {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Authenticate input {
+  margin-bottom: 15px;
+}

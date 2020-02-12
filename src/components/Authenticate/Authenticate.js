@@ -5,11 +5,11 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../UI/Spinner/Spinner";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
-import classes from "./Auth.css";
+import classes from "./Authenticate.css";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../shared/utility";
 
-const Auth = props => {
+const Authenticate = props => {
   const [authForm, setAuthForm] = useState({
     email: {
       elementType: "input",
@@ -70,7 +70,8 @@ const Auth = props => {
     props.onAuth(authForm.email.value, authForm.password.value, isSignup);
   };
 
-  const switchAuthModeHandler = () => {
+  const switchAuthModeHandler = event => {
+    event.preventDefault();
     setIsSignup(!isSignup);
   };
 
@@ -102,7 +103,7 @@ const Auth = props => {
   let errorMessage = null;
 
   if (props.error) {
-    errorMessage = <p>{props.error.message}</p>;
+    errorMessage = <h2>{props.error.message}</h2>;
   }
 
   let authRedirect = null;
@@ -111,16 +112,16 @@ const Auth = props => {
   }
 
   return (
-    <div className={classes.Auth}>
+    <div className={classes.Authenticate} onSubmit={submitHandler}>
       {authRedirect}
       {errorMessage}
-      <form onSubmit={submitHandler}>
+      <form>
         {form}
         <Button btnType="Success">SUBMIT</Button>
+        <Button clicked={switchAuthModeHandler} btnType="Danger">
+          SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
+        </Button>
       </form>
-      <Button clicked={switchAuthModeHandler} btnType="Danger">
-        SWITCH TO {isSignup ? "SIGNIN" : "SIGNUP"}
-      </Button>
     </div>
   );
 };
@@ -143,4 +144,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);

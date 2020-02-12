@@ -3,7 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import Search from "../../components/Search/Search";
 import Posts from "../../components/Posts/Posts";
-import Auth from "../../components/Auth/Auth";
+import Authenticate from "../../components/Authenticate/Authenticate";
 import "./Main.css";
 
 const main = props => {
@@ -19,7 +19,7 @@ const main = props => {
               <Link to="/auth">Login</Link>
             </li>
             <li>
-              <Link to="/dona">Your Influence</Link>
+              <Link to="/dona">Your Influences</Link>
             </li>
           </ul>
         </nav>
@@ -40,7 +40,7 @@ const main = props => {
         exact
         render={() => (
           <section className="Authenticate">
-            <Auth />
+            <Authenticate />
           </section>
         )}
       />
