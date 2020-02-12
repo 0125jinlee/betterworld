@@ -16,10 +16,10 @@ const main = props => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/auth">Authenticate</Link>
+              <Link to="/auth">Login</Link>
             </li>
             <li>
-              <Link to="/dona">Donations</Link>
+              <Link to="/dona">Your Influence</Link>
             </li>
           </ul>
         </nav>

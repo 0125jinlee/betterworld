@@ -29,7 +29,10 @@ const authFail = (state, action) => {
   });
 };
 
-const authLogout = (state, action) => {
+export const authLogout = (state, action) => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("expirationDate");
+  localStorage.removeItem("userId");
   return updateObject(state, { token: null, userId: null });
 };
 

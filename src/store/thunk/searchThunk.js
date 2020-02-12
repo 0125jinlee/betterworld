@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import * as searchActions from "./actions/searchActions";
+import * as searchActions from "../actions/searchActions";
 
 const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
 const baseUrl =

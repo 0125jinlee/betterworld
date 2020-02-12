@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { apiCallThunk } from "../../store/thunk";
+import { apiCallThunk } from "../../store/thunk/searchThunk";
 
 import "./Search.css";
 
