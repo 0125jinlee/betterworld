@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import * as authReducers from "../../../store/reducers/authReducers";
+import * as authActions from "../../../store/actions/authActions";
 
 const Logout = props => {
   const { onLogout } = props;
@@ -16,7 +16,7 @@ const Logout = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogout: () => dispatch(authReducers.authLogout())
+    onLogout: () => dispatch(authActions.logout())
   };
 };
 

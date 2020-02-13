@@ -1,4 +1,4 @@
 export { fetchingData, receivedData, receivedError } from "./searchActions";
-export { setAuthRedirectPath } from "./authActions";
+export { setAuthRedirectPath, logout } from "./authActions";
 export { authLogout } from "../reducers/authReducers";
-export { auth, authCheckState } from "../thunk/authThunk";
+export { auth, authCheckState, checkAuthTimeout } from "../thunk/authThunk";

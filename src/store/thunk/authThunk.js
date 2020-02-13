@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import * as authActions from "../actions/authActions";
-import * as authReducers from "../reducers/authReducers";
 
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
 
@@ -45,11 +44,11 @@ export const authCheckState = () => {
   return dispatch => {
     const token = localStorage.getItem("token");
     if (!token) {
-      dispatch(authReducers.authLogout());
+      dispatch(authActions.logout());
     } else {
       const expirationDate = new Date(localStorage.getItem("expirationDate"));
       if (expirationDate <= new Date()) {
-        dispatch(authReducers.authLogout());
+        dispatch(authActions.logout());
       } else {
         const userId = localStorage.getItem("userId");
         dispatch(authActions.authSuccess(token, userId));
@@ -66,7 +65,7 @@ export const authCheckState = () => {
 export const checkAuthTimeout = expirationTime => {
   return dispatch => {
     setTimeout(() => {
-      dispatch(authReducers.authLogout());
+      dispatch(authActions.logout());
     }, expirationTime * 1000);
   };
 };
