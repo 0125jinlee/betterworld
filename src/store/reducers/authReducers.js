@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObject } from "../../shared/utility";
+import { updateObject } from "../../utils/utility";
 
 const initialState = {
   token: null,
@@ -30,6 +30,9 @@ const authFail = (state, action) => {
 };
 
 export const authLogout = (state, action) => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("expirationDate");
+  localStorage.removeItem("userId");
   return updateObject(state, { token: null, userId: null });
 };
 
