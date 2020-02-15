@@ -1,5 +1,7 @@
+import "dotenv/config";
+import express from "express";
+
 var createError = require("http-errors");
-var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -9,7 +11,23 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIRouter = require("./routes/testAPI");
 
-var app = express();
+const app = express();
+
+app.get("/", (req, res) => {
+  return res.send("Received a GET HTTP method");
+});
+app.post("/", (req, res) => {
+  return res.send("Received a POST HTTP method");
+});
+app.put("/", (req, res) => {
+  return res.send("Received a PUT HTTP method");
+});
+app.delete("/", (req, res) => {
+  return res.send("Received a DELETE HTTP method");
+});
+app.listen(process.env.PORT, () =>
+  console.log(`Example app listening on port" + ${process.env.PORT}!`)
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
