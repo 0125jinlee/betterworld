@@ -1,12 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
-import Authenticate from "./containers/Authenticate/Authenticate";
-import Donations from "./containers/Donations/Donations";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import * as actions from "./store/actions/index";
+
+const Donations = React.lazy(() => {
+  return import("./containers/Donations/Donations");
+});
+
+const Authenticate = React.lazy(() => {
+  return import("./containers/Authenticate/Authenticate");
+});
 
 const App = props => {
   const { onTryAutoSignup } = props;
@@ -17,8 +24,8 @@ const App = props => {
 
   let routes = (
     <Switch>
+      <Route path="/auth" render={props => <Authenticate {...props} />} />
       <Route path="/" exact component={Main} />
-      <Route path="/auth" exact component={Authenticate} />
       <Redirect to="/" />
     </Switch>
   );
@@ -26,15 +33,22 @@ const App = props => {
   if (props.isAuthenticated) {
     routes = (
       <Switch>
-        <Route path="/" exact component={Main} />
+        <Route path="/donations" render={props => <Donations {...props} />} />
         <Route path="/logout" component={Logout} />
-        <Route path="/donations" exact component={Donations} />
+        <Route path="/auth" render={props => <Authenticate {...props} />} />
+        <Route path="/" exact component={Main} />
         <Redirect to="/" />
       </Switch>
     );
   }
 
-  return <div className="App">{routes}</div>;
+  return (
+    <div className="App">
+      <Layout>
+        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+      </Layout>
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
