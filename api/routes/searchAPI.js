@@ -8,7 +8,9 @@ const baseUrl =
   API_KEY +
   "&searchTerm=";
 
-router.get("/", function(searchTerm, res) {
+router.get("/", function(req, res) {
+  console.log(searchTerm);
+  console.log(req);
   axios
     .get(baseUrl + searchTerm.replace(" ", "%20"))
     .then((response, error) => {
