@@ -2,24 +2,25 @@ const axios = require("axios");
 const express = require("express");
 const router = express.Router();
 
-const API_KEY = process.env.REACT_APP_CHARITY_API_KEY;
 const baseUrl =
-  "https://cors-anywhere.herokuapp.com/http://data.orghunter.com/v1/charitysearch?user_key=" +
-  API_KEY +
-  "&searchTerm=";
+  "http://data.orghunter.com/v1/charitysearch?user_key=72bfc58bcc06ccc2eda85645e1ae0823&searchTerm=red";
 
 router.get("/", function(req, res) {
+  let searchTerm = req.searchTerm;
   console.log(searchTerm);
-  console.log(req);
   axios
-    .get(baseUrl + searchTerm.replace(" ", "%20"))
-    .then((response, error) => {
-      if (!error && response.status === 200) {
-        res.send(response.data);
+    .get(baseUrl)
+    .then(response => {
+      if (
+        response.status === 200 &&
+        (!response || !response.data || !response.data.data)
+      ) {
+        alert("Something went wrong with an API call!");
       } else {
-        res.send(error);
+        res.send(response.data.data);
       }
-    });
+    })
+    .catch(error => res.send(error));
 });
 
 module.exports = router;
