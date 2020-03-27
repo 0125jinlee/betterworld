@@ -1,37 +1,45 @@
-.Main {
-  display: inline-block;
-  flex-flow: row wrap;
-  justify-content: center;
-  width: 80%;
-  margin: auto;
+.Logo {
+  position: absolute;
+  width: 1440px;
+  height: 411px;
+  left: -6px;
+  top: 0px;
+}
+
+.Top {
+  /* Rectangle 3 */
+  position: absolute;
+  width: 1440px;
+  height: 410.02px;
+  left: -6px;
+  top: 0px;
+
+  /* grays/gray0 */
+  background: #000000;
+  opacity: 0.8;
+}
+
+.TitleBox {
+  position: absolute;
+  width: 147px;
+  height: 31px;
+  left: 90px;
+  top: 32px;
 }
 
 .Title {
-  font-size: 3.5rem;
-  margin-top: 1rem;
-  text-shadow: 2.5px 2.5px gray;
-}
+  /* Better World */
+  position: absolute;
+  width: 147px;
+  height: 31px;
+  left: 90px;
+  top: 32px;
 
-.Main ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  text-align: center;
-}
+  font-family: Suez One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
 
-.Main li {
-  display: inline-block;
-  margin: 20px;
-}
-
-.Main a {
-  font-size: 25px;
-  text-decoration: none;
-  color: black;
-}
-
-.Main a:hover,
-.Main a:active {
-  color: darkgray;
+  color: #ffffff;
 }

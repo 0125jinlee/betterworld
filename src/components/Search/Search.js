@@ -26,6 +26,7 @@ class Search extends Component {
   render() {
     return (
       <div className="container">
+        <h1 className="searchTitle">Show and support what you love</h1>
         <form onSubmit={this.handleSubmit} className="form">
           <input
             type="text"

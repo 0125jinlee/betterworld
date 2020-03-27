@@ -1,26 +1,28 @@
 .container {
-  max-width: 960px;
-  margin: 0 auto;
+  position: absolute;
+  width: 829px;
+  height: 123px;
+  left: 299px;
+  top: 172px;
 }
 
-.form {
-  display: inline;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: auto;
-  margin: auto;
-}
+.searchTitle {
+  /* Show and support what you love */
+  position: absolute;
+  width: 583px;
+  height: 56px;
+  left: 299px;
+  top: 172px;
 
-input {
-  border: 1.2px solid #141414;
-  background: #fff;
-  width: 70%;
-  font-size: 1.2rem;
-  padding: 15px;
-  outline: none;
-  border-radius: 25px;
-  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 56px;
+  /* identical to box height, or 156% */
+
+  /* /Neutral/White */
+  color: #ffffff;
 }
 
 ::placeholder {
@@ -29,21 +31,18 @@ input {
 }
 
 button {
-  background: #fff;
-  display: inline;
-  border: 1.2px solid #141414;
-  padding: 15px 25px;
-  border-radius: 25px;
-  text-align: center;
-  margin-left: 10px;
-  font-size: 1.2rem;
-  transition: all 0.2s ease-in-out;
-  outline: none;
+  position: absolute;
+  width: 123px;
+  height: 40px;
+  left: 1005px;
+  top: 255px;
+
+  background: #3d7bf7;
 }
 
 button:hover {
-  background: #141414;
-  color: #fff;
+  background: #ffffff;
+  color: #3d7bf7;
 }
 
 .error {
