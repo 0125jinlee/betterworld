@@ -1,5 +1,4 @@
 .container {
-  position: absolute;
   width: 829px;
   height: 123px;
   left: 299px;
@@ -8,7 +7,6 @@
 
 .searchTitle {
   /* Show and support what you love */
-  position: absolute;
   width: 583px;
   height: 56px;
   left: 299px;
@@ -31,7 +29,6 @@
 }
 
 button {
-  position: absolute;
   width: 123px;
   height: 40px;
   left: 1005px;

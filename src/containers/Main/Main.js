@@ -9,15 +9,11 @@ import "./Main.css";
 const main = () => {
   return (
     <div className="Main">
-      <div className="Logo">
-        <img src={Logo} alt="Logo" />
-      </div>
-      <div className="TitleBox">
-        <h1 className="Title">BETTER WORLD</h1>
-      </div>
+      <img className="Banner" src={Banner} alt="Banner" />
+      <img className="Logo" src={Logo} alt="Logo" />
+      <h1 className="Title">BETTER WORLD</h1>
       <div className="Top">
         <Search />
-        <img src={Banner} alt="Banner" />
       </div>
       <div className="Bottom">
         <Posts />
