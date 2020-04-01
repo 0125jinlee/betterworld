@@ -1,2 +1,36 @@
-.Navigation {
+.Login {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  width: 8%;
+  height: 5%;
+  background: #1d499c;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.Home {
+  position: absolute;
+  right: 10.5%;
+  top: 3%;
+  width: 8%;
+  height: 5%;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.Login p {
+  align-content: center;
 }
