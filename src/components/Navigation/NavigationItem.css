@@ -1,4 +1,8 @@
 .NavigationItem a {
   text-decoration: none;
   color: white;
+  letter-spacing: 0.15px;
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 12px;
 }

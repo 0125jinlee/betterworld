@@ -7,9 +7,9 @@ import "./Main.css";
 const main = () => {
   return (
     <div className="Main">
-      <div className="Title">
+      <div className="Logo">
         <img src="/Logo.png" alt="Logo" />
-        BETTER WORLD
+        <h1>Better World</h1>
       </div>
       <div className="Top">
         <Search />

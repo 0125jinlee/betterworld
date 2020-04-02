@@ -30,7 +30,7 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit} className="form">
           <input
             type="text"
-            placeholder="Enter keywords to search for the charities"
+            placeholder="What do you want to support today?"
             onChange={this.handleChange}
           />
           <button className="button" onClick={this.handleSubmit}>

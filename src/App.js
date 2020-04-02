@@ -6,6 +6,7 @@ import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import * as actions from "./store/actions/index";
+import "./App.css";
 
 const Donations = React.lazy(() => {
   return import("./containers/Donations/Donations");

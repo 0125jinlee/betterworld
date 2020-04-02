@@ -1,49 +1,48 @@
 .container {
-  width: 829px;
-  height: 123px;
-  left: 299px;
-  top: 172px;
+  width: 850px;
+  height: 150px;
+  text-align: center;
 }
 
 .searchTitle {
-  /* Show and support what you love */
-  width: 583px;
-  height: 56px;
-  left: 299px;
-  top: 172px;
-
+  width: 600px;
+  height: 60px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 56px;
-  /* identical to box height, or 156% */
-
-  /* /Neutral/White */
   color: #ffffff;
 }
 
+/* .form {
+  width: 620px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 2px;
+} */
+
+input {
+  width: 500px;
+  height: 40px;
+  border-color: none;
+}
+
 ::placeholder {
-  font-size: 1.3rem;
-  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 button {
-  width: 123px;
-  height: 40px;
-  left: 1005px;
-  top: 255px;
-
+  width: 120px;
+  height: 45px;
   background: #3d7bf7;
+  color: #ffffff;
 }
 
 button:hover {
   background: #ffffff;
   color: #3d7bf7;
-}
-
-.error {
-  color: #ff5a5f;
-  text-align: center;
-  font-size: 2rem;
 }
