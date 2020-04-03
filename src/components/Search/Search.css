@@ -1,26 +1,19 @@
 .container {
-  width: 850px;
-  height: 150px;
+  width: 80%;
+  height: 40%;
   text-align: center;
 }
 
 .searchTitle {
-  width: 600px;
-  height: 60px;
-  font-family: Roboto;
+  width: 100%;
+  height: 30%;
+  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 56px;
   color: #ffffff;
 }
-
-/* .form {
-  width: 620px;
-  height: 40px;
-  background: #ffffff;
-  border-radius: 2px;
-} */
 
 input {
   width: 500px;

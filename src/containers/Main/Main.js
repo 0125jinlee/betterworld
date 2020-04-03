@@ -6,15 +6,19 @@ import "./Main.css";
 
 const main = () => {
   return (
-    <div className="Main">
+    <div>
       <div className="Logo">
-        <img src="/Logo.png" alt="Logo" />
-        <h1>Better World</h1>
+        <a aria-current="page" class="active" href="/">
+          <img src="/Logo.png" alt="Logo" />
+        </a>
+        <a aria-current="page" class="active" href="/">
+          <h1>Better World</h1>
+        </a>
       </div>
-      <div className="Top">
+      <div className="Search">
         <Search />
       </div>
-      <div className="Bottom">
+      <div className="Posts">
         <Posts />
       </div>
     </div>

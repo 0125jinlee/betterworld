@@ -1,7 +1,6 @@
-.Content {
-  margin-top: 72px;
-}
-
-.NavigationBar {
-  text-align: center;
+.Navigation {
+  display: flex;
+  width: 200px;
+  height: 100%;
+  margin: 40px;
 }

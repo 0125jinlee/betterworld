@@ -2,16 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Aux from "../Aux/Aux";
-import classes from "./Layout.css";
 import Navigation from "../../components/Navigation/Navigation";
+import "./Layout.css";
 
 const layout = props => {
   return (
     <Aux>
-      <nav className={classes.NavigationBar}>
+      <nav className="Navigation">
         <Navigation isAuthenticated={props.isAuthenticated} />
       </nav>
-      <main className={classes.Content}>{props.children}</main>
+      <main className="Content">{props.children}</main>
     </Aux>
   );
 };
