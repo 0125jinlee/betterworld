@@ -1,9 +1,3 @@
-.container {
-  width: 80%;
-  height: 40%;
-  text-align: center;
-}
-
 .searchTitle {
   width: 100%;
   height: 30%;
@@ -13,29 +7,51 @@
   font-size: 36px;
   line-height: 56px;
   color: #ffffff;
+  padding-left: 0px;
 }
 
-input {
-  width: 500px;
-  height: 40px;
-  border-color: none;
+.form input {
+  min-width: 200px;
+  width: 60%;
+  height: 42px;
+  padding: 0px;
+  padding-left: 10px;
 }
 
-::placeholder {
-  font-family: Roboto;
+.form input::placeholder {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
 }
 
-button {
+.form button {
   width: 120px;
-  height: 45px;
+  height: 46px;
+  border: 0px;
   background: #3d7bf7;
   color: #ffffff;
 }
 
-button:hover {
+.form button:hover {
   background: #ffffff;
   color: #3d7bf7;
+}
+
+@media (max-width: 375px) {
+  .searchTitle {
+    text-align: center;
+  }
+
+  .form input::placeholder {
+    font-size: 12px;
+  }
+
+  .form button {
+    width: 100px;
+  }
+
+  .form {
+    text-align: center;
+  }
 }

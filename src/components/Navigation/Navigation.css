@@ -1,6 +1,7 @@
 .Login {
   width: 100px;
   height: 40px;
+  border: 1px solid #1d499c;
   background: #1d499c;
   border-radius: 2px;
   font-family: "Roboto", sans-serif;
@@ -8,6 +9,7 @@
   letter-spacing: 0.15px;
   align-items: center;
   justify-content: center;
+  margin-left: 15px;
 }
 
 .Login:hover {
@@ -30,4 +32,15 @@
 
 .Home:hover {
   background: none;
+}
+
+@media (max-width: 375px) {
+  .Login {
+    width: 80px;
+    margin-left: 5px;
+  }
+
+  .Home {
+    width: 80px;
+  }
 }

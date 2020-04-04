@@ -1,6 +1,11 @@
 .Navigation {
-  display: flex;
-  width: 200px;
-  height: 100%;
-  margin: 40px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+@media (max-width: 375px) {
+  .Navigation {
+    right: 15px;
+  }
 }

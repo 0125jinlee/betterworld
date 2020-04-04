@@ -2,4 +2,5 @@
   background-image: url("/Banner.png");
   background-size: cover;
   display: flex;
+  flex-direction: column;
 }

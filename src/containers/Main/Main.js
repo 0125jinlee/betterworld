@@ -6,7 +6,7 @@ import "./Main.css";
 
 const main = () => {
   return (
-    <div>
+    <div className="Main">
       <div className="Logo">
         <a aria-current="page" class="active" href="/">
           <img src="/Logo.png" alt="Logo" />
