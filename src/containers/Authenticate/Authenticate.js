@@ -5,9 +5,9 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import classes from "./Authenticate.css";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../utils/utility";
+import "./Authenticate.css";
 
 const Authenticate = props => {
   const [authForm, setAuthForm] = useState({
@@ -112,16 +112,30 @@ const Authenticate = props => {
   }
 
   return (
-    <div className={classes.Authenticate} onSubmit={submitHandler}>
-      {authRedirect}
-      {errorMessage}
-      <form>
-        {form}
-        <Button btnType="Success">SUBMIT</Button>
-        <Button clicked={switchAuthModeHandler} btnType="Danger">
-          SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
-        </Button>
-      </form>
+    <div className="Authenticate">
+      <div className="Logo">
+        <a aria-current="page" class="active" href="/">
+          <img src="/Logo.png" alt="Logo" />
+        </a>
+        <a aria-current="page" class="active" href="/">
+          <h1>Better World</h1>
+        </a>
+      </div>
+      <div className="AuthBox" onSubmit={submitHandler}>
+        {authRedirect}
+        {errorMessage}
+        <form className="form">
+          <div className="Input">{form}</div>
+          <div className="Submit">
+            <Button btnType="Success">SUBMIT</Button>
+          </div>
+          <div className="Sign">
+            <Button clicked={switchAuthModeHandler} btnType="Danger">
+              SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

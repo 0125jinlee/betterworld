@@ -1,6 +1,15 @@
-.App {
+.MainNav {
   background-image: url("/Banner.png");
   background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+}
+
+.Posts {
+  display: flex;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
 }

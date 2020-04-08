@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Logout from "./containers/Authenticate/Logout/Logout";
+import Posts from "./components/Posts/Posts";
 import * as actions from "./store/actions/index";
 import "./App.css";
 
@@ -45,8 +46,13 @@ const App = props => {
 
   return (
     <div className="App">
-      <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
-      <Layout></Layout>
+      <div className="MainNav">
+        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+        <Layout></Layout>
+      </div>
+      <div className="Posts">
+        <Posts />
+      </div>
     </div>
   );
 };

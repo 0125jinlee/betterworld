@@ -31,15 +31,15 @@
   margin: 0px;
 }
 
-@media (max-width: 375px) {
-  .Logo h1 {
-    display: none;
-  }
-}
-
 .Search {
   display: flex;
   min-height: 400px;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 375px) {
+  .Logo h1 {
+    display: none;
+  }
 }
