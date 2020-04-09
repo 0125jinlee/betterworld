@@ -9,10 +9,11 @@
   -webkit-animation: load7 1.8s infinite ease-in-out;
   animation: load7 1.8s infinite ease-in-out;
 }
+
 .loader {
   color: #ffffff;
-  font-size: 10px;
-  margin: 50px auto;
+  font-size: 7px;
+  margin: 60px auto;
   position: relative;
   text-indent: -9999em;
   -webkit-transform: translateZ(0);
@@ -21,20 +22,24 @@
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
+
 .loader:before,
 .loader:after {
   content: "";
   position: absolute;
   top: 0;
 }
+
 .loader:before {
-  left: -3em;
+  left: -2em;
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
+
 .loader:after {
-  left: 3em;
+  left: 2em;
 }
+
 @-webkit-keyframes load7 {
   0%,
   80%,
@@ -45,6 +50,7 @@
     box-shadow: 0 2.5em 0 0;
   }
 }
+
 @keyframes load7 {
   0%,
   80%,

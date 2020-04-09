@@ -12,10 +12,14 @@
 
 .searchForm input {
   min-width: 200px;
-  width: 74%;
-  height: 42px;
+  width: 70%;
+  height: 46px;
   padding: 0px;
   padding-left: 10px;
+  font-family: "Roboto";
+  font-size: 13px;
+  letter-spacing: 1px;
+  border: none;
 }
 
 .searchForm input::placeholder {
@@ -45,6 +49,8 @@
 
   .searchForm input {
     width: 60%;
+    font-size: 12px;
+    letter-spacing: 0.5px;
   }
 
   .searchForm input::placeholder {

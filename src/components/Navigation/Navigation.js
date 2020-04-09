@@ -6,16 +6,17 @@ import NavigationItem from "./NavigationItem";
 const navigation = props => (
   <div className="Bar">
     <button className="Home">
-      <NavigationItem link="/" exact>
-        <p>HOME</p>
-      </NavigationItem>
-    </button>
-    <button className="Login">
-      {props.isAuthenticated ? (
+      {!props.isAuthenticated ? (
+        <NavigationItem link="/" exact>
+          <p>HOME</p>
+        </NavigationItem>
+      ) : (
         <NavigationItem link="/donations">
           <p>YOUR IMPACTS</p>
         </NavigationItem>
-      ) : null}
+      )}
+    </button>
+    <button className="Login">
       {!props.isAuthenticated ? (
         <NavigationItem link="/auth">
           <p>LOG IN</p>

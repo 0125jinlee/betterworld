@@ -3,5 +3,11 @@
   color: white;
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  font-size: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 375px) {
+  .NavigationItem p {
+    margin: 0px;
+  }
 }
