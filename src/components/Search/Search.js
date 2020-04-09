@@ -27,7 +27,7 @@ class Search extends Component {
     return (
       <div className="container">
         <h1 className="searchTitle">Show and support what you love</h1>
-        <form onSubmit={this.handleSubmit} className="form">
+        <form onSubmit={this.handleSubmit} className="searchForm">
           <input
             type="text"
             placeholder="What do you want to support today?"

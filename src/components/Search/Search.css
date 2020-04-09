@@ -10,22 +10,22 @@
   padding-left: 0px;
 }
 
-.form input {
+.searchForm input {
   min-width: 200px;
-  width: 60%;
+  width: 74%;
   height: 42px;
   padding: 0px;
   padding-left: 10px;
 }
 
-.form input::placeholder {
+.searchForm input::placeholder {
   font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
 }
 
-.form button {
+.searchForm button {
   width: 120px;
   height: 46px;
   border: 0px;
@@ -33,7 +33,7 @@
   color: #ffffff;
 }
 
-.form button:hover {
+.searchForm button:hover {
   background: #ffffff;
   color: #3d7bf7;
 }
@@ -43,15 +43,19 @@
     text-align: center;
   }
 
-  .form input::placeholder {
+  .searchForm input {
+    width: 60%;
+  }
+
+  .searchForm input::placeholder {
     font-size: 12px;
   }
 
-  .form button {
+  .searchForm button {
     width: 100px;
   }
 
-  .form {
+  .searchForm {
     text-align: center;
   }
 }

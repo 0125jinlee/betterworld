@@ -112,7 +112,7 @@ const Authenticate = props => {
   }
 
   return (
-    <div className="Authenticate">
+    <div className="Auth">
       <div className="Logo">
         <a aria-current="page" class="active" href="/">
           <img src="/Logo.png" alt="Logo" />
@@ -122,17 +122,18 @@ const Authenticate = props => {
         </a>
       </div>
       <div className="AuthBox" onSubmit={submitHandler}>
-        {authRedirect}
-        {errorMessage}
-        <form className="form">
+        <h1>{isSignup ? "Sign Up" : "Sign In"}</h1>
+        <form className="authForm">
+          {authRedirect}
+          {errorMessage}
           <div className="Input">{form}</div>
-          <div className="Submit">
-            <Button btnType="Success">SUBMIT</Button>
-          </div>
           <div className="Sign">
             <Button clicked={switchAuthModeHandler} btnType="Danger">
               SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
             </Button>
+          </div>
+          <div className="Submit">
+            <Button btnType="Success">SUBMIT</Button>
           </div>
         </form>
       </div>
