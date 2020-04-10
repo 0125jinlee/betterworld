@@ -1,0 +1,49 @@
+.Donations {
+  display: flex;
+  flex-direction: column;
+}
+
+.Logo {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  margin-left: 25px;
+  top: 25px;
+}
+
+.Logo a {
+  text-decoration: none;
+}
+
+.Logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.Logo h1 {
+  font-family: "Suez One";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 30px;
+  color: #ffffff;
+  padding-left: 10px;
+  margin: 0px;
+}
+
+.Test {
+  display: flex;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Test h1 {
+  color: white;
+}
+
+@media (max-width: 375px) {
+  .Logo h1 {
+    display: none;
+  }
+}

@@ -1,11 +1,7 @@
 .Post {
-  padding: 5px;
-  text-align: left;
-  border: 1px solid #eee;
+  width: 100%;
+  border: none;
   box-shadow: 0 2px 3px #ccc;
-  margin: 10px;
   box-sizing: border-box;
   cursor: pointer;
-  border-radius: 5px;
-  display: inline-block;
 }

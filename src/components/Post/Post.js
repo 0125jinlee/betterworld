@@ -5,7 +5,7 @@ import "./Post.css";
 const post = props => (
   <article className="Post" onClick={props.clicked}>
     <div>
-      <h2 style={{ textAlign: "center" }}>{props.charityName}</h2>
+      <h1>{props.charityName}</h1>
       <p>
         <b>EIN:</b> {props.ein}
       </p>

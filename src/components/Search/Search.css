@@ -20,6 +20,7 @@
   font-size: 13px;
   letter-spacing: 1px;
   border: none;
+  cursor: pointer;
 }
 
 .searchForm input::placeholder {
@@ -35,6 +36,7 @@
   border: 0px;
   background: #3d7bf7;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .searchForm button:hover {
