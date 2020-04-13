@@ -11,18 +11,24 @@ const posts = props => {
         <Post
           charityName={post.charityName}
           ein={post.ein}
-          website={post.url}
+          orghunterUrl={post.url}
+          website={post.website}
           city={post.city}
           state={post.state}
           zip={post.zipCode}
           category={post.category}
           score={post.score}
+          acceptingDonations={post.acceptingDonations}
+          missionStatement={post.missionStatement}
         />
       );
     });
     return (
-      <div>
-        <section className="Posts">{updatedPosts}</section>
+      <div className="Results">
+        <h2 className="ResultsTopic">
+          SEARCH RESULTS {props.searchResult.recordCount}
+        </h2>
+        <div className="Posts">{updatedPosts}</div>
       </div>
     );
   } else {

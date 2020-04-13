@@ -7,10 +7,10 @@ const main = () => {
   return (
     <div className="Main">
       <div className="Logo">
-        <a aria-current="page" class="active" href="/">
+        <a aria-current="page" className="active" href="/">
           <img src="/Logo.png" alt="Logo" />
         </a>
-        <a aria-current="page" class="active" href="/">
+        <a aria-current="page" className="active" href="/">
           <h1>Better World</h1>
         </a>
       </div>
