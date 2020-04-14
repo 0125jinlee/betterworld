@@ -1,0 +1,222 @@
+.loader,
+.loader:after,
+.loader:before {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s ease-in-out infinite;
+  animation: load7 1.8s ease-in-out infinite;
+}
+.loader {
+  color: #fff;
+  font-size: 7px;
+  margin: 60px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:after,
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -2em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 2em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  to {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  to {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+.Input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.Label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+.InputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+.Invalid {
+  border: 1px solid red;
+  background-color: salmon;
+}
+.Button {
+  border-radius: 2px;
+  cursor: pointer;
+}
+.Button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.Success {
+  color: #5c9210;
+}
+.Danger {
+  color: #944317;
+}
+.Auth {
+  display: flex;
+}
+.Auth,
+.AuthBox {
+  flex-direction: column;
+}
+.Logo {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  margin-left: 25px;
+  top: 25px;
+}
+.Logo a {
+  text-decoration: none;
+}
+.Logo img {
+  width: 40px;
+  height: 40px;
+}
+.Logo h1 {
+  font-family: Suez One;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  color: #fff;
+  padding-left: 10px;
+  margin: 0;
+}
+.AuthBox {
+  display: flex;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.AuthBox h1 {
+  font-style: normal;
+  font-size: 36px;
+  line-height: 20px;
+  color: #fff;
+}
+.AuthBox h1,
+.AuthBox h2 {
+  font-family: Roboto;
+  font-weight: 700;
+}
+.AuthBox h2 {
+  font-style: italic;
+  text-align: center;
+  font-size: 15px;
+  color: #a9a9a9;
+  margin: 0;
+}
+.authForm input {
+  min-width: 250px;
+  width: 96%;
+  height: 45px;
+  margin-bottom: 7px;
+  border-radius: 2px;
+  border: none;
+  font-family: Roboto;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+.Input {
+  padding: 5px 0;
+  font-size: 20px;
+}
+.Input:placeholder-shown {
+  font-size: 20px;
+}
+.authForm input::-webkit-input-placeholder {
+  font-family: Roboto;
+  padding-left: 5px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+.authForm input:-ms-input-placeholder {
+  font-family: Roboto;
+  padding-left: 5px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+.authForm input::-ms-input-placeholder {
+  font-family: Roboto;
+  padding-left: 5px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+.authForm input::placeholder {
+  font-family: Roboto;
+  padding-left: 5px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+.authForm button {
+  width: 130px;
+  height: 50px;
+  border: 0;
+  background: #3d7bf7;
+  color: #fff;
+  font-size: auto;
+  font-weight: 700;
+}
+.authForm button:hover {
+  background: #fff;
+  color: #3d7bf7;
+}
+.Sign {
+  margin-right: 10px;
+}
+.Sign,
+.Submit {
+  display: inline;
+}
+@media (max-width: 375px) {
+  .Logo h1 {
+    display: none;
+  }
+}
+/*# sourceMappingURL=3.2b32ff49.chunk.css.map */

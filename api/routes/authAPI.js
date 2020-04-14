@@ -2,12 +2,11 @@ const axios = require("axios");
 const express = require("express");
 const router = express.Router();
 
-let url =
-  "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
+let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
 
 if (!isSignup) {
   url =
-    "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
+    "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
 }
 
 router.get("/", function(req, res) {
