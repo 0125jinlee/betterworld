@@ -8,6 +8,11 @@ const post = props => {
     donation = false;
   }
 
+  let category = true;
+  if (props.category === "Not Provided") {
+    category = false;
+  }
+
   let missionStatement = true;
   if (!props.missionStatement) {
     missionStatement = false;
@@ -31,7 +36,8 @@ const post = props => {
           <b>EIN</b> {props.ein}
         </ul>
         <ul>
-          <b>Impacts </b> {props.category} Fields.
+          <b>Impacts </b>
+          {category ? props.category + " Fields" : "..."}
         </ul>
         <ul>
           <b>Accepting Donations?</b> {donation ? " Yes" : " No"}

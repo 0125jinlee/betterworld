@@ -13,6 +13,12 @@
   margin-left: 4rem;
 }
 
+@media (max-width: 720px) {
+  .ResultsTopic {
+    margin-left: 2rem;
+  }
+}
+
 @media (max-width: 375px) {
   .ResultsTopic {
     display: none;
