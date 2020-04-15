@@ -36,8 +36,11 @@ const post = props => {
           <b>EIN</b> {props.ein}
         </ul>
         <ul>
-          <b>Impacts </b>
-          {category ? props.category + " Fields" : "..."}
+          {category && (
+            <>
+              <b>Impacts </b> <span>{`${props.category} Fields`}</span>
+            </>
+          )}
         </ul>
         <ul>
           <b>Accepting Donations?</b> {donation ? " Yes" : " No"}
