@@ -2,21 +2,20 @@ import React from "react";
 
 import "./Navigation.css";
 import NavigationItem from "./NavigationItem";
+import Button from "../UI/Button/Button";
 
 const navigation = props => (
   <div className="Bar">
-    <button className="Home">
-      {!props.isAuthenticated ? (
-        <NavigationItem link="/" exact>
-          <p>HOME</p>
-        </NavigationItem>
-      ) : (
-        <NavigationItem link="/donations">
-          <p>YOUR IMPACTS</p>
-        </NavigationItem>
-      )}
-    </button>
-    <button className="Login">
+    {!props.isAuthenticated ? (
+      <NavigationItem link="/" exact>
+        <Button btnType="Home">HOME</Button>
+      </NavigationItem>
+    ) : (
+      <NavigationItem link="/donations">
+        <p>YOUR IMPACTS</p>
+      </NavigationItem>
+    )}
+    <Button btnType="Login">
       {!props.isAuthenticated ? (
         <NavigationItem link="/auth">
           <p>LOG IN</p>
@@ -26,7 +25,7 @@ const navigation = props => (
           <p>LOG OUT</p>
         </NavigationItem>
       )}
-    </button>
+    </Button>
   </div>
 );
 

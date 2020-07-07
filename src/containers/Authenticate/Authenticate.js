@@ -127,13 +127,11 @@ const Authenticate = props => {
           {authRedirect}
           {errorMessage}
           <div className="Input">{form}</div>
-          <div className="Sign">
-            <Button clicked={switchAuthModeHandler} btnType="Danger">
+          <div className="AuthButtons">
+            <Button clicked={switchAuthModeHandler} btnType="Sign">
               SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
             </Button>
-          </div>
-          <div className="Submit">
-            <Button btnType="Success">SUBMIT</Button>
+            <Button btnType="Submit">SUBMIT</Button>
           </div>
         </form>
       </div>

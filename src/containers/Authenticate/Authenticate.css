@@ -61,17 +61,21 @@
   color: darkgray;
   margin: 0px;
 }
+
+.authForm {
+  width: 250px;
+  height: 200px;
+}
+
 .authForm input {
-  min-width: 250px;
-  width: 96%;
+  width: 100%;
   height: 45px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   border-radius: 2px;
   border: none;
   font-family: "Roboto";
   font-size: 15px;
   letter-spacing: 1px;
-  padding-left: 10px;
 }
 
 .Input {
@@ -91,27 +95,17 @@
 }
 
 .authForm button {
-  width: 130px;
-  height: 50px;
+  width: fit-content;
+  height: 55px;
   border: 0px;
   background: #3d7bf7;
   color: #ffffff;
-  font-size: auto;
   font-weight: bold;
 }
 
 .authForm button:hover {
   background: #ffffff;
   color: #3d7bf7;
-}
-
-.Sign {
-  display: inline;
-  margin-right: 10px;
-}
-
-.Submit {
-  display: inline;
 }
 
 @media (max-width: 375px) {

@@ -8,10 +8,53 @@
   cursor: not-allowed;
 }
 
-.Success {
-  color: #5c9210;
+.ButtonSign {
+  min-width: 60%;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 5%;
 }
 
-.Danger {
-  color: #944317;
+.ButtonSubmit {
+  min-width: 35%;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.ButtonHome {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #ffffff;
+  background: none;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ButtonLogin {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #1d499c;
+  background: #1d499c;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.15px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.ButtonLogin:hover {
+  background: #1d499c;
+}
+
+@media (max-width: 375px) {
+  .ButtonLogin {
+    margin-left: 5px;
+  }
 }
