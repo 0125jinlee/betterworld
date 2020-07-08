@@ -8,11 +8,13 @@ const navigation = props => (
   <div className="Bar">
     {!props.isAuthenticated ? (
       <NavigationItem link="/" exact>
-        <Button btnType="Home">HOME</Button>
+        <Button btnType="Home">
+          <p>HOME</p>
+        </Button>
       </NavigationItem>
     ) : (
       <NavigationItem link="/donations">
-        <p>YOUR IMPACTS</p>
+        <Button btnType="Impacts">YOUR IMPACTS</Button>
       </NavigationItem>
     )}
     <Button btnType="Login">

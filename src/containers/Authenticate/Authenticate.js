@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
+import NavigationItem from "../../components/Navigation/NavigationItem";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../utils/utility";
 import "./Authenticate.css";
@@ -114,12 +115,12 @@ const Authenticate = props => {
   return (
     <div className="Auth">
       <div className="Logo">
-        <a aria-current="page" class="active" href="/">
+        <NavigationItem link="/" exact>
           <img src="/Logo.png" alt="Logo" />
-        </a>
-        <a aria-current="page" class="active" href="/">
+        </NavigationItem>
+        <NavigationItem link="/" exact>
           <h1>Better World</h1>
-        </a>
+        </NavigationItem>
       </div>
       <div className="AuthBox" onSubmit={submitHandler}>
         <h1>{isSignup ? "Sign Up" : "Sign In"}</h1>

@@ -1,17 +1,18 @@
 import React from "react";
 
+import NavigationItem from "../../components/Navigation/NavigationItem";
 import "./Donations.css";
 
 const donations = props => {
   return (
     <div className="Donations">
       <div className="Logo">
-        <a aria-current="page" class="active" href="/">
+        <NavigationItem link="/" exact>
           <img src="/Logo.png" alt="Logo" />
-        </a>
-        <a aria-current="page" class="active" href="/">
+        </NavigationItem>
+        <NavigationItem link="/" exact>
           <h1>Better World</h1>
-        </a>
+        </NavigationItem>
       </div>
       <div className="Test">
         <h1>TESTTESTTEST</h1>

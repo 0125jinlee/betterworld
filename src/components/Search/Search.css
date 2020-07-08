@@ -34,14 +34,10 @@
   width: 120px;
   height: 46px;
   border: 0px;
-  background: #3d7bf7;
+  font-weight: bold;
+  background: #1d499c;
   color: #ffffff;
   cursor: pointer;
-}
-
-.searchForm button:hover {
-  background: #ffffff;
-  color: #3d7bf7;
 }
 
 @media (max-width: 375px) {
