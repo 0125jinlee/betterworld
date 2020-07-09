@@ -1,6 +1,6 @@
 .Input {
-  width: 250px;
-  padding: 0px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .Label {

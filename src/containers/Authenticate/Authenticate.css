@@ -68,7 +68,7 @@
 }
 
 .authForm input {
-  width: 246px;
+  width: 100%;
   height: 45px;
   margin-bottom: 10px;
   border-radius: 2px;
@@ -76,6 +76,7 @@
   font-family: "Roboto";
   font-size: 15px;
   letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
 .authForm input::placeholder {

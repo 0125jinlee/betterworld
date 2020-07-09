@@ -1,0 +1,293 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+.Bar {
+  display: flex;
+}
+.NavigationItem a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+@media (max-width: 375px) {
+  .NavigationItem p {
+    margin: 0;
+  }
+}
+.Button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.ButtonSign {
+  min-width: 60%;
+  margin-right: 5%;
+}
+.ButtonSign,
+.ButtonSubmit {
+  border-radius: 2px;
+  cursor: pointer;
+}
+.ButtonSubmit {
+  min-width: 35%;
+}
+.ButtonHome,
+.ButtonImpacts {
+  border: 1px solid #fff;
+  background: none;
+  box-sizing: border-box;
+  border-radius: 2px;
+  color: #fff;
+}
+.ButtonHome,
+.ButtonImpacts,
+.ButtonLogin {
+  width: 100px;
+  height: 40px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ButtonLogin {
+  border: 1px solid #1d499c;
+  background: #1d499c;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+@media (max-width: 375px) {
+  .ButtonLogin {
+    margin-left: 5px;
+  }
+}
+.Navigation {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+@media (max-width: 375px) {
+  .Navigation {
+    right: 15px;
+  }
+}
+.searchTitle {
+  width: 100%;
+  height: 30%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #fff;
+  padding-left: 0;
+}
+.searchForm input {
+  min-width: 200px;
+  width: 70%;
+  height: 46px;
+  padding: 0 0 0 10px;
+  font-family: Roboto;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border: none;
+  cursor: text;
+}
+.searchForm input::-webkit-input-placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.searchForm input:-ms-input-placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.searchForm input::-ms-input-placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.searchForm input::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.searchForm button {
+  width: 120px;
+  height: 46px;
+  border: 0;
+  font-weight: 700;
+  background: #1d499c;
+  color: #fff;
+  cursor: pointer;
+}
+@media (max-width: 375px) {
+  .searchTitle {
+    text-align: center;
+  }
+  .searchForm input {
+    width: 60%;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .searchForm input::-webkit-input-placeholder {
+    font-size: 12px;
+  }
+  .searchForm input:-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .searchForm input::-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .searchForm input::placeholder {
+    font-size: 12px;
+  }
+  .searchForm button {
+    width: 100px;
+  }
+  .searchForm {
+    text-align: center;
+  }
+}
+.Main {
+  flex-direction: column;
+}
+.Logo,
+.Main {
+  display: flex;
+}
+.Logo {
+  position: absolute;
+  align-items: center;
+  margin-left: 25px;
+  top: 25px;
+}
+.Logo a {
+  text-decoration: none;
+}
+.Logo img {
+  width: 40px;
+  height: 40px;
+}
+.Logo h1 {
+  font-family: Suez One;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  color: #fff;
+  padding-left: 10px;
+  margin: 0;
+}
+.Search {
+  display: flex;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 375px) {
+  .Logo h1 {
+    display: none;
+  }
+}
+.Post {
+  background: #fff;
+  width: 300px;
+  height: 250px;
+  overflow: scroll;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Roboto;
+  letter-spacing: 1.5px;
+  display: inline-block;
+}
+.Post,
+.Post h1 {
+  text-align: center;
+}
+.Post h1 {
+  font-size: 2rem;
+  margin: 10px auto 5px;
+  text-shadow: 2px 2px 5px #789;
+}
+.Post a {
+  text-decoration: none;
+  color: inherit;
+}
+.Post a:hover {
+  color: grey;
+}
+.Post small {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.Post ul {
+  text-align: left;
+  font-style: normal;
+  margin: 15px auto;
+}
+@media (max-width: 375px) {
+  .Post {
+    background: #fff;
+    width: 300px;
+    height: 205px;
+  }
+  .Post h1 {
+    font-size: 1.5rem;
+  }
+  .Post small {
+    font-size: 0.7rem;
+  }
+  .Post ul {
+    font-size: 0.8rem;
+  }
+}
+.Results {
+  margin-top: 15px;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.ResultsTopic {
+  text-align: left;
+  font-size: 2rem;
+  letter-spacing: 2.5px;
+  font-family: Roboto;
+  margin-left: 4rem;
+}
+@media (max-width: 720px) {
+  .ResultsTopic {
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 375px) {
+  .ResultsTopic {
+    display: none;
+  }
+}
+.MainNav {
+  background-image: url(/Banner.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+/*# sourceMappingURL=main.38af2285.chunk.css.map */

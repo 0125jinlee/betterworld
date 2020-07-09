@@ -1,24 +1,18 @@
 .Post {
   background: #fff;
-  width: 300px;
-  height: 250px;
+  width: 330px;
+  height: 330px;
   overflow: scroll;
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  margin: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+  margin: 10px 5px;
   font-family: "Roboto";
   letter-spacing: 1.5px;
   display: inline-block;
 }
 
 .Post h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 10px auto 5px auto;
-  text-align: center;
-  text-shadow: 2px 2px 5px lightslategray;
 }
 
 .Post a {
@@ -44,8 +38,8 @@
 @media (max-width: 375px) {
   .Post {
     background: #fff;
-    width: 300px;
-    height: 205px;
+    width: 175px;
+    height: 150px;
   }
 
   .Post h1 {
@@ -58,5 +52,10 @@
 
   .Post ul {
     font-size: 0.8rem;
+  }
+
+  .PostImage {
+    height: 80px;
+    width: 175px;
   }
 }

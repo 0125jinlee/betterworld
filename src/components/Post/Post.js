@@ -23,9 +23,18 @@ const post = props => {
     website = false;
   }
 
+  let image = Math.ceil(Math.random() * (13 - 1)) + 1;
+
   return (
     <article className="Post" onClick={props.clicked}>
       <div>
+        <img
+          className="PostImage"
+          src={`/PostPictures/${image}.jpg`}
+          alt="PostPicture"
+          height="160"
+          width="330"
+        />
         <a href={props.orghunterUrl} target="_blank" rel="noopener noreferrer">
           <h1>{props.charityName}</h1>
         </a>
