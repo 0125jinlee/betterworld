@@ -1,22 +1,22 @@
 !(function(e) {
   function t(t) {
     for (
-      var n, o, i = t[0], c = t[1], l = t[2], s = 0, p = [];
+      var n, o, i = t[0], l = t[1], c = t[2], s = 0, p = [];
       s < i.length;
       s++
     )
       (o = i[s]),
         Object.prototype.hasOwnProperty.call(a, o) && a[o] && p.push(a[o][0]),
         (a[o] = 0);
-    for (n in c) Object.prototype.hasOwnProperty.call(c, n) && (e[n] = c[n]);
+    for (n in l) Object.prototype.hasOwnProperty.call(l, n) && (e[n] = l[n]);
     for (f && f(t); p.length; ) p.shift()();
-    return u.push.apply(u, l || []), r();
+    return u.push.apply(u, c || []), r();
   }
   function r() {
     for (var e, t = 0; t < u.length; t++) {
       for (var r = u[t], n = !0, o = 1; o < r.length; o++) {
-        var c = r[o];
-        0 !== a[c] && (n = !1);
+        var l = r[o];
+        0 !== a[l] && (n = !1);
       }
       n && (u.splice(t--, 1), (e = i((i.s = r[0]))));
     }
@@ -44,22 +44,22 @@
                   "static/css/" +
                   ({}[e] || e) +
                   "." +
-                  { 3: "23fa3cf5", 4: "9828506b" }[e] +
+                  { 3: "42559fa4", 4: "9828506b" }[e] +
                   ".chunk.css",
                 a = i.p + n,
                 u = document.getElementsByTagName("link"),
-                c = 0;
-              c < u.length;
-              c++
+                l = 0;
+              l < u.length;
+              l++
             ) {
-              var l =
-                (f = u[c]).getAttribute("data-href") || f.getAttribute("href");
-              if ("stylesheet" === f.rel && (l === n || l === a)) return t();
+              var c =
+                (f = u[l]).getAttribute("data-href") || f.getAttribute("href");
+              if ("stylesheet" === f.rel && (c === n || c === a)) return t();
             }
             var s = document.getElementsByTagName("style");
-            for (c = 0; c < s.length; c++) {
+            for (l = 0; l < s.length; l++) {
               var f;
-              if ((l = (f = s[c]).getAttribute("data-href")) === n || l === a)
+              if ((c = (f = s[l]).getAttribute("data-href")) === n || c === a)
                 return t();
             }
             var p = document.createElement("link");
@@ -92,11 +92,11 @@
         });
         t.push((r[2] = n));
         var u,
-          c = document.createElement("script");
-        (c.charset = "utf-8"),
-          (c.timeout = 120),
-          i.nc && c.setAttribute("nonce", i.nc),
-          (c.src = (function(e) {
+          l = document.createElement("script");
+        (l.charset = "utf-8"),
+          (l.timeout = 120),
+          i.nc && l.setAttribute("nonce", i.nc),
+          (l.src = (function(e) {
             return (
               i.p +
               "static/js/" +
@@ -106,28 +106,28 @@
               ".chunk.js"
             );
           })(e));
-        var l = new Error();
+        var c = new Error();
         u = function(t) {
-          (c.onerror = c.onload = null), clearTimeout(s);
+          (l.onerror = l.onload = null), clearTimeout(s);
           var r = a[e];
           if (0 !== r) {
             if (r) {
               var n = t && ("load" === t.type ? "missing" : t.type),
                 o = t && t.target && t.target.src;
-              (l.message =
+              (c.message =
                 "Loading chunk " + e + " failed.\n(" + n + ": " + o + ")"),
-                (l.name = "ChunkLoadError"),
-                (l.type = n),
-                (l.request = o),
-                r[1](l);
+                (c.name = "ChunkLoadError"),
+                (c.type = n),
+                (c.request = o),
+                r[1](c);
             }
             a[e] = void 0;
           }
         };
         var s = setTimeout(function() {
-          u({ type: "timeout", target: c });
+          u({ type: "timeout", target: l });
         }, 12e4);
-        (c.onerror = c.onload = u), document.head.appendChild(c);
+        (l.onerror = l.onload = u), document.head.appendChild(l);
       }
     return Promise.all(t);
   }),
@@ -179,11 +179,11 @@
     (i.oe = function(e) {
       throw (console.error(e), e);
     });
-  var c = (this.webpackJsonpbetterworld = this.webpackJsonpbetterworld || []),
-    l = c.push.bind(c);
-  (c.push = t), (c = c.slice());
-  for (var s = 0; s < c.length; s++) t(c[s]);
-  var f = l;
+  var l = (this.webpackJsonpbetterworld = this.webpackJsonpbetterworld || []),
+    c = l.push.bind(l);
+  (l.push = t), (l = l.slice());
+  for (var s = 0; s < l.length; s++) t(l[s]);
+  var f = c;
   r();
 })([]);
-//# sourceMappingURL=runtime-main.a1bcb28b.js.map
+//# sourceMappingURL=runtime-main.6b83fa78.js.map

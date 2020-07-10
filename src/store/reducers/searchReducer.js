@@ -1,5 +1,6 @@
 const initialState = {
-  searchResult: {},
+  searchTerm: "",
+  searchResult: [],
   isFetching: false,
   isError: false
 };
@@ -8,13 +9,14 @@ const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCHING_DATA":
       return {
-        searchResult: {},
+        searchResult: [],
         isFetching: true,
         isError: false
       };
     case "RECEIVED_DATA":
       return {
-        searchResult: action.data,
+        searchTerm: action.data.searchTerm,
+        searchResult: action.data.result,
         isFetching: false,
         isError: false
       };

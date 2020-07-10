@@ -176,22 +176,19 @@
   font-size: 15px;
 }
 .authForm button {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   height: 55px;
   border: 0;
-  background: #3d7bf7;
+  background: #1d499c;
   color: #fff;
   font-weight: 700;
 }
 .authForm button:hover {
   background: #fff;
-  color: #3d7bf7;
+  color: #1d499c;
 }
 @media (max-width: 375px) {
   .Logo h1 {
     display: none;
   }
 }
-/*# sourceMappingURL=3.23fa3cf5.chunk.css.map */
+/*# sourceMappingURL=3.42559fa4.chunk.css.map */

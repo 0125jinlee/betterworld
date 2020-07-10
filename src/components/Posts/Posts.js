@@ -5,7 +5,7 @@ import Post from "../Post/Post";
 import "./Posts.css";
 
 const posts = props => {
-  if (Array.isArray(props.searchResult)) {
+  if (Array.isArray(props.searchResult) && props.searchResult.length !== 0) {
     const updatedPosts = props.searchResult.map(post => {
       return (
         <Post
@@ -25,7 +25,9 @@ const posts = props => {
     });
     return (
       <div className="Results">
-        <div className="ResultsTopic">SEARCH RESULTS FOR ""</div>
+        <div className="ResultsTopic">
+          SEARCH RESULTS FOR "{props.searchTerm}"
+        </div>
         <div className="Posts">{updatedPosts}</div>
       </div>
     );
@@ -36,6 +38,7 @@ const posts = props => {
 
 const mapStateToProps = state => {
   return {
+    searchTerm: state.searchReducer.searchTerm,
     searchResult: state.searchReducer.searchResult
   };
 };

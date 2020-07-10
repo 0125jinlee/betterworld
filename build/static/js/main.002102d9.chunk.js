@@ -81,7 +81,7 @@
         o = function(e, t) {
           return Object(r.b)(e, { error: null, loading: !0 });
         },
-        u = function(e, t) {
+        i = function(e, t) {
           return Object(r.b)(e, {
             token: t.idToken,
             userId: t.userId,
@@ -89,7 +89,7 @@
             loading: !1
           });
         },
-        i = function(e, t) {
+        u = function(e, t) {
           return Object(r.b)(e, { error: t.error, loading: !1 });
         },
         l = function(e, t) {
@@ -111,9 +111,9 @@
           case a.c:
             return o(e);
           case a.d:
-            return u(e, t);
-          case a.a:
             return i(e, t);
+          case a.a:
+            return u(e, t);
           case a.b:
             return l(e);
           case a.h:
@@ -155,10 +155,10 @@
           return o;
         }),
         n.d(t, "d", function() {
-          return u;
+          return i;
         }),
         n.d(t, "a", function() {
-          return i;
+          return u;
         }),
         n.d(t, "b", function() {
           return l;
@@ -170,8 +170,8 @@
         r = "RECEIVED_DATA",
         c = "RECEIVED_ERROR",
         o = "AUTH_START ",
-        u = "AUTH_SUCCESS",
-        i = "AUTH_FAIL",
+        i = "AUTH_SUCCESS",
+        u = "AUTH_FAIL",
         l = "AUTH_LOGOUT",
         s = "SET_AUTH_REDIRECT_PATH";
     },
@@ -185,13 +185,13 @@
           return function(r) {
             r(a.b());
             var o = { email: e, password: t, returnSecureToken: !0 },
-              u =
+              i =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
             n ||
-              (u =
+              (i =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw"),
               c.a
-                .post(u, o)
+                .post(i, o)
                 .then(function(e) {
                   var t = new Date(
                     new Date().getTime() + 1e3 * e.data.expiresIn
@@ -200,14 +200,14 @@
                     localStorage.setItem("expirationDate", t),
                     localStorage.setItem("userId", e.data.localId),
                     r(a.c(e.data.idToken, e.data.localId)),
-                    r(i(e.data.expiresIn));
+                    r(u(e.data.expiresIn));
                 })
                 .catch(function(e) {
                   r(a.a(e.response.data.error));
                 });
           };
         },
-        u = function() {
+        i = function() {
           return function(e) {
             var t = localStorage.getItem("token");
             if (t) {
@@ -215,12 +215,12 @@
               if (n <= new Date()) e(a.d());
               else {
                 var r = localStorage.getItem("userId");
-                e(a.c(t, r)), e(i((n.getTime() - new Date().getTime()) / 1e3));
+                e(a.c(t, r)), e(u((n.getTime() - new Date().getTime()) / 1e3));
               }
             } else e(a.d());
           };
         },
-        i = function(e) {
+        u = function(e) {
           return function(t) {
             setTimeout(function() {
               t(a.d());
@@ -234,7 +234,7 @@
           return o;
         }),
         n.d(t, "b", function() {
-          return u;
+          return i;
         });
     },
     48: function(e, t, n) {
@@ -255,10 +255,10 @@
           return o;
         }),
         n.d(t, "d", function() {
-          return u;
+          return i;
         }),
         n.d(t, "e", function() {
-          return i;
+          return u;
         });
       var a = n(3),
         r = function() {
@@ -270,10 +270,10 @@
         o = function(e) {
           return { type: a.a, error: e };
         },
-        u = function() {
+        i = function() {
           return { type: a.b };
         },
-        i = function(e) {
+        u = function(e) {
           return { type: a.h, path: e };
         };
     },
@@ -291,8 +291,8 @@
         r = n.n(a),
         c = n(19),
         o = n.n(c),
-        u = n(13),
-        i = n(9),
+        i = n(13),
+        u = n(9),
         l = (n(57), n(2)),
         s = function(e) {
           return e.children;
@@ -325,7 +325,7 @@
         },
         f =
           (n(62),
-          Object(i.b)(function(e) {
+          Object(u.b)(function(e) {
             return { isAuthenticated: e.authReducer.token };
           })(function(e) {
             return r.a.createElement(
@@ -340,8 +340,8 @@
             );
           })),
         E = n(41),
-        b = n(42),
-        g = n(47),
+        g = n(42),
+        b = n(47),
         p = n(43),
         v = n(18),
         y = n(46),
@@ -355,7 +355,7 @@
               var e;
               return (
                 Object(E.a)(this, t),
-                ((e = Object(g.a)(
+                ((e = Object(b.a)(
                   this,
                   Object(p.a)(t).call(this)
                 )).handleChange = function(t) {
@@ -392,7 +392,7 @@
             }
             return (
               Object(y.a)(t, e),
-              Object(b.a)(t, [
+              Object(g.a)(t, [
                 {
                   key: "render",
                   value: function() {
@@ -428,10 +428,10 @@
               t
             );
           })(a.Component)),
-        R = Object(i.b)(function(e) {
+        R = Object(u.b)(function(e) {
           return { state: e.searchReducer };
         })(S),
-        N =
+        A =
           (n(81),
           function() {
             return r.a.createElement(
@@ -458,11 +458,11 @@
               )
             );
           }),
-        A = n(6),
-        O = Object(i.b)(null, function(e) {
+        N = n(6),
+        O = Object(u.b)(null, function(e) {
           return {
             onLogout: function() {
-              return e(A.d());
+              return e(N.d());
             }
           };
         })(function(e) {
@@ -491,7 +491,7 @@
             var o = Math.ceil(12 * Math.random()) + 1;
             return r.a.createElement(
               "article",
-              { className: "Post", onClick: e.clicked },
+              { className: "Post", onClick: e.onClick },
               r.a.createElement(
                 "div",
                 null,
@@ -503,29 +503,26 @@
                   width: "330"
                 }),
                 r.a.createElement(
-                  "a",
-                  {
-                    href: e.orghunterUrl,
-                    target: "_blank",
-                    rel: "noopener noreferrer"
-                  },
-                  r.a.createElement("h1", null, e.charityName)
-                ),
-                r.a.createElement(
-                  "small",
-                  null,
-                  e.city,
-                  ", ",
-                  e.state,
-                  ", ",
-                  e.zip
-                ),
-                r.a.createElement(
                   "ul",
                   null,
-                  r.a.createElement("b", null, "EIN"),
-                  " ",
-                  e.ein
+                  r.a.createElement(
+                    "a",
+                    {
+                      href: e.orghunterUrl,
+                      target: "_blank",
+                      rel: "noopener noreferrer"
+                    },
+                    r.a.createElement("h2", null, e.charityName)
+                  ),
+                  r.a.createElement(
+                    "small",
+                    null,
+                    e.city,
+                    ", ",
+                    e.state,
+                    ", ",
+                    e.zip
+                  )
                 ),
                 r.a.createElement(
                   "ul",
@@ -539,7 +536,7 @@
                       r.a.createElement(
                         "span",
                         null,
-                        "".concat(e.category, " Fields")
+                        "".concat(e.category, " fields")
                       )
                     )
                 ),
@@ -553,33 +550,16 @@
                 r.a.createElement(
                   "ul",
                   null,
-                  r.a.createElement("b", null, "Score"),
-                  " ",
-                  e.score,
-                  " / 5"
-                ),
-                r.a.createElement(
-                  "ul",
-                  null,
-                  c
-                    ? r.a.createElement(
-                        "a",
-                        {
-                          href: e.website,
-                          target: "_blank",
-                          rel: "noopener noreferrer"
-                        },
-                        r.a.createElement("b", null, "More Info")
-                      )
-                    : null
-                ),
-                r.a.createElement("ul", null, a ? e.missionStatement : null)
+                  c ? r.a.createElement("b", null, "More Info") : null,
+                  r.a.createElement("br", null),
+                  a ? e.missionStatement : null
+                )
               )
             );
           }),
         w =
           (n(83),
-          Object(i.b)(function(e) {
+          Object(u.b)(function(e) {
             return { searchResult: e.searchReducer.searchResult };
           })(function(e) {
             if (Array.isArray(e.searchResult)) {
@@ -602,10 +582,9 @@
                 "div",
                 { className: "Results" },
                 r.a.createElement(
-                  "h2",
+                  "div",
                   { className: "ResultsTopic" },
-                  "SEARCH RESULTS ",
-                  e.searchResult.recordCount
+                  'SEARCH RESULTS FOR ""'
                 ),
                 r.a.createElement("div", { className: "Posts" }, t)
               );
@@ -618,11 +597,11 @@
           r.a.lazy(function() {
             return n.e(4).then(n.bind(null, 90));
           })),
-        _ = r.a.lazy(function() {
+        x = r.a.lazy(function() {
           return n.e(3).then(n.bind(null, 91));
         }),
-        x = Object(l.g)(
-          Object(i.b)(
+        L = Object(l.g)(
+          Object(u.b)(
             function(e) {
               return { isAuthenticated: null !== e.authReducer.token };
             },
@@ -647,10 +626,10 @@
               r.a.createElement(l.b, {
                 path: "/auth",
                 render: function(e) {
-                  return r.a.createElement(_, e);
+                  return r.a.createElement(x, e);
                 }
               }),
-              r.a.createElement(l.b, { path: "/", exact: !0, component: N }),
+              r.a.createElement(l.b, { path: "/", exact: !0, component: A }),
               r.a.createElement(l.a, { to: "/" })
             );
             return (
@@ -668,13 +647,13 @@
                   r.a.createElement(l.b, {
                     path: "/auth",
                     render: function(e) {
-                      return r.a.createElement(_, e);
+                      return r.a.createElement(x, e);
                     }
                   }),
                   r.a.createElement(l.b, {
                     path: "/",
                     exact: !0,
-                    component: N
+                    component: A
                   }),
                   r.a.createElement(l.a, { to: "/" })
                 )),
@@ -707,7 +686,7 @@
             /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
           )
       );
-      var L = n(15),
+      var _ = n(15),
         z = n(45),
         P = { searchResult: {}, isFetching: !1, isError: !1 },
         H = function() {
@@ -728,13 +707,13 @@
           }
         },
         U = n(21),
-        F = Object(L.c)({ searchReducer: H, authReducer: U.a }),
-        B = Object(L.d)(F, Object(L.a)(z.a));
+        F = Object(_.c)({ searchReducer: H, authReducer: U.a }),
+        B = Object(_.d)(F, Object(_.a)(z.a));
       o.a.render(
         r.a.createElement(
-          i.a,
+          u.a,
           { store: B },
-          r.a.createElement(u.a, null, r.a.createElement(x, null))
+          r.a.createElement(i.a, null, r.a.createElement(L, null))
         ),
         document.getElementById("root")
       ),
@@ -746,4 +725,4 @@
   },
   [[48, 1, 2]]
 ]);
-//# sourceMappingURL=main.768cb9dd.chunk.js.map
+//# sourceMappingURL=main.002102d9.chunk.js.map

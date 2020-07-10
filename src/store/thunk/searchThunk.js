@@ -7,7 +7,16 @@ export const apiCallThunk = searchTerm => {
     return axios
       .get(`http://localhost:9000/searchAPI?searchTerm=${searchTerm}`)
       .then(response => {
-        dispatch(searchActions.receivedData(response.data));
+        try {
+          dispatch(
+            searchActions.receivedData({
+              searchTerm: searchTerm,
+              result: response.data
+            })
+          );
+        } catch (e) {
+          console.log(e);
+        }
       })
       .catch(error => dispatch(searchActions.receivedError()));
   };
