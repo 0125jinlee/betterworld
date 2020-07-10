@@ -26,7 +26,7 @@ const post = props => {
   let image = Math.ceil(Math.random() * (13 - 1)) + 1;
 
   return (
-    <article className="Post" onClick={props.clicked}>
+    <article className="Post" onClick={props.onClick}>
       <div>
         <img
           className="PostImage"
@@ -35,19 +35,22 @@ const post = props => {
           height="160"
           width="330"
         />
-        <a href={props.orghunterUrl} target="_blank" rel="noopener noreferrer">
-          <h1>{props.charityName}</h1>
-        </a>
-        <small>
-          {props.city}, {props.state}, {props.zip}
-        </small>
         <ul>
-          <b>EIN</b> {props.ein}
+          <a
+            href={props.orghunterUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2>{props.charityName}</h2>
+          </a>
+          <small>
+            {props.city}, {props.state}, {props.zip}
+          </small>
         </ul>
         <ul>
           {category && (
             <>
-              <b>Impacts </b> <span>{`${props.category} Fields`}</span>
+              <b>Impacts </b> <span>{`${props.category} fields`}</span>
             </>
           )}
         </ul>
@@ -55,16 +58,10 @@ const post = props => {
           <b>Accepting Donations?</b> {donation ? " Yes" : " No"}
         </ul>
         <ul>
-          <b>Score</b> {props.score} / 5
+          {website ? <b>More Info</b> : null}
+          <br></br>
+          {missionStatement ? props.missionStatement : null}
         </ul>
-        <ul>
-          {website ? (
-            <a href={props.website} target="_blank" rel="noopener noreferrer">
-              <b>More Info</b>
-            </a>
-          ) : null}
-        </ul>
-        <ul>{missionStatement ? props.missionStatement : null}</ul>
       </div>
     </article>
   );

@@ -3,16 +3,22 @@
   width: 330px;
   height: 330px;
   overflow: scroll;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 5px 5px 0px gray;
   margin: 10px 5px;
   font-family: "Roboto";
-  letter-spacing: 1.5px;
   display: inline-block;
 }
 
-.Post h1 {
-  font-size: 1.5rem;
-  margin: 10px auto 5px auto;
+.Post h2 {
+  font-size: 20px;
+  text-align: left;
+  margin: 5px auto 0px 0px;
+}
+
+.Post small {
+  font-size: 12px;
+  font-style: italic;
+  text-align: left;
 }
 
 .Post a {
@@ -24,15 +30,11 @@
   color: gray;
 }
 
-.Post small {
-  font-size: 0.8rem;
-  font-style: italic;
-}
-
 .Post ul {
+  padding-left: 15px;
   text-align: left;
-  font-style: normal;
-  margin: 15px auto;
+  margin: 13px auto;
+  padding-right: 10px;
 }
 
 @media (max-width: 375px) {
@@ -42,20 +44,28 @@
     height: 150px;
   }
 
-  .Post h1 {
-    font-size: 1.5rem;
+  .PostImage {
+    height: 70px;
+    width: 175px;
+  }
+
+  .Post h2 {
+    font-size: 12px;
+    margin: 3px 0px 0px 0px;
   }
 
   .Post small {
-    font-size: 0.7rem;
+    font-size: 6px;
+    font-style: italic;
+    text-align: left;
+    color: black;
   }
 
   .Post ul {
-    font-size: 0.8rem;
-  }
-
-  .PostImage {
-    height: 80px;
-    width: 175px;
+    font-size: 8px;
+    padding-left: 8px;
+    text-align: left;
+    margin: 5px auto;
+    padding-right: 8px;
   }
 }

@@ -25,9 +25,7 @@ const posts = props => {
     });
     return (
       <div className="Results">
-        <h2 className="ResultsTopic">
-          SEARCH RESULTS {props.searchResult.recordCount}
-        </h2>
+        <div className="ResultsTopic">SEARCH RESULTS FOR ""</div>
         <div className="Posts">{updatedPosts}</div>
       </div>
     );

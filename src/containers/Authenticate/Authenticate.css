@@ -87,17 +87,16 @@
 }
 
 .authForm button {
-  width: fit-content;
   height: 55px;
   border: 0px;
-  background: #3d7bf7;
+  background: #1d499c;
   color: #ffffff;
   font-weight: bold;
 }
 
 .authForm button:hover {
   background: #ffffff;
-  color: #3d7bf7;
+  color: #1d499c;
 }
 
 @media (max-width: 375px) {

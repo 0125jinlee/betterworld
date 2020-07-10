@@ -206,26 +206,18 @@ code {
 }
 .Post {
   background: #fff;
-  width: 300px;
-  height: 250px;
+  width: 330px;
+  height: 330px;
   overflow: scroll;
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  margin: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.4);
+  margin: 10px 5px;
   font-family: Roboto;
   letter-spacing: 1.5px;
   display: inline-block;
 }
-.Post,
 .Post h1 {
-  text-align: center;
-}
-.Post h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 10px auto 5px;
-  text-shadow: 2px 2px 5px #789;
 }
 .Post a {
   text-decoration: none;
@@ -246,8 +238,8 @@ code {
 @media (max-width: 375px) {
   .Post {
     background: #fff;
-    width: 300px;
-    height: 205px;
+    width: 175px;
+    height: 150px;
   }
   .Post h1 {
     font-size: 1.5rem;
@@ -257,6 +249,10 @@ code {
   }
   .Post ul {
     font-size: 0.8rem;
+  }
+  .PostImage {
+    height: 80px;
+    width: 175px;
   }
 }
 .Results {
@@ -290,4 +286,4 @@ code {
   display: flex;
   flex-direction: column;
 }
-/*# sourceMappingURL=main.38af2285.chunk.css.map */
+/*# sourceMappingURL=main.7a1f9b6c.chunk.css.map */

@@ -78,10 +78,10 @@
           loading: !1,
           authRedirectPath: "/"
         },
-        u = function(e, t) {
+        o = function(e, t) {
           return Object(r.b)(e, { error: null, loading: !0 });
         },
-        o = function(e, t) {
+        u = function(e, t) {
           return Object(r.b)(e, {
             token: t.idToken,
             userId: t.userId,
@@ -109,9 +109,9 @@
           t = arguments.length > 1 ? arguments[1] : void 0;
         switch (t.type) {
           case a.c:
-            return u(e);
+            return o(e);
           case a.d:
-            return o(e, t);
+            return u(e, t);
           case a.a:
             return i(e, t);
           case a.b:
@@ -152,10 +152,10 @@
           return c;
         }),
         n.d(t, "c", function() {
-          return u;
+          return o;
         }),
         n.d(t, "d", function() {
-          return o;
+          return u;
         }),
         n.d(t, "a", function() {
           return i;
@@ -169,8 +169,8 @@
       var a = "FETCHING_DATA",
         r = "RECEIVED_DATA",
         c = "RECEIVED_ERROR",
-        u = "AUTH_START ",
-        o = "AUTH_SUCCESS",
+        o = "AUTH_START ",
+        u = "AUTH_SUCCESS",
         i = "AUTH_FAIL",
         l = "AUTH_LOGOUT",
         s = "SET_AUTH_REDIRECT_PATH";
@@ -181,17 +181,17 @@
       var a = n(6),
         r = (n(21), n(23)),
         c = n.n(r),
-        u = function(e, t, n) {
+        o = function(e, t, n) {
           return function(r) {
             r(a.b());
-            var u = { email: e, password: t, returnSecureToken: !0 },
-              o =
+            var o = { email: e, password: t, returnSecureToken: !0 },
+              u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
             n ||
-              (o =
+              (u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw"),
               c.a
-                .post(o, u)
+                .post(u, o)
                 .then(function(e) {
                   var t = new Date(
                     new Date().getTime() + 1e3 * e.data.expiresIn
@@ -207,7 +207,7 @@
                 });
           };
         },
-        o = function() {
+        u = function() {
           return function(e) {
             var t = localStorage.getItem("token");
             if (t) {
@@ -231,10 +231,10 @@
         return a.e;
       }),
         n.d(t, "a", function() {
-          return u;
+          return o;
         }),
         n.d(t, "b", function() {
-          return o;
+          return u;
         });
     },
     48: function(e, t, n) {
@@ -252,10 +252,10 @@
           return c;
         }),
         n.d(t, "a", function() {
-          return u;
+          return o;
         }),
         n.d(t, "d", function() {
-          return o;
+          return u;
         }),
         n.d(t, "e", function() {
           return i;
@@ -267,10 +267,10 @@
         c = function(e, t) {
           return { type: a.d, idToken: e, userId: t };
         },
-        u = function(e) {
+        o = function(e) {
           return { type: a.a, error: e };
         },
-        o = function() {
+        u = function() {
           return { type: a.b };
         },
         i = function(e) {
@@ -290,8 +290,8 @@
       var a = n(0),
         r = n.n(a),
         c = n(19),
-        u = n.n(c),
-        o = n(13),
+        o = n.n(c),
+        u = n(13),
         i = n(9),
         l = (n(57), n(2)),
         s = function(e) {
@@ -431,7 +431,7 @@
         R = Object(i.b)(function(e) {
           return { state: e.searchReducer };
         })(S),
-        A =
+        N =
           (n(81),
           function() {
             return r.a.createElement(
@@ -458,11 +458,11 @@
               )
             );
           }),
-        N = n(6),
+        A = n(6),
         O = Object(i.b)(null, function(e) {
           return {
             onLogout: function() {
-              return e(N.d());
+              return e(A.d());
             }
           };
         })(function(e) {
@@ -487,92 +487,93 @@
             var a = !0;
             e.missionStatement || (a = !1);
             var c = !0;
-            return (
-              e.website || (c = !1),
+            e.website || (c = !1);
+            var o = Math.ceil(12 * Math.random()) + 1;
+            return r.a.createElement(
+              "article",
+              { className: "Post", onClick: e.clicked },
               r.a.createElement(
-                "article",
-                { className: "Post", onClick: e.clicked },
+                "div",
+                null,
+                r.a.createElement("img", {
+                  className: "PostImage",
+                  src: "/PostPictures/".concat(o, ".jpg"),
+                  alt: "PostPicture",
+                  height: "160",
+                  width: "330"
+                }),
                 r.a.createElement(
-                  "div",
+                  "a",
+                  {
+                    href: e.orghunterUrl,
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  },
+                  r.a.createElement("h1", null, e.charityName)
+                ),
+                r.a.createElement(
+                  "small",
                   null,
-                  r.a.createElement("img", {
-                    src: "../public/PostPictures/1.jpg",
-                    height: "200",
-                    width: "200"
-                  }),
-                  r.a.createElement(
-                    "a",
-                    {
-                      href: e.orghunterUrl,
-                      target: "_blank",
-                      rel: "noopener noreferrer"
-                    },
-                    r.a.createElement("h1", null, e.charityName)
-                  ),
-                  r.a.createElement(
-                    "small",
-                    null,
-                    e.city,
-                    ", ",
-                    e.state,
-                    ", ",
-                    e.zip
-                  ),
-                  r.a.createElement(
-                    "ul",
-                    null,
-                    r.a.createElement("b", null, "EIN"),
-                    " ",
-                    e.ein
-                  ),
-                  r.a.createElement(
-                    "ul",
-                    null,
-                    n &&
+                  e.city,
+                  ", ",
+                  e.state,
+                  ", ",
+                  e.zip
+                ),
+                r.a.createElement(
+                  "ul",
+                  null,
+                  r.a.createElement("b", null, "EIN"),
+                  " ",
+                  e.ein
+                ),
+                r.a.createElement(
+                  "ul",
+                  null,
+                  n &&
+                    r.a.createElement(
+                      r.a.Fragment,
+                      null,
+                      r.a.createElement("b", null, "Impacts "),
+                      " ",
                       r.a.createElement(
-                        r.a.Fragment,
+                        "span",
                         null,
-                        r.a.createElement("b", null, "Impacts "),
-                        " ",
-                        r.a.createElement(
-                          "span",
-                          null,
-                          "".concat(e.category, " Fields")
-                        )
+                        "".concat(e.category, " Fields")
                       )
-                  ),
-                  r.a.createElement(
-                    "ul",
-                    null,
-                    r.a.createElement("b", null, "Accepting Donations?"),
-                    " ",
-                    t ? " Yes" : " No"
-                  ),
-                  r.a.createElement(
-                    "ul",
-                    null,
-                    r.a.createElement("b", null, "Score"),
-                    " ",
-                    e.score,
-                    " / 5"
-                  ),
-                  r.a.createElement(
-                    "ul",
-                    null,
-                    c
-                      ? r.a.createElement(
-                          "a",
-                          {
-                            href: e.website,
-                            target: "_blank",
-                            rel: "noopener noreferrer"
-                          },
-                          r.a.createElement("b", null, "More Info")
-                        )
-                      : null
-                  ),
-                  r.a.createElement("ul", null, a ? e.missionStatement : null)
-                )
+                    )
+                ),
+                r.a.createElement(
+                  "ul",
+                  null,
+                  r.a.createElement("b", null, "Accepting Donations?"),
+                  " ",
+                  t ? " Yes" : " No"
+                ),
+                r.a.createElement(
+                  "ul",
+                  null,
+                  r.a.createElement("b", null, "Score"),
+                  " ",
+                  e.score,
+                  " / 5"
+                ),
+                r.a.createElement(
+                  "ul",
+                  null,
+                  c
+                    ? r.a.createElement(
+                        "a",
+                        {
+                          href: e.website,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        },
+                        r.a.createElement("b", null, "More Info")
+                      )
+                    : null
+                ),
+                r.a.createElement("ul", null, a ? e.missionStatement : null)
               )
             );
           }),
@@ -649,7 +650,7 @@
                   return r.a.createElement(_, e);
                 }
               }),
-              r.a.createElement(l.b, { path: "/", exact: !0, component: A }),
+              r.a.createElement(l.b, { path: "/", exact: !0, component: N }),
               r.a.createElement(l.a, { to: "/" })
             );
             return (
@@ -673,7 +674,7 @@
                   r.a.createElement(l.b, {
                     path: "/",
                     exact: !0,
-                    component: A
+                    component: N
                   }),
                   r.a.createElement(l.a, { to: "/" })
                 )),
@@ -708,12 +709,12 @@
       );
       var L = n(15),
         z = n(45),
-        H = { searchResult: {}, isFetching: !1, isError: !1 },
-        U = function() {
+        P = { searchResult: {}, isFetching: !1, isError: !1 },
+        H = function() {
           var e =
               arguments.length > 0 && void 0 !== arguments[0]
                 ? arguments[0]
-                : H,
+                : P,
             t = arguments.length > 1 ? arguments[1] : void 0;
           switch (t.type) {
             case "FETCHING_DATA":
@@ -726,14 +727,14 @@
               return e;
           }
         },
-        F = n(21),
-        P = Object(L.c)({ searchReducer: U, authReducer: F.a }),
-        B = Object(L.d)(P, Object(L.a)(z.a));
-      u.a.render(
+        U = n(21),
+        F = Object(L.c)({ searchReducer: H, authReducer: U.a }),
+        B = Object(L.d)(F, Object(L.a)(z.a));
+      o.a.render(
         r.a.createElement(
           i.a,
           { store: B },
-          r.a.createElement(o.a, null, r.a.createElement(x, null))
+          r.a.createElement(u.a, null, r.a.createElement(x, null))
         ),
         document.getElementById("root")
       ),
@@ -745,4 +746,4 @@
   },
   [[48, 1, 2]]
 ]);
-//# sourceMappingURL=main.3bf615ce.chunk.js.map
+//# sourceMappingURL=main.768cb9dd.chunk.js.map

@@ -1,26 +1,23 @@
 .Results {
-  margin-top: 15px;
-  justify-content: center;
-  height: 100%;
   text-align: center;
 }
 
 .ResultsTopic {
   text-align: left;
-  font-size: 2rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4b4b4b;
+  padding: 25px 25px 15px 25px;
   letter-spacing: 2.5px;
-  font-family: "Roboto";
-  margin-left: 4rem;
-}
-
-@media (max-width: 720px) {
-  .ResultsTopic {
-    margin-left: 2rem;
-  }
 }
 
 @media (max-width: 375px) {
   .ResultsTopic {
-    display: none;
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    color: #4b4b4b;
+    padding: 10px 10px 0px 10px;
+    letter-spacing: 1.5px;
   }
 }
