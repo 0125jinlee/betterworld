@@ -1,3 +1,4 @@
+const functions = require("firebase-functions");
 var express = require("express");
 var router = express.Router();
 
@@ -5,5 +6,7 @@ var router = express.Router();
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });
+
+exports.api = functions.https.onRequest(app);
 
 module.exports = router;

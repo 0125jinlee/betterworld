@@ -81,7 +81,7 @@
         o = function(e, t) {
           return Object(r.b)(e, { error: null, loading: !0 });
         },
-        i = function(e, t) {
+        u = function(e, t) {
           return Object(r.b)(e, {
             token: t.idToken,
             userId: t.userId,
@@ -89,7 +89,7 @@
             loading: !1
           });
         },
-        u = function(e, t) {
+        i = function(e, t) {
           return Object(r.b)(e, { error: t.error, loading: !1 });
         },
         l = function(e, t) {
@@ -111,9 +111,9 @@
           case a.c:
             return o(e);
           case a.d:
-            return i(e, t);
-          case a.a:
             return u(e, t);
+          case a.a:
+            return i(e, t);
           case a.b:
             return l(e);
           case a.h:
@@ -155,10 +155,10 @@
           return o;
         }),
         n.d(t, "d", function() {
-          return i;
+          return u;
         }),
         n.d(t, "a", function() {
-          return u;
+          return i;
         }),
         n.d(t, "b", function() {
           return l;
@@ -170,8 +170,8 @@
         r = "RECEIVED_DATA",
         c = "RECEIVED_ERROR",
         o = "AUTH_START ",
-        i = "AUTH_SUCCESS",
-        u = "AUTH_FAIL",
+        u = "AUTH_SUCCESS",
+        i = "AUTH_FAIL",
         l = "AUTH_LOGOUT",
         s = "SET_AUTH_REDIRECT_PATH";
     },
@@ -185,13 +185,13 @@
           return function(r) {
             r(a.b());
             var o = { email: e, password: t, returnSecureToken: !0 },
-              i =
+              u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
             n ||
-              (i =
+              (u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw"),
               c.a
-                .post(i, o)
+                .post(u, o)
                 .then(function(e) {
                   var t = new Date(
                     new Date().getTime() + 1e3 * e.data.expiresIn
@@ -200,14 +200,14 @@
                     localStorage.setItem("expirationDate", t),
                     localStorage.setItem("userId", e.data.localId),
                     r(a.c(e.data.idToken, e.data.localId)),
-                    r(u(e.data.expiresIn));
+                    r(i(e.data.expiresIn));
                 })
                 .catch(function(e) {
                   r(a.a(e.response.data.error));
                 });
           };
         },
-        i = function() {
+        u = function() {
           return function(e) {
             var t = localStorage.getItem("token");
             if (t) {
@@ -215,12 +215,12 @@
               if (n <= new Date()) e(a.d());
               else {
                 var r = localStorage.getItem("userId");
-                e(a.c(t, r)), e(u((n.getTime() - new Date().getTime()) / 1e3));
+                e(a.c(t, r)), e(i((n.getTime() - new Date().getTime()) / 1e3));
               }
             } else e(a.d());
           };
         },
-        u = function(e) {
+        i = function(e) {
           return function(t) {
             setTimeout(function() {
               t(a.d());
@@ -234,7 +234,7 @@
           return o;
         }),
         n.d(t, "b", function() {
-          return i;
+          return u;
         });
     },
     48: function(e, t, n) {
@@ -255,10 +255,10 @@
           return o;
         }),
         n.d(t, "d", function() {
-          return i;
+          return u;
         }),
         n.d(t, "e", function() {
-          return u;
+          return i;
         });
       var a = n(3),
         r = function() {
@@ -270,10 +270,10 @@
         o = function(e) {
           return { type: a.a, error: e };
         },
-        i = function() {
+        u = function() {
           return { type: a.b };
         },
-        u = function(e) {
+        i = function(e) {
           return { type: a.h, path: e };
         };
     },
@@ -291,8 +291,8 @@
         r = n.n(a),
         c = n(19),
         o = n.n(c),
-        i = n(13),
-        u = n(9),
+        u = n(13),
+        i = n(9),
         l = (n(57), n(2)),
         s = function(e) {
           return e.children;
@@ -325,7 +325,7 @@
         },
         f =
           (n(62),
-          Object(u.b)(function(e) {
+          Object(i.b)(function(e) {
             return { isAuthenticated: e.authReducer.token };
           })(function(e) {
             return r.a.createElement(
@@ -344,11 +344,11 @@
         b = n(47),
         p = n(43),
         v = n(18),
-        y = n(46),
-        T = n(23),
-        I = n.n(T),
-        k = n(12),
-        S =
+        T = n(46),
+        y = n(23),
+        I = n.n(y),
+        R = n(12),
+        k =
           (n(80),
           (function(e) {
             function t() {
@@ -374,11 +374,15 @@
                               e
                             )
                           )
-                          .then(function(e) {
-                            t(k.a(e.data));
+                          .then(function(n) {
+                            try {
+                              t(R.a({ searchTerm: e, result: n.data }));
+                            } catch (a) {
+                              console.log(a);
+                            }
                           })
                           .catch(function(e) {
-                            return t(k.b());
+                            return t(R.b());
                           });
                       };
                     })(n)
@@ -391,7 +395,7 @@
               );
             }
             return (
-              Object(y.a)(t, e),
+              Object(T.a)(t, e),
               Object(g.a)(t, [
                 {
                   key: "render",
@@ -428,9 +432,9 @@
               t
             );
           })(a.Component)),
-        R = Object(u.b)(function(e) {
+        S = Object(i.b)(function(e) {
           return { state: e.searchReducer };
-        })(S),
+        })(k),
         A =
           (n(81),
           function() {
@@ -454,12 +458,12 @@
               r.a.createElement(
                 "div",
                 { className: "Search" },
-                r.a.createElement(R, null)
+                r.a.createElement(S, null)
               )
             );
           }),
         N = n(6),
-        O = Object(u.b)(null, function(e) {
+        O = Object(i.b)(null, function(e) {
           return {
             onLogout: function() {
               return e(N.d());
@@ -559,10 +563,13 @@
           }),
         w =
           (n(83),
-          Object(u.b)(function(e) {
-            return { searchResult: e.searchReducer.searchResult };
+          Object(i.b)(function(e) {
+            return {
+              searchTerm: e.searchReducer.searchTerm,
+              searchResult: e.searchReducer.searchResult
+            };
           })(function(e) {
-            if (Array.isArray(e.searchResult)) {
+            if (Array.isArray(e.searchResult) && 0 !== e.searchResult.length) {
               var t = e.searchResult.map(function(e) {
                 return r.a.createElement(C, {
                   charityName: e.charityName,
@@ -584,7 +591,9 @@
                 r.a.createElement(
                   "div",
                   { className: "ResultsTopic" },
-                  'SEARCH RESULTS FOR ""'
+                  'SEARCH RESULTS FOR "',
+                  e.searchTerm,
+                  '"'
                 ),
                 r.a.createElement("div", { className: "Posts" }, t)
               );
@@ -601,7 +610,7 @@
           return n.e(3).then(n.bind(null, 91));
         }),
         L = Object(l.g)(
-          Object(u.b)(
+          Object(i.b)(
             function(e) {
               return { isAuthenticated: null !== e.authReducer.token };
             },
@@ -688,7 +697,7 @@
       );
       var _ = n(15),
         z = n(45),
-        P = { searchResult: {}, isFetching: !1, isError: !1 },
+        P = { searchTerm: "", searchResult: [], isFetching: !1, isError: !1 },
         H = function() {
           var e =
               arguments.length > 0 && void 0 !== arguments[0]
@@ -697,9 +706,14 @@
             t = arguments.length > 1 ? arguments[1] : void 0;
           switch (t.type) {
             case "FETCHING_DATA":
-              return { searchResult: {}, isFetching: !0, isError: !1 };
+              return { searchResult: [], isFetching: !0, isError: !1 };
             case "RECEIVED_DATA":
-              return { searchResult: t.data, isFetching: !1, isError: !1 };
+              return {
+                searchTerm: t.data.searchTerm,
+                searchResult: t.data.result,
+                isFetching: !1,
+                isError: !1
+              };
             case "RECEIVED_ERROR":
               return { isFetching: !1, isError: !0 };
             default:
@@ -711,9 +725,9 @@
         B = Object(_.d)(F, Object(_.a)(z.a));
       o.a.render(
         r.a.createElement(
-          u.a,
+          i.a,
           { store: B },
-          r.a.createElement(i.a, null, r.a.createElement(L, null))
+          r.a.createElement(u.a, null, r.a.createElement(L, null))
         ),
         document.getElementById("root")
       ),
@@ -725,4 +739,4 @@
   },
   [[48, 1, 2]]
 ]);
-//# sourceMappingURL=main.002102d9.chunk.js.map
+//# sourceMappingURL=main.817068d6.chunk.js.map
