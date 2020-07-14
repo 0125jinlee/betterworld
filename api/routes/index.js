@@ -7,6 +7,4 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-exports.api = functions.https.onRequest(app);
-
 module.exports = router;
