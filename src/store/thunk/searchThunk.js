@@ -5,7 +5,9 @@ import * as searchActions from "../actions/searchActions";
 export const apiCallThunk = searchTerm => {
   return function(dispatch, getState) {
     return axios
-      .get(`http://localhost:9000/searchAPI?searchTerm=${searchTerm}`)
+      .get(
+        `https://us-central1-betterworld-aac7e.cloudfunctions.net/api/searchAPI?searchTerm=${searchTerm}`
+      )
       .then(response => {
         try {
           dispatch(

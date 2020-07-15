@@ -78,10 +78,10 @@
           loading: !1,
           authRedirectPath: "/"
         },
-        o = function(e, t) {
+        u = function(e, t) {
           return Object(r.b)(e, { error: null, loading: !0 });
         },
-        u = function(e, t) {
+        o = function(e, t) {
           return Object(r.b)(e, {
             token: t.idToken,
             userId: t.userId,
@@ -109,9 +109,9 @@
           t = arguments.length > 1 ? arguments[1] : void 0;
         switch (t.type) {
           case a.c:
-            return o(e);
+            return u(e);
           case a.d:
-            return u(e, t);
+            return o(e, t);
           case a.a:
             return i(e, t);
           case a.b:
@@ -152,10 +152,10 @@
           return c;
         }),
         n.d(t, "c", function() {
-          return o;
+          return u;
         }),
         n.d(t, "d", function() {
-          return u;
+          return o;
         }),
         n.d(t, "a", function() {
           return i;
@@ -169,8 +169,8 @@
       var a = "FETCHING_DATA",
         r = "RECEIVED_DATA",
         c = "RECEIVED_ERROR",
-        o = "AUTH_START ",
-        u = "AUTH_SUCCESS",
+        u = "AUTH_START ",
+        o = "AUTH_SUCCESS",
         i = "AUTH_FAIL",
         l = "AUTH_LOGOUT",
         s = "SET_AUTH_REDIRECT_PATH";
@@ -181,17 +181,17 @@
       var a = n(6),
         r = (n(21), n(23)),
         c = n.n(r),
-        o = function(e, t, n) {
+        u = function(e, t, n) {
           return function(r) {
             r(a.b());
-            var o = { email: e, password: t, returnSecureToken: !0 },
-              u =
+            var u = { email: e, password: t, returnSecureToken: !0 },
+              o =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
             n ||
-              (u =
+              (o =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw"),
               c.a
-                .post(u, o)
+                .post(o, u)
                 .then(function(e) {
                   var t = new Date(
                     new Date().getTime() + 1e3 * e.data.expiresIn
@@ -207,7 +207,7 @@
                 });
           };
         },
-        u = function() {
+        o = function() {
           return function(e) {
             var t = localStorage.getItem("token");
             if (t) {
@@ -231,10 +231,10 @@
         return a.e;
       }),
         n.d(t, "a", function() {
-          return o;
+          return u;
         }),
         n.d(t, "b", function() {
-          return u;
+          return o;
         });
     },
     48: function(e, t, n) {
@@ -252,10 +252,10 @@
           return c;
         }),
         n.d(t, "a", function() {
-          return o;
+          return u;
         }),
         n.d(t, "d", function() {
-          return u;
+          return o;
         }),
         n.d(t, "e", function() {
           return i;
@@ -267,10 +267,10 @@
         c = function(e, t) {
           return { type: a.d, idToken: e, userId: t };
         },
-        o = function(e) {
+        u = function(e) {
           return { type: a.a, error: e };
         },
-        u = function() {
+        o = function() {
           return { type: a.b };
         },
         i = function(e) {
@@ -290,8 +290,8 @@
       var a = n(0),
         r = n.n(a),
         c = n(19),
-        o = n.n(c),
-        u = n(13),
+        u = n.n(c),
+        o = n(13),
         i = n(9),
         l = (n(57), n(2)),
         s = function(e) {
@@ -370,7 +370,7 @@
                       return function(t, n) {
                         return I.a
                           .get(
-                            "http://localhost:9000/searchAPI?searchTerm=".concat(
+                            "https://us-central1-betterworld-aac7e.cloudfunctions.net/api/searchAPI?searchTerm=".concat(
                               e
                             )
                           )
@@ -492,7 +492,7 @@
             e.missionStatement || (a = !1);
             var c = !0;
             e.website || (c = !1);
-            var o = Math.ceil(12 * Math.random()) + 1;
+            var u = Math.ceil(12 * Math.random()) + 1;
             return r.a.createElement(
               "article",
               { className: "Post", onClick: e.onClick },
@@ -501,7 +501,7 @@
                 null,
                 r.a.createElement("img", {
                   className: "PostImage",
-                  src: "/PostPictures/".concat(o, ".jpg"),
+                  src: "/PostPictures/".concat(u, ".jpg"),
                   alt: "PostPicture",
                   height: "160",
                   width: "330"
@@ -723,11 +723,11 @@
         U = n(21),
         F = Object(_.c)({ searchReducer: H, authReducer: U.a }),
         B = Object(_.d)(F, Object(_.a)(z.a));
-      o.a.render(
+      u.a.render(
         r.a.createElement(
           i.a,
           { store: B },
-          r.a.createElement(u.a, null, r.a.createElement(L, null))
+          r.a.createElement(o.a, null, r.a.createElement(L, null))
         ),
         document.getElementById("root")
       ),
@@ -739,4 +739,4 @@
   },
   [[48, 1, 2]]
 ]);
-//# sourceMappingURL=main.817068d6.chunk.js.map
+//# sourceMappingURL=main.202e84ec.chunk.js.map
