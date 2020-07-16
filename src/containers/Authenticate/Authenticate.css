@@ -38,9 +38,11 @@
 
 .AuthBox {
   display: flex;
+  width: 100%;
   min-height: 400px;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .AuthBox h1 {

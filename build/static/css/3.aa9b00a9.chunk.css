@@ -114,9 +114,11 @@
 }
 .AuthBox {
   display: flex;
+  width: 100%;
   min-height: 400px;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .AuthBox h1 {
   font-style: normal;
@@ -191,4 +193,4 @@
     display: none;
   }
 }
-/*# sourceMappingURL=3.42559fa4.chunk.css.map */
+/*# sourceMappingURL=3.aa9b00a9.chunk.css.map */

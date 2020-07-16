@@ -28,7 +28,7 @@ code {
   cursor: not-allowed;
 }
 .ButtonSign {
-  min-width: 60%;
+  min-width: 57%;
   margin-right: 3%;
 }
 .ButtonSign,
@@ -37,7 +37,7 @@ code {
   cursor: pointer;
 }
 .ButtonSubmit {
-  min-width: 37%;
+  min-width: 38%;
 }
 .ButtonHome,
 .ButtonImpacts {
@@ -209,7 +209,7 @@ code {
   width: 330px;
   height: 330px;
   overflow: scroll;
-  box-shadow: 0 5px 5px 0 grey;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   margin: 10px 5px;
   font-family: Roboto;
   display: inline-block;
@@ -294,4 +294,4 @@ code {
   display: flex;
   flex-direction: column;
 }
-/*# sourceMappingURL=main.dc0698b3.chunk.css.map */
+/*# sourceMappingURL=main.b7186d72.chunk.css.map */
