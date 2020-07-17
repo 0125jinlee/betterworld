@@ -88,6 +88,10 @@
   font-size: 15px;
 }
 
+.AuthButton {
+  display: inline;
+}
+
 .authForm button {
   height: 55px;
   border: 0px;

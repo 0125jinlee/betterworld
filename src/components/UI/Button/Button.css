@@ -4,14 +4,16 @@
 }
 
 .ButtonSign {
-  min-width: 57%;
+  min-width: 115px;
+  height: 40px;
   border-radius: 2px;
   cursor: pointer;
-  margin-right: 3%;
+  margin-right: 7px;
 }
 
 .ButtonSubmit {
-  min-width: 38%;
+  min-width: 95px;
+  height: 40px;
   border-radius: 2px;
   cursor: pointer;
 }
