@@ -26,7 +26,7 @@ const posts = props => {
     return (
       <div className="Results">
         <div className="ResultsTopic">
-          SEARCH RESULTS FOR "{props.searchTerm}"
+          SEARCH RESULTS FOR '{props.searchTerm.toUpperCase()}'
         </div>
         <div className="Posts">{updatedPosts}</div>
       </div>

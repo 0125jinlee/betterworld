@@ -3,11 +3,6 @@ import React from "react";
 import "./Post.css";
 
 const post = props => {
-  let donation = true;
-  if (props.acceptingDonations === 0) {
-    donation = false;
-  }
-
   let category = true;
   if (props.category === "Not Provided") {
     category = false;
@@ -18,19 +13,51 @@ const post = props => {
     missionStatement = false;
   }
 
-  let website = true;
-  if (!props.website) {
-    website = false;
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   }
 
-  let image = Math.ceil(Math.random() * (13 - 1)) + 1;
+  let imagesArr = [
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.jpg",
+    "6.jpg",
+    "7.jpg",
+    "8.jpg",
+    "9.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg"
+  ];
+  let usedImages = {};
+  let usedImagesCount = 0;
+
+  function displayImage() {
+    let num = Math.ceil(Math.random() * (13 - 1)) + 1;
+    if (!usedImages[num]) {
+      usedImages[num] = true;
+      usedImagesCount++;
+      if (usedImagesCount === imagesArr.length) {
+        usedImagesCount = 0;
+        usedImages = {};
+      } else {
+        displayImage();
+      }
+      return imagesArr[num];
+    }
+  }
 
   return (
     <article className="Post" onClick={props.onClick}>
       <div>
         <img
           className="PostImage"
-          src={`/PostPictures/${image}.jpg`}
+          src={`/PostPictures/${displayImage()}`}
           alt="PostPicture"
           height="160"
           width="330"
@@ -41,24 +68,18 @@ const post = props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2>{props.charityName}</h2>
+            <h2>{toTitleCase(props.charityName)}</h2>
           </a>
           <small>
-            {props.city}, {props.state}, {props.zip}
+            {toTitleCase(props.city)}, {props.state}, {props.zip}
           </small>
         </ul>
         <ul>
           {category && (
             <>
-              <b>Impacts </b> <span>{`${props.category} fields`}</span>
+              <span>{`${props.category} Fields`}</span>
             </>
           )}
-        </ul>
-        <ul>
-          <b>Accepting Donations?</b> {donation ? " Yes" : " No"}
-        </ul>
-        <ul>
-          {website ? <b>More Info</b> : null}
           <br></br>
           {missionStatement ? props.missionStatement : null}
         </ul>
