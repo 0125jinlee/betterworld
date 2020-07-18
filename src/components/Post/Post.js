@@ -19,46 +19,13 @@ const post = props => {
     });
   }
 
-  let imagesArr = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-    "4.jpg",
-    "5.jpg",
-    "6.jpg",
-    "7.jpg",
-    "8.jpg",
-    "9.jpg",
-    "10.jpg",
-    "11.jpg",
-    "12.jpg",
-    "13.jpg"
-  ];
-  let usedImages = {};
-  let usedImagesCount = 0;
-
-  function displayImage() {
-    let num = Math.ceil(Math.random() * (13 - 1)) + 1;
-    if (!usedImages[num]) {
-      usedImages[num] = true;
-      usedImagesCount++;
-      if (usedImagesCount === imagesArr.length) {
-        usedImagesCount = 0;
-        usedImages = {};
-      } else {
-        displayImage();
-      }
-      return imagesArr[num];
-    }
-  }
-
   return (
     <article className="Post" onClick={props.onClick}>
       <div>
         <img
           className="PostImage"
-          src={`/PostPictures/${displayImage()}`}
-          alt="PostPicture"
+          src={props.src}
+          alt={props.alt}
           height="160"
           width="330"
         />
@@ -80,6 +47,7 @@ const post = props => {
               <span>{`${props.category} Fields`}</span>
             </>
           )}
+          <br></br>
           <br></br>
           {missionStatement ? props.missionStatement : null}
         </ul>

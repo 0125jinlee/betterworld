@@ -1,59 +1,76 @@
 (this.webpackJsonpbetterworld = this.webpackJsonpbetterworld || []).push([
   [3],
   {
+    86: function(e, t, a) {},
     87: function(e, t, a) {},
     88: function(e, t, a) {},
-    89: function(e, t, a) {},
-    91: function(e, t, a) {
+    90: function(e, t, a) {
       "use strict";
       a.r(t);
-      var n = a(38);
+      var n = a(39);
+      function r(e, t) {
+        (null == t || t > e.length) && (t = e.length);
+        for (var a = 0, n = new Array(t); a < t; a++) n[a] = e[a];
+        return n;
+      }
       function l(e, t) {
         return (
           (function(e) {
             if (Array.isArray(e)) return e;
           })(e) ||
           (function(e, t) {
-            if (
-              Symbol.iterator in Object(e) ||
-              "[object Arguments]" === Object.prototype.toString.call(e)
-            ) {
+            if ("undefined" !== typeof Symbol && Symbol.iterator in Object(e)) {
               var a = [],
                 n = !0,
-                l = !1,
-                r = void 0;
+                r = !1,
+                l = void 0;
               try {
                 for (
-                  var c, i = e[Symbol.iterator]();
-                  !(n = (c = i.next()).done) &&
-                  (a.push(c.value), !t || a.length !== t);
+                  var i, c = e[Symbol.iterator]();
+                  !(n = (i = c.next()).done) &&
+                  (a.push(i.value), !t || a.length !== t);
                   n = !0
                 );
               } catch (u) {
-                (l = !0), (r = u);
+                (r = !0), (l = u);
               } finally {
                 try {
-                  n || null == i.return || i.return();
+                  n || null == c.return || c.return();
                 } finally {
-                  if (l) throw r;
+                  if (r) throw l;
                 }
               }
               return a;
             }
           })(e, t) ||
+          (function(e, t) {
+            if (e) {
+              if ("string" === typeof e) return r(e, t);
+              var a = Object.prototype.toString.call(e).slice(8, -1);
+              return (
+                "Object" === a && e.constructor && (a = e.constructor.name),
+                "Map" === a || "Set" === a
+                  ? Array.from(a)
+                  : "Arguments" === a ||
+                    /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a)
+                  ? r(e, t)
+                  : void 0
+              );
+            }
+          })(e, t) ||
           (function() {
             throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance"
+              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
             );
           })()
         );
       }
-      var r = a(0),
-        c = a.n(r),
-        i = a(9),
-        u = a(2),
-        o =
-          (a(87),
+      var i = a(0),
+        c = a.n(i),
+        u = a(9),
+        o = a(2),
+        s =
+          (a(86),
           function() {
             return c.a.createElement(
               "div",
@@ -61,13 +78,13 @@
               c.a.createElement("h2", null, "LOADING")
             );
           }),
-        s = a(88),
-        d = a.n(s),
-        m = function(e) {
+        d = a(87),
+        m = a.n(d),
+        h = function(e) {
           var t = null,
-            a = [d.a.InputElement];
+            a = [m.a.InputElement];
           switch (
-            (e.invalid && e.shouldValidate && e.touched && a.push(d.a.Invalid),
+            (e.invalid && e.shouldValidate && e.touched && a.push(m.a.Invalid),
             e.elementType)
           ) {
             case "input":
@@ -112,17 +129,17 @@
           }
           return c.a.createElement(
             "div",
-            { className: d.a.InputElement },
-            c.a.createElement("label", { className: d.a.Label }, e.label),
+            { className: m.a.InputElement },
+            c.a.createElement("label", { className: m.a.Label }, e.label),
             t
           );
         },
-        h = a(22),
+        f = a(22),
         v = a(11),
-        f = a(39),
-        g = a(16);
-      a(89),
-        (t.default = Object(i.b)(
+        g = a(40),
+        p = a(16);
+      a(88),
+        (t.default = Object(u.b)(
           function(e) {
             return {
               loading: e.authReducer.loading,
@@ -135,16 +152,16 @@
           function(e) {
             return {
               onAuth: function(t, a, n) {
-                return e(f.a(t, a, n));
+                return e(g.a(t, a, n));
               },
               onSetAuthRedirectPath: function() {
-                return e(f.c("/"));
+                return e(g.c("/"));
               }
             };
           }
         )(function(e) {
           var t = l(
-              Object(r.useState)({
+              Object(i.useState)({
                 email: {
                   elementType: "input",
                   elementConfig: {
@@ -168,23 +185,23 @@
               2
             ),
             a = t[0],
-            i = t[1],
-            s = l(Object(r.useState)(!0), 2),
-            d = s[0],
-            f = s[1],
-            p = e.searchResult,
+            r = t[1],
+            u = l(Object(i.useState)(!0), 2),
+            d = u[0],
+            m = u[1],
+            g = e.searchResult,
             b = e.authRedirectPath,
             E = e.onSetAuthRedirectPath;
-          Object(r.useEffect)(
+          Object(i.useEffect)(
             function() {
-              p || "/" === b || E();
+              g || "/" === b || E();
             },
-            [p, b, E]
+            [g, b, E]
           );
           var y = [];
           for (var j in a) y.push({ id: j, config: a[j] });
-          var N = y.map(function(e) {
-            return c.a.createElement(m, {
+          var S = y.map(function(e) {
+            return c.a.createElement(h, {
               key: e.id,
               elementsType: e.config.elementType,
               elementConfig: e.config.elementConfig,
@@ -194,30 +211,30 @@
               touched: e.config.touched,
               changed: function(t) {
                 return (function(e, t) {
-                  var l = Object(g.b)(
+                  var l = Object(p.b)(
                     a,
                     Object(n.a)(
                       {},
                       t,
-                      Object(g.b)(a[t], {
+                      Object(p.b)(a[t], {
                         value: e.target.value,
-                        valid: Object(g.a)(e.target.value, a[t].validation),
+                        valid: Object(p.a)(e.target.value, a[t].validation),
                         touched: !0
                       })
                     )
                   );
-                  i(l);
+                  r(l);
                 })(t, e.id);
               }
             });
           });
-          e.loading && (N = c.a.createElement(o, null));
-          var S = null;
-          e.error && (S = c.a.createElement("h2", null, e.error.message));
-          var O = null;
+          e.loading && (S = c.a.createElement(s, null));
+          var A = null;
+          e.error && (A = c.a.createElement("h2", null, e.error.message));
+          var N = null;
           return (
             e.isAuthenticated &&
-              (O = c.a.createElement(u.a, { to: e.authRedirectPath })),
+              (N = c.a.createElement(o.a, { to: e.authRedirectPath })),
             c.a.createElement(
               "div",
               { className: "Auth" },
@@ -248,24 +265,24 @@
                 c.a.createElement(
                   "form",
                   { className: "authForm" },
-                  O,
-                  S,
-                  c.a.createElement("div", { className: "Input" }, N),
+                  N,
+                  A,
+                  c.a.createElement("div", { className: "Input" }, S),
                   c.a.createElement(
                     "div",
                     { className: "AuthButtons" },
                     c.a.createElement(
-                      h.a,
+                      f.a,
                       {
                         clicked: function(e) {
-                          e.preventDefault(), f(!d);
+                          e.preventDefault(), m(!d);
                         },
                         btnType: "Sign"
                       },
                       "SWITCH TO ",
                       d ? "SIGN IN" : "SIGN UP"
                     ),
-                    c.a.createElement(h.a, { btnType: "Submit" }, "SUBMIT")
+                    c.a.createElement(f.a, { btnType: "Submit" }, "SUBMIT")
                   )
                 )
               )
@@ -275,4 +292,4 @@
     }
   }
 ]);
-//# sourceMappingURL=3.40e210de.chunk.js.map
+//# sourceMappingURL=3.d6b79456.chunk.js.map

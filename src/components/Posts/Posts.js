@@ -5,6 +5,20 @@ import Post from "../Post/Post";
 import "./Posts.css";
 
 const posts = props => {
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+  function displayImage() {
+    let num = Math.ceil(Math.random() * 13);
+    if (arr === []) {
+      arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+      displayImage();
+    }
+    if (arr.includes(num) && num <= 13 && num >= 1) {
+      arr.splice(arr.indexOf(num), 1);
+      return num;
+    }
+  }
+
   if (Array.isArray(props.searchResult) && props.searchResult.length !== 0) {
     const updatedPosts = props.searchResult.map(post => {
       return (
@@ -20,6 +34,8 @@ const posts = props => {
           score={post.score}
           acceptingDonations={post.acceptingDonations}
           missionStatement={post.missionStatement}
+          src={`/PostPictures/${displayImage() + ".jpg"}`}
+          alt={`PostPicture${displayImage()}`}
         />
       );
     });

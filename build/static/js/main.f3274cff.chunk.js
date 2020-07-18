@@ -6,7 +6,7 @@
       var a = n(0),
         r = n.n(a),
         c = n(13);
-      n(59);
+      n(58);
       t.a = function(e) {
         return r.a.createElement(
           "div",
@@ -43,9 +43,9 @@
         n.d(t, "a", function() {
           return c;
         });
-      var a = n(44),
+      var a = n(28),
         r = function(e, t) {
-          return Object(a.a)({}, e, {}, t);
+          return Object(a.a)(Object(a.a)({}, e), t);
         },
         c = function(e, t) {
           var n = !0;
@@ -78,10 +78,10 @@
           loading: !1,
           authRedirectPath: "/"
         },
-        u = function(e, t) {
+        o = function(e, t) {
           return Object(r.b)(e, { error: null, loading: !0 });
         },
-        o = function(e, t) {
+        u = function(e, t) {
           return Object(r.b)(e, {
             token: t.idToken,
             userId: t.userId,
@@ -109,9 +109,9 @@
           t = arguments.length > 1 ? arguments[1] : void 0;
         switch (t.type) {
           case a.c:
-            return u(e);
+            return o(e);
           case a.d:
-            return o(e, t);
+            return u(e, t);
           case a.a:
             return i(e, t);
           case a.b:
@@ -127,7 +127,7 @@
       "use strict";
       var a = n(0),
         r = n.n(a);
-      n(61);
+      n(60);
       t.a = function(e) {
         return r.a.createElement(
           "button",
@@ -152,10 +152,10 @@
           return c;
         }),
         n.d(t, "c", function() {
-          return u;
+          return o;
         }),
         n.d(t, "d", function() {
-          return o;
+          return u;
         }),
         n.d(t, "a", function() {
           return i;
@@ -169,29 +169,38 @@
       var a = "FETCHING_DATA",
         r = "RECEIVED_DATA",
         c = "RECEIVED_ERROR",
-        u = "AUTH_START ",
-        o = "AUTH_SUCCESS",
+        o = "AUTH_START ",
+        u = "AUTH_SUCCESS",
         i = "AUTH_FAIL",
         l = "AUTH_LOGOUT",
         s = "SET_AUTH_REDIRECT_PATH";
     },
-    39: function(e, t, n) {
+    40: function(e, t, n) {
       "use strict";
+      n.d(t, "c", function() {
+        return a.e;
+      }),
+        n.d(t, "a", function() {
+          return o;
+        }),
+        n.d(t, "b", function() {
+          return u;
+        });
       n(12);
       var a = n(6),
         r = (n(21), n(23)),
         c = n.n(r),
-        u = function(e, t, n) {
+        o = function(e, t, n) {
           return function(r) {
             r(a.b());
-            var u = { email: e, password: t, returnSecureToken: !0 },
-              o =
+            var o = { email: e, password: t, returnSecureToken: !0 },
+              u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw";
             n ||
-              (o =
+              (u =
                 "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCy23NFq-9Dm6qCTkocHZEr9CnpacRiBhw"),
               c.a
-                .post(o, u)
+                .post(u, o)
                 .then(function(e) {
                   var t = new Date(
                     new Date().getTime() + 1e3 * e.data.expiresIn
@@ -207,7 +216,7 @@
                 });
           };
         },
-        o = function() {
+        u = function() {
           return function(e) {
             var t = localStorage.getItem("token");
             if (t) {
@@ -227,22 +236,13 @@
             }, 1e3 * e);
           };
         };
-      n.d(t, "c", function() {
-        return a.e;
-      }),
-        n.d(t, "a", function() {
-          return u;
-        }),
-        n.d(t, "b", function() {
-          return o;
-        });
     },
-    48: function(e, t, n) {
-      e.exports = n(85);
+    47: function(e, t, n) {
+      e.exports = n(84);
     },
+    56: function(e, t, n) {},
     57: function(e, t, n) {},
     58: function(e, t, n) {},
-    59: function(e, t, n) {},
     6: function(e, t, n) {
       "use strict";
       n.d(t, "b", function() {
@@ -252,10 +252,10 @@
           return c;
         }),
         n.d(t, "a", function() {
-          return u;
+          return o;
         }),
         n.d(t, "d", function() {
-          return o;
+          return u;
         }),
         n.d(t, "e", function() {
           return i;
@@ -267,37 +267,37 @@
         c = function(e, t) {
           return { type: a.d, idToken: e, userId: t };
         },
-        u = function(e) {
+        o = function(e) {
           return { type: a.a, error: e };
         },
-        o = function() {
+        u = function() {
           return { type: a.b };
         },
         i = function(e) {
           return { type: a.h, path: e };
         };
     },
+    60: function(e, t, n) {},
     61: function(e, t, n) {},
-    62: function(e, t, n) {},
+    79: function(e, t, n) {},
     80: function(e, t, n) {},
     81: function(e, t, n) {},
     82: function(e, t, n) {},
     83: function(e, t, n) {},
-    84: function(e, t, n) {},
-    85: function(e, t, n) {
+    84: function(e, t, n) {
       "use strict";
       n.r(t);
       var a = n(0),
         r = n.n(a),
         c = n(19),
-        u = n.n(c),
-        o = n(13),
+        o = n.n(c),
+        u = n(13),
         i = n(9),
-        l = (n(57), n(2)),
+        l = (n(56), n(2)),
         s = function(e) {
           return e.children;
         },
-        m = (n(58), n(11)),
+        m = (n(57), n(11)),
         d = n(22),
         h = function(e) {
           return r.a.createElement(
@@ -324,7 +324,7 @@
           );
         },
         f =
-          (n(62),
+          (n(61),
           Object(i.b)(function(e) {
             return { isAuthenticated: e.authReducer.token };
           })(function(e) {
@@ -339,26 +339,24 @@
               r.a.createElement("main", { className: "Content" }, e.children)
             );
           })),
-        E = n(41),
-        g = n(42),
-        b = n(47),
-        p = n(43),
-        v = n(18),
-        T = n(46),
-        y = n(23),
-        I = n.n(y),
-        R = n(12),
-        k =
-          (n(80),
+        E = n(42),
+        g = n(43),
+        p = n(18),
+        b = n(46),
+        v = n(45),
+        T = n(23),
+        y = n.n(T),
+        I = n(12),
+        R =
+          (n(79),
           (function(e) {
-            function t() {
+            Object(b.a)(n, e);
+            var t = Object(v.a)(n);
+            function n() {
               var e;
               return (
-                Object(E.a)(this, t),
-                ((e = Object(b.a)(
-                  this,
-                  Object(p.a)(t).call(this)
-                )).handleChange = function(t) {
+                Object(E.a)(this, n),
+                ((e = t.call(this)).handleChange = function(t) {
                   t.preventDefault(),
                     e.setState({ searchTerm: t.target.value });
                 }),
@@ -368,7 +366,7 @@
                   e.props.dispatch(
                     (function(e) {
                       return function(t, n) {
-                        return I.a
+                        return y.a
                           .get(
                             "https://us-central1-betterworld-aac7e.cloudfunctions.net/api/searchAPI?searchTerm=".concat(
                               e
@@ -376,27 +374,26 @@
                           )
                           .then(function(n) {
                             try {
-                              t(R.a({ searchTerm: e, result: n.data }));
+                              t(I.a({ searchTerm: e, result: n.data }));
                             } catch (a) {
                               console.log(a);
                             }
                           })
                           .catch(function(e) {
-                            return t(R.b());
+                            return t(I.b());
                           });
                       };
                     })(n)
                   );
                 }),
                 (e.state = { searchTerm: "" }),
-                (e.handleChange = e.handleChange.bind(Object(v.a)(e))),
-                (e.handleSubmit = e.handleSubmit.bind(Object(v.a)(e))),
+                (e.handleChange = e.handleChange.bind(Object(p.a)(e))),
+                (e.handleSubmit = e.handleSubmit.bind(Object(p.a)(e))),
                 e
               );
             }
             return (
-              Object(T.a)(t, e),
-              Object(g.a)(t, [
+              Object(g.a)(n, [
                 {
                   key: "render",
                   value: function() {
@@ -429,14 +426,14 @@
                   }
                 }
               ]),
-              t
+              n
             );
           })(a.Component)),
         S = Object(i.b)(function(e) {
           return { state: e.searchReducer };
-        })(k),
-        A =
-          (n(81),
+        })(R),
+        j =
+          (n(80),
           function() {
             return r.a.createElement(
               "div",
@@ -462,11 +459,11 @@
               )
             );
           }),
-        N = n(6),
-        O = Object(i.b)(null, function(e) {
+        k = n(6),
+        A = Object(i.b)(null, function(e) {
           return {
             onLogout: function() {
-              return e(N.d());
+              return e(k.d());
             }
           };
         })(function(e) {
@@ -482,17 +479,34 @@
           );
         }),
         C =
-          (n(82),
+          (n(81),
           function(e) {
             var t = !0;
-            0 === e.acceptingDonations && (t = !1);
+            "Not Provided" === e.category && (t = !1);
             var n = !0;
-            "Not Provided" === e.category && (n = !1);
-            var a = !0;
-            e.missionStatement || (a = !1);
-            var c = !0;
-            e.website || (c = !1);
-            var u = Math.ceil(12 * Math.random()) + 1;
+            function a(e) {
+              return e.replace(/\w\S*/g, function(e) {
+                return e.charAt(0).toUpperCase() + e.substr(1).toLowerCase();
+              });
+            }
+            e.missionStatement || (n = !1);
+            var c = [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg",
+                "6.jpg",
+                "7.jpg",
+                "8.jpg",
+                "9.jpg",
+                "10.jpg",
+                "11.jpg",
+                "12.jpg",
+                "13.jpg"
+              ],
+              o = {},
+              u = 0;
             return r.a.createElement(
               "article",
               { className: "Post", onClick: e.onClick },
@@ -501,7 +515,17 @@
                 null,
                 r.a.createElement("img", {
                   className: "PostImage",
-                  src: "/PostPictures/".concat(u, ".jpg"),
+                  src: "/PostPictures/".concat(
+                    (function e() {
+                      var t = Math.ceil(12 * Math.random()) + 1;
+                      if (!o[t])
+                        return (
+                          (o[t] = !0),
+                          ++u === c.length ? ((u = 0), (o = {})) : e(),
+                          c[t]
+                        );
+                    })()
+                  ),
                   alt: "PostPicture",
                   height: "160",
                   width: "330"
@@ -516,12 +540,12 @@
                       target: "_blank",
                       rel: "noopener noreferrer"
                     },
-                    r.a.createElement("h2", null, e.charityName)
+                    r.a.createElement("h2", null, a(e.charityName))
                   ),
                   r.a.createElement(
                     "small",
                     null,
-                    e.city,
+                    a(e.city),
                     ", ",
                     e.state,
                     ", ",
@@ -531,38 +555,24 @@
                 r.a.createElement(
                   "ul",
                   null,
-                  n &&
+                  t &&
                     r.a.createElement(
                       r.a.Fragment,
                       null,
-                      r.a.createElement("b", null, "Impacts "),
-                      " ",
                       r.a.createElement(
                         "span",
                         null,
-                        "".concat(e.category, " fields")
+                        "".concat(e.category, " Fields")
                       )
-                    )
-                ),
-                r.a.createElement(
-                  "ul",
-                  null,
-                  r.a.createElement("b", null, "Accepting Donations?"),
-                  " ",
-                  t ? " Yes" : " No"
-                ),
-                r.a.createElement(
-                  "ul",
-                  null,
-                  c ? r.a.createElement("b", null, "More Info") : null,
+                    ),
                   r.a.createElement("br", null),
-                  a ? e.missionStatement : null
+                  n ? e.missionStatement : null
                 )
               )
             );
           }),
-        w =
-          (n(83),
+        N =
+          (n(82),
           Object(i.b)(function(e) {
             return {
               searchTerm: e.searchReducer.searchTerm,
@@ -591,23 +601,23 @@
                 r.a.createElement(
                   "div",
                   { className: "ResultsTopic" },
-                  'SEARCH RESULTS FOR "',
-                  e.searchTerm,
-                  '"'
+                  "SEARCH RESULTS FOR '",
+                  e.searchTerm.toUpperCase(),
+                  "'"
                 ),
                 r.a.createElement("div", { className: "Posts" }, t)
               );
             }
             return null;
           })),
-        j = n(39),
-        D =
-          (n(84),
+        O = n(40),
+        w =
+          (n(83),
           r.a.lazy(function() {
-            return n.e(4).then(n.bind(null, 90));
+            return n.e(4).then(n.bind(null, 89));
           })),
-        x = r.a.lazy(function() {
-          return n.e(3).then(n.bind(null, 91));
+        D = r.a.lazy(function() {
+          return n.e(3).then(n.bind(null, 90));
         }),
         L = Object(l.g)(
           Object(i.b)(
@@ -617,7 +627,7 @@
             function(e) {
               return {
                 onTryAutoSignup: function() {
-                  return e(j.b());
+                  return e(O.b());
                 }
               };
             }
@@ -635,10 +645,10 @@
               r.a.createElement(l.b, {
                 path: "/auth",
                 render: function(e) {
-                  return r.a.createElement(x, e);
+                  return r.a.createElement(D, e);
                 }
               }),
-              r.a.createElement(l.b, { path: "/", exact: !0, component: A }),
+              r.a.createElement(l.b, { path: "/", exact: !0, component: j }),
               r.a.createElement(l.a, { to: "/" })
             );
             return (
@@ -649,20 +659,20 @@
                   r.a.createElement(l.b, {
                     path: "/donations",
                     render: function(e) {
-                      return r.a.createElement(D, e);
+                      return r.a.createElement(w, e);
                     }
                   }),
-                  r.a.createElement(l.b, { path: "/logout", component: O }),
+                  r.a.createElement(l.b, { path: "/logout", component: A }),
                   r.a.createElement(l.b, {
                     path: "/auth",
                     render: function(e) {
-                      return r.a.createElement(x, e);
+                      return r.a.createElement(D, e);
                     }
                   }),
                   r.a.createElement(l.b, {
                     path: "/",
                     exact: !0,
-                    component: A
+                    component: j
                   }),
                   r.a.createElement(l.a, { to: "/" })
                 )),
@@ -682,7 +692,7 @@
                 r.a.createElement(
                   "div",
                   { className: "Posts" },
-                  r.a.createElement(w, null)
+                  r.a.createElement(N, null)
                 )
               )
             );
@@ -695,14 +705,14 @@
             /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
           )
       );
-      var _ = n(15),
-        z = n(45),
-        P = { searchTerm: "", searchResult: [], isFetching: !1, isError: !1 },
-        H = function() {
+      var x = n(15),
+        _ = n(44),
+        z = { searchTerm: "", searchResult: [], isFetching: !1, isError: !1 },
+        P = function() {
           var e =
               arguments.length > 0 && void 0 !== arguments[0]
                 ? arguments[0]
-                : P,
+                : z,
             t = arguments.length > 1 ? arguments[1] : void 0;
           switch (t.type) {
             case "FETCHING_DATA":
@@ -721,13 +731,13 @@
           }
         },
         U = n(21),
-        F = Object(_.c)({ searchReducer: H, authReducer: U.a }),
-        B = Object(_.d)(F, Object(_.a)(z.a));
-      u.a.render(
+        H = Object(x.c)({ searchReducer: P, authReducer: U.a }),
+        F = Object(x.d)(H, Object(x.a)(_.a));
+      o.a.render(
         r.a.createElement(
           i.a,
-          { store: B },
-          r.a.createElement(o.a, null, r.a.createElement(L, null))
+          { store: F },
+          r.a.createElement(u.a, null, r.a.createElement(L, null))
         ),
         document.getElementById("root")
       ),
@@ -737,6 +747,6 @@
           });
     }
   },
-  [[48, 1, 2]]
+  [[47, 1, 2]]
 ]);
-//# sourceMappingURL=main.202e84ec.chunk.js.map
+//# sourceMappingURL=main.f3274cff.chunk.js.map

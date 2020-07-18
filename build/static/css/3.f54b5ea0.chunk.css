@@ -15,7 +15,6 @@
   margin: 60px auto;
   position: relative;
   text-indent: -9999em;
-  -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
@@ -103,7 +102,7 @@
   height: 40px;
 }
 .Logo h1 {
-  font-family: Suez One;
+  font-family: "Suez One";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -128,7 +127,7 @@
 }
 .AuthBox h1,
 .AuthBox h2 {
-  font-family: Roboto;
+  font-family: "Roboto";
   font-weight: 700;
 }
 .AuthBox h2 {
@@ -148,34 +147,37 @@
   margin-bottom: 10px;
   border-radius: 2px;
   border: none;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 15px;
   letter-spacing: 1px;
   box-sizing: border-box;
 }
 .authForm input::-webkit-input-placeholder {
-  font-family: Roboto;
+  font-family: "Roboto";
   padding-left: 10px;
   letter-spacing: 1px;
   font-size: 15px;
 }
 .authForm input:-ms-input-placeholder {
-  font-family: Roboto;
+  font-family: "Roboto";
   padding-left: 10px;
   letter-spacing: 1px;
   font-size: 15px;
 }
 .authForm input::-ms-input-placeholder {
-  font-family: Roboto;
+  font-family: "Roboto";
   padding-left: 10px;
   letter-spacing: 1px;
   font-size: 15px;
 }
 .authForm input::placeholder {
-  font-family: Roboto;
+  font-family: "Roboto";
   padding-left: 10px;
   letter-spacing: 1px;
   font-size: 15px;
+}
+.AuthButton {
+  display: inline;
 }
 .authForm button {
   height: 55px;
@@ -193,4 +195,4 @@
     display: none;
   }
 }
-/*# sourceMappingURL=3.aa9b00a9.chunk.css.map */
+/*# sourceMappingURL=3.f54b5ea0.chunk.css.map */
