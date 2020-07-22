@@ -1,24 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Random } from "random-js";
 
 import Post from "../Post/Post";
 import "./Posts.css";
 
-const posts = props => {
-  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  function displayImage() {
-    let num = Math.ceil(Math.random() * 13);
-    if (arr === []) {
-      arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+function displayImage() {
+  for (let i = 0; i < arr.length; i++) {
+    let num = new Random().integer(1, 13);
+    if (arr[num] === 0) {
+      arr[num] = 1;
+      return num;
+    } else {
+      arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       displayImage();
     }
-    if (arr.includes(num) && num <= 13 && num >= 1) {
-      arr.splice(arr.indexOf(num), 1);
-      return num;
-    }
   }
+}
 
+const posts = props => {
   if (Array.isArray(props.searchResult) && props.searchResult.length !== 0) {
     const updatedPosts = props.searchResult.map(post => {
       return (
@@ -34,8 +36,9 @@ const posts = props => {
           score={post.score}
           acceptingDonations={post.acceptingDonations}
           missionStatement={post.missionStatement}
+          rows={post.rows === 50}
           src={`/PostPictures/${displayImage() + ".jpg"}`}
-          alt={`PostPicture${displayImage()}`}
+          alt={post.charityName}
         />
       );
     });

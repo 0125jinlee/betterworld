@@ -14,6 +14,12 @@ router.get("/", function(req, res) {
         (!response || !response.data || !response.data.data)
       ) {
         alert("Something went wrong with an API call!");
+      } else if (response.status === 403) {
+        alert("Not Authorized API Call");
+      } else if (response.status === 404) {
+        alert("Results not found");
+      } else if (response.stats === 500) {
+        alert("Server Error Occurred");
       } else {
         res.send(response.data.data);
       }

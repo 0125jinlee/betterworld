@@ -15,6 +15,7 @@
     "husky": "^4.2.5",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
+    "random-js": "^2.1.0",
     "react": "^16.13.1",
     "react-dev-utils": "10.0.0",
     "react-dom": "^16.13.1",
