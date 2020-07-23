@@ -5,18 +5,37 @@ import Post from "../Post/Post";
 import "./Posts.css";
 
 let arr = [];
+let base = 0;
 
 function displayImage() {
-  if (arr.length === 13) {
-    arr = [];
-    displayImage();
-  }
-  while (arr.length < 14) {
-    let num = Math.ceil(Math.random() * 13);
-    if (arr.indexOf(num) < 0) {
-      arr.push(num);
-      return num;
+  let num = Math.floor(Math.random() * 13);
+  if (arr[num] === undefined) {
+    arr[num] = 1;
+    return num;
+  } else if (arr[num] <= base) {
+    arr[num]++;
+    return num;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === undefined) {
+        arr[i] = 1;
+        return i;
+      } else if (arr[i] <= base) {
+        arr[i]++;
+        return i;
+      }
     }
+    let minIndex;
+    for (let k = 0; k < arr.length; k++) {
+      if (!minIndex) {
+        minIndex = k;
+      } else if (arr[minIndex] > arr[k]) {
+        minIndex = k;
+      }
+    }
+    arr[minIndex]++;
+    base++;
+    return minIndex;
   }
 }
 
