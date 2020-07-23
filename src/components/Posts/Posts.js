@@ -1,21 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Random } from "random-js";
 
 import Post from "../Post/Post";
 import "./Posts.css";
 
-let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let arr = [];
 
 function displayImage() {
-  for (let i = 0; i < arr.length; i++) {
-    let num = new Random().integer(1, 13);
-    if (arr[num] === 0) {
-      arr[num] = 1;
+  if (arr.length === 13) {
+    arr = [];
+    displayImage();
+  }
+  while (arr.length < 14) {
+    let num = Math.ceil(Math.random() * 13);
+    if (arr.indexOf(num) < 0) {
+      arr.push(num);
       return num;
-    } else {
-      arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      displayImage();
     }
   }
 }
@@ -36,7 +36,6 @@ const posts = props => {
           score={post.score}
           acceptingDonations={post.acceptingDonations}
           missionStatement={post.missionStatement}
-          rows={post.rows === 50}
           src={`/PostPictures/${displayImage() + ".jpg"}`}
           alt={post.charityName}
         />
