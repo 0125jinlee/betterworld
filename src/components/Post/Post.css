@@ -21,6 +21,10 @@
   transform: scale(1.04);
 }
 
+.PostButtons {
+  position: absolute;
+}
+
 .Post h2 {
   color: black;
   font-size: 19px;

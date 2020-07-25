@@ -24,19 +24,31 @@ const Post = props => {
 
   const flipArticle = event => {
     event.preventDefault();
-    setArticleClicked(true);
+    setArticleClicked(!articleClicked);
   };
 
   return (
-    <div className="Post">
-      <article onClick={flipArticle}>
+    <div
+      onClick={flipArticle}
+      className="Post"
+      style={
+        articleClicked
+          ? {
+              backgroundImage: `url(${props.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }
+          : { backgroundImage: "none" }
+      }
+    >
+      <article>
         <div className="PostButtons">
           {articleClicked ? <Button btnType="Website">WEBSITE</Button> : null}
           {articleClicked ? <Button btnType="Save">SAVE</Button> : null}
         </div>
         <div
           className="PostInfo"
-          style={articleClicked ? { display: "none" } : { display: "visible" }}
+          style={articleClicked ? { display: "none" } : { display: "block" }}
         >
           <img
             className="PostImage"
