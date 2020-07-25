@@ -7,7 +7,7 @@ import "./Posts.css";
 let arr = [];
 let base = 0;
 
-function displayImage() {
+const displayImage = () => {
   let num = Math.floor(Math.random() * 13);
   if (arr[num] === undefined) {
     arr[num] = 1;
@@ -37,7 +37,7 @@ function displayImage() {
     base++;
     return minIndex;
   }
-}
+};
 
 const posts = props => {
   if (Array.isArray(props.searchResult) && props.searchResult.length !== 0) {

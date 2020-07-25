@@ -4,7 +4,7 @@ import Button from "../UI/Button/Button";
 import "./Post.css";
 
 const Post = props => {
-  const [buttonVisible, setButtonVisible] = useState(false);
+  const [articleClicked, setArticleClicked] = useState(false);
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -16,28 +16,28 @@ const Post = props => {
     missionStatement = false;
   }
 
-  function toTitleCase(str) {
+  const toTitleCase = str => {
     return str.replace(/\w\S*/g, function(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
-  }
+  };
+
+  const flipArticle = event => {
+    event.preventDefault();
+    setArticleClicked(true);
+  };
 
   return (
     <div className="Post">
-      <article
-        onMouseEnter={() => {
-          setButtonVisible(true);
-        }}
-        onMouseLeave={() => {
-          setButtonVisible(false);
-        }}
-        onClick={props.onClick}
-      >
+      <article onClick={flipArticle}>
         <div className="PostButtons">
-          {buttonVisible ? <Button btnType="Website">WEBSITE</Button> : null}
-          {buttonVisible ? <Button btnType="Save">SAVE</Button> : null}
+          {articleClicked ? <Button btnType="Website">WEBSITE</Button> : null}
+          {articleClicked ? <Button btnType="Save">SAVE</Button> : null}
         </div>
-        <div className="PostInfo">
+        <div
+          className="PostInfo"
+          style={articleClicked ? { display: "none" } : { display: "visible" }}
+        >
           <img
             className="PostImage"
             src={props.src}
