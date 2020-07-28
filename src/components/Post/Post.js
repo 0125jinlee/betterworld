@@ -5,6 +5,7 @@ import "./Post.css";
 
 const Post = props => {
   const [articleClicked, setArticleClicked] = useState(false);
+  const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -27,35 +28,33 @@ const Post = props => {
     setArticleClicked(!articleClicked);
   };
 
+  const saveToMyPage = event => {
+    event.preventDefault();
+    setSaveToMyPageClicked(saveToMyPageClicked);
+  };
+
   return (
-    <div
-      onClick={flipArticle}
-      className="Post"
-      style={
-        articleClicked
-          ? {
-              backgroundImage: `url(${props.src})`,
-              backgroundSize: "fit",
-              backgroundPosition: "center"
-            }
-          : { backgroundImage: "none" }
-      }
-    >
+    <div onClick={flipArticle} className="Post">
       <article>
         <div className="PostButtons">
-          {articleClicked ? <Button btnType="Website">WEBSITE</Button> : null}
-          {articleClicked ? <Button btnType="Save">SAVE</Button> : null}
+          {articleClicked ? (
+            <Button btnType="Website" onClick={props.orghunterUrl}>
+              WEBSITE
+            </Button>
+          ) : null}
+          {articleClicked ? (
+            <Button btnType="Save" onClick={saveToMyPage}>
+              SAVE
+            </Button>
+          ) : null}
         </div>
-        <div
-          className="PostInfo"
-          style={articleClicked ? { display: "none" } : { display: "block" }}
-        >
+        <div className="PostInfo">
           <img
             className="PostImage"
             src={props.src}
             alt={props.alt}
-            height="160"
             width="330"
+            height="310"
           />
           <ul>
             <a

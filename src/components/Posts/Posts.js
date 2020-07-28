@@ -57,6 +57,7 @@ const posts = props => {
           missionStatement={post.missionStatement}
           src={`/PostPictures/${displayImage() + ".jpg"}`}
           alt={post.charityName}
+          key={post.ein}
         />
       );
     });

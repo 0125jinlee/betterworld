@@ -74,6 +74,7 @@
   height: 45px;
   margin-bottom: 10px;
   border-radius: 2px;
+  padding-left: 15px;
   border: none;
   font-family: "Roboto";
   font-size: 15px;
@@ -83,7 +84,6 @@
 
 .authForm input::placeholder {
   font-family: "Roboto";
-  padding-left: 10px;
   letter-spacing: 1px;
   font-size: 15px;
 }
@@ -108,5 +108,9 @@
 @media (max-width: 375px) {
   .Logo h1 {
     display: none;
+  }
+
+  .AuthBox h1 {
+    font-size: 30px;
   }
 }
