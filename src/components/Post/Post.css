@@ -1,5 +1,5 @@
 .Post {
-  background: #fff;
+  background-size: 330px 310px;
   width: 330px;
   height: 310px;
   overflow: scroll;
@@ -59,14 +59,15 @@
 
 @media (max-width: 375px) {
   .Post {
-    background: #fff;
-    width: 175px;
+    background-size: 170px 150px;
+    width: 170px;
     height: 150px;
+    vertical-align: baseline;
   }
 
   .PostImage {
-    height: 70px;
-    width: 175px;
+    height: 80px;
+    width: 170px;
   }
 
   .Post h2 {

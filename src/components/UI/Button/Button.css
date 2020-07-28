@@ -99,4 +99,17 @@
   .ButtonLogin {
     margin-left: 5px;
   }
+  .ButtonWebsite {
+    font-size: 10px;
+    width: 80px;
+    height: 30px;
+    margin: 40px 45px 10px 45px;
+  }
+
+  .ButtonSave {
+    font-size: 10px;
+    width: 80px;
+    height: 30px;
+    margin: 0px 45px 0px 45px;
+  }
 }

@@ -110,4 +110,4 @@ dist
 .firebase
 
 # Build
-build/
+build

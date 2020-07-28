@@ -35,7 +35,7 @@ const Post = props => {
         articleClicked
           ? {
               backgroundImage: `url(${props.src})`,
-              backgroundSize: "cover",
+              backgroundSize: "fit",
               backgroundPosition: "center"
             }
           : { backgroundImage: "none" }
