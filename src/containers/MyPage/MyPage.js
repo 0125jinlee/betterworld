@@ -1,11 +1,11 @@
 import React from "react";
 
 import NavigationItem from "../../components/Navigation/NavigationItem";
-import "./Donations.css";
+import "./MyPage.css";
 
-const donations = props => {
+const MyPage = props => {
   return (
-    <div className="Donations">
+    <div className="MyPage">
       <div className="Logo">
         <NavigationItem link="/" exact>
           <img src="/Logo.png" alt="Logo" />
@@ -14,11 +14,14 @@ const donations = props => {
           <h1>Better World</h1>
         </NavigationItem>
       </div>
-      <div className="Test">
-        <h1>TESTTESTTEST</h1>
+      <div className="Page">
+        <div className="pageTitle">
+          <h1>Your Interests</h1>
+        </div>
+        <div className="savedCharities"></div>
       </div>
     </div>
   );
 };
 
-export default donations;
+export default MyPage;

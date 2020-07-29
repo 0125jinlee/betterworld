@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.ButtonImpacts {
+.ButtonMyPage {
   width: 100px;
   height: 40px;
   border: 1px solid #ffffff;
@@ -44,11 +44,12 @@
   border-radius: 2px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
   letter-spacing: 0.15px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .ButtonLogin {
@@ -97,20 +98,16 @@
 }
 
 @media (max-width: 375px) {
+  .ButtonHome {
+    display: none;
+  }
+
   .ButtonLogin {
     margin-left: 5px;
   }
-  .ButtonWebsite {
-    font-size: 10px;
-    width: 80px;
-    height: 30px;
-    margin: 40px 45px 10px 45px;
-  }
 
-  .ButtonSave {
-    font-size: 10px;
-    width: 80px;
-    height: 30px;
-    margin: 0px 45px 0px 45px;
+  .ButtonMyPage {
+    border: 1px solid #ffffff;
+    background: none;
   }
 }

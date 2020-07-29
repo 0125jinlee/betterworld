@@ -8,7 +8,7 @@ let arr = [];
 let base = 0;
 
 const displayImage = () => {
-  let num = Math.floor(Math.random() * 13);
+  let num = Math.floor(Math.random() * 20);
   if (arr[num] === undefined) {
     arr[num] = 1;
     return num;

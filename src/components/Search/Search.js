@@ -25,7 +25,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="Container">
         <h1 className="searchTitle">Show and support what you love</h1>
         <form onSubmit={this.handleSubmit} className="searchForm">
           <input
@@ -33,7 +33,7 @@ class Search extends Component {
             placeholder="What do you want to support today?"
             onChange={this.handleChange}
           />
-          <button className="button" onClick={this.handleSubmit}>
+          <button className="searchButton" onClick={this.handleSubmit}>
             SEARCH
           </button>
         </form>

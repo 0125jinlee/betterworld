@@ -39,7 +39,7 @@
 .AuthBox {
   display: flex;
   width: 100%;
-  min-height: 400px;
+  min-height: 450px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -108,6 +108,10 @@
 @media (max-width: 375px) {
   .Logo h1 {
     display: none;
+  }
+
+  .AuthBox {
+    min-height: 400px;
   }
 
   .AuthBox h1 {

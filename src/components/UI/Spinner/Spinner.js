@@ -3,7 +3,7 @@ import React from "react";
 import "./Spinner.css";
 
 const Spinner = () => (
-  <div class="loader">
+  <div class="Spinner">
     <h2>LOADING</h2>
   </div>
 );

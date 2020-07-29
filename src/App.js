@@ -9,8 +9,8 @@ import Posts from "./components/Posts/Posts";
 import * as actions from "./store/actions/index";
 import "./App.css";
 
-const Donations = React.lazy(() => {
-  return import("./containers/Donations/Donations");
+const MyPage = React.lazy(() => {
+  return import("./containers/MyPage/MyPage");
 });
 
 const Authenticate = React.lazy(() => {
@@ -35,7 +35,7 @@ const App = props => {
   if (props.isAuthenticated) {
     routes = (
       <Switch>
-        <Route path="/donations" render={props => <Donations {...props} />} />
+        <Route path="/mypage" render={props => <MyPage {...props} />} />
         <Route path="/logout" component={Logout} />
         <Route path="/auth" render={props => <Authenticate {...props} />} />
         <Route path="/" exact component={Main} />

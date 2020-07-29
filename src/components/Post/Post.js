@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Button from "../UI/Button/Button";
+// import Button from "../UI/Button/Button";
 
 import "./Post.css";
 
 const Post = props => {
   const [articleClicked, setArticleClicked] = useState(false);
-  const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
+  // const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -28,15 +28,15 @@ const Post = props => {
     setArticleClicked(!articleClicked);
   };
 
-  const saveToMyPage = event => {
-    event.preventDefault();
-    setSaveToMyPageClicked(saveToMyPageClicked);
-  };
+  // const saveToMyPage = (event) => {
+  //   event.preventDefault();
+  //   setSaveToMyPageClicked(saveToMyPageClicked);
+  // };
 
   return (
     <div onClick={flipArticle} className="Post">
       <article>
-        <div className="PostButtons">
+        {/* <div className="PostButtons">
           {articleClicked ? (
             <Button btnType="Website" onClick={props.orghunterUrl}>
               WEBSITE
@@ -47,7 +47,7 @@ const Post = props => {
               SAVE
             </Button>
           ) : null}
-        </div>
+        </div> */}
         <div className="PostInfo">
           <img
             className="PostImage"
