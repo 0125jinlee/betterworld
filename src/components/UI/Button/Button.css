@@ -19,22 +19,6 @@
   cursor: pointer;
 }
 
-.ButtonHome {
-  width: 100px;
-  height: 40px;
-  border: 1px solid #ffffff;
-  background: none;
-  box-sizing: border-box;
-  border-radius: 2px;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 0.15px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .ButtonMyPage {
   width: 100px;
   height: 40px;
@@ -55,8 +39,8 @@
 .ButtonLogin {
   width: 100px;
   height: 40px;
-  border: 1px solid #1d499c;
-  background: #1d499c;
+  border: 1px solid #ffffff;
+  background: none;
   border-radius: 2px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
@@ -68,46 +52,41 @@
 }
 
 .ButtonWebsite {
-  width: 150px;
-  height: 50px;
-  background: #1d499c;
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  background: #3d7bf7;
   border: none;
-  border-radius: 2px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
   font-family: "Roboto", sans-serif;
+  font-size: 12px;
   font-weight: bold;
   color: #ffffff;
   letter-spacing: 0.15px;
   cursor: pointer;
-  display: block;
-  margin: 80px 90px 30px 90px;
+  margin-top: 310px;
+  margin-left: 185px;
+}
+
+.ButtonWebsite:hover {
+  opacity: 40%;
 }
 
 .ButtonSave {
-  width: 150px;
-  height: 50px;
-  background: #1d499c;
-  border: none;
-  border-radius: 2px;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  color: #ffffff;
-  letter-spacing: 0.15px;
+  position: absolute;
+  width: 24px;
+  height: 32px;
+  background: none;
+  padding: 0px;
+  border-top: 16px solid #ffffff;
+  border-left: 12px solid #ffffff;
+  border-right: 12px solid #ffffff;
+  border-bottom: 16px solid transparent;
+  opacity: 80%;
+  margin-top: 10px;
+  margin-left: 10px;
   cursor: pointer;
-  display: block;
-  margin: 0px 90px 0px 90px;
 }
 
 @media (max-width: 375px) {
-  .ButtonHome {
-    display: none;
-  }
-
-  .ButtonLogin {
-    margin-left: 5px;
-  }
-
-  .ButtonMyPage {
-    border: 1px solid #ffffff;
-    background: none;
-  }
 }

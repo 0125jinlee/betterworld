@@ -6,9 +6,6 @@ import Button from "../UI/Button/Button";
 
 const navigation = props => (
   <div className="Bar">
-    <NavigationItem link="/" exact>
-      <Button btnType="Home">HOME</Button>
-    </NavigationItem>
     {!props.isAuthenticated ? null : (
       <NavigationItem link="/mypage">
         <Button btnType="MyPage">MY PAGE</Button>

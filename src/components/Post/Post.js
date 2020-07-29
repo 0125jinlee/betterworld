@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-// import Button from "../UI/Button/Button";
+import Button from "../UI/Button/Button";
 
 import "./Post.css";
 
 const Post = props => {
-  const [articleClicked, setArticleClicked] = useState(false);
-  // const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
+  const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -23,47 +22,32 @@ const Post = props => {
     });
   };
 
-  const flipArticle = event => {
+  const saveToMyPage = event => {
     event.preventDefault();
-    setArticleClicked(!articleClicked);
+    setSaveToMyPageClicked(saveToMyPageClicked);
   };
 
-  // const saveToMyPage = (event) => {
-  //   event.preventDefault();
-  //   setSaveToMyPageClicked(saveToMyPageClicked);
-  // };
-
   return (
-    <div onClick={flipArticle} className="Post">
+    <div className="Post">
       <article>
-        {/* <div className="PostButtons">
-          {articleClicked ? (
-            <Button btnType="Website" onClick={props.orghunterUrl}>
-              WEBSITE
-            </Button>
-          ) : null}
-          {articleClicked ? (
-            <Button btnType="Save" onClick={saveToMyPage}>
-              SAVE
-            </Button>
-          ) : null}
-        </div> */}
+        <div className="PostButtons">
+          <Button btnType="Save" onClick={saveToMyPage}></Button>
+          <a href={props.url} target="to_blank">
+            <Button btnType="Website">VISIT WEBSITE</Button>
+          </a>
+        </div>
         <div className="PostInfo">
-          <img
+          <div
             className="PostImage"
-            src={props.src}
-            alt={props.alt}
-            width="330"
-            height="310"
-          />
+            style={{
+              backgroundImage: `url(${props.src})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }}
+          ></div>
           <ul>
-            <a
-              href={props.orghunterUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>{toTitleCase(props.charityName)}</h2>
-            </a>
+            <h2>{toTitleCase(props.charityName)}</h2>
             <small>
               {toTitleCase(props.city)}, {props.state}, {props.zip}
             </small>

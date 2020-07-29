@@ -46,7 +46,7 @@ const posts = props => {
         <Post
           charityName={post.charityName}
           ein={post.ein}
-          orghunterUrl={post.url}
+          url={post.url}
           website={post.website}
           city={post.city}
           state={post.state}
@@ -56,7 +56,7 @@ const posts = props => {
           acceptingDonations={post.acceptingDonations}
           missionStatement={post.missionStatement}
           src={`/PostPictures/${displayImage() + ".jpg"}`}
-          alt={post.charityName}
+          alt={post.ein}
           key={post.ein}
         />
       );
