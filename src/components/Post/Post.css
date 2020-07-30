@@ -34,7 +34,7 @@
   font-size: 20px;
   font-weight: 900;
   text-align: left;
-  margin: 5px auto 0px 0px;
+  margin: 25px auto 0px 0px;
 }
 
 .Post small {
@@ -47,10 +47,6 @@
   color: inherit;
 }
 
-.Post a:hover {
-  color: #1d499c;
-}
-
 .Post ul {
   padding-left: 15px;
   text-align: left;
@@ -59,6 +55,18 @@
   font-family: "Roboto";
   font-size: 16px;
   color: #4b4b4b;
+}
+
+.Ribbon {
+  position: absolute;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 32px;
+  padding: 0px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 375px) {

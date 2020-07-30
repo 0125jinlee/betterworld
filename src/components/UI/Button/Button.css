@@ -64,28 +64,8 @@
   color: #ffffff;
   letter-spacing: 0.15px;
   cursor: pointer;
-  margin-top: 310px;
-  margin-left: 185px;
-}
-
-.ButtonWebsite:hover {
-  opacity: 40%;
-}
-
-.ButtonSave {
-  position: absolute;
-  width: 24px;
-  height: 32px;
-  background: none;
-  padding: 0px;
-  border-top: 16px solid #ffffff;
-  border-left: 12px solid #ffffff;
-  border-right: 12px solid #ffffff;
-  border-bottom: 16px solid transparent;
-  opacity: 80%;
-  margin-top: 10px;
-  margin-left: 10px;
-  cursor: pointer;
+  margin-top: 135px;
+  margin-left: 190px;
 }
 
 @media (max-width: 375px) {

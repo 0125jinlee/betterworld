@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { apiCallThunk } from "../../store/thunk/searchThunk";
 
 import Search from "../../components/Search/Search";
 import NavigationItem from "../../components/Navigation/NavigationItem";
 import "./Main.css";
 
-const main = () => {
+const Main = props => {
+  useEffect(() => {
+    props.dispatch(apiCallThunk("children"));
+  });
+
   return (
     <div className="Main">
       <div className="Logo">
@@ -22,4 +28,10 @@ const main = () => {
   );
 };
 
-export default main;
+const mapStateToProps = state => {
+  return {
+    assignedSearchResult: state.searchReducer.assignedSearchResult
+  };
+};
+
+export default connect(mapStateToProps)(Main);

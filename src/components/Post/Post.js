@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Button from "../UI/Button/Button";
 
+import ribbonBefore from "./ribbon-before.svg";
+import ribbonAfter from "./ribbon-after.svg";
 import "./Post.css";
 
 const Post = props => {
-  const [saveToMyPageClicked, setSaveToMyPageClicked] = useState(false);
+  const [saveClicked, setSaveClicked] = useState(false);
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -22,16 +24,17 @@ const Post = props => {
     });
   };
 
-  const saveToMyPage = event => {
-    event.preventDefault();
-    setSaveToMyPageClicked(saveToMyPageClicked);
+  const saveToMyPage = () => {
+    setSaveClicked(!saveClicked);
   };
 
   return (
     <div className="Post">
       <article>
         <div className="PostButtons">
-          <Button btnType="Save" onClick={saveToMyPage}></Button>
+          <div className="Ribbon" onClick={saveToMyPage}>
+            <img src={saveClicked ? ribbonAfter : ribbonBefore} alt="Ribbon" />
+          </div>
           <a href={props.url} target="to_blank">
             <Button btnType="Website">VISIT WEBSITE</Button>
           </a>
