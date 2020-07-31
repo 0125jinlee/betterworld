@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./Navigation.css";
 import NavigationItem from "./NavigationItem";
 import Button from "../UI/Button/Button";
+import "./Navigation.css";
 
 const navigation = props => (
   <div className="Bar">

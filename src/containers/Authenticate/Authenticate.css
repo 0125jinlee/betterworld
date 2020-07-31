@@ -1,120 +1,70 @@
-.Auth {
-  display: flex;
-  flex-direction: column;
-}
-
 .AuthBox {
-  display: flex;
-  flex-direction: column;
-}
-
-.Logo {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  margin-left: 25px;
-  top: 25px;
-}
-
-.Logo a {
-  text-decoration: none;
-}
-
-.Logo img {
-  width: 40px;
-  height: 40px;
-}
-
-.Logo h1 {
-  font-family: "Suez One";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 30px;
-  line-height: 30px;
-  color: #ffffff;
-  padding-left: 10px;
-  margin: 0px;
-}
-
-.AuthBox {
-  display: flex;
-  width: 100%;
-  min-height: 450px;
+  background: #ffffff;
+  width: 610px;
+  height: 400px;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-.AuthBox h1 {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 20px;
-  color: #ffffff;
-}
-
-.AuthBox h2 {
-  font-family: "Roboto";
-  font-style: italic;
-  font-weight: bold;
-  text-align: center;
-  font-size: 15px;
-  color: darkgray;
-  margin: 0px;
-}
-
-.authForm {
-  width: 250px;
-  height: 200px;
-}
-
-.authForm input {
-  width: 100%;
+.AuthTitle {
+  width: 486px;
   height: 45px;
-  margin-bottom: 10px;
-  border-radius: 2px;
-  padding-left: 15px;
+  margin: 50px 57.5px 50px 57.5px;
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 36px;
+  color: #02133c;
+}
+
+.AuthTitle img {
+  margin-left: 330px;
+}
+
+.AuthError {
+  width: 470px;
+  height: 45px;
+  margin: 0px 57.5px 0px 57.5px;
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 14px;
+  color: darkgray;
+}
+
+.AuthInput input {
+  width: 470px;
+  height: 45px;
+  margin: 0px 57.5px 10px 57.5px;
+  padding-left: 14px;
+  background: #f5f5f5;
+  border-radius: 3px;
   border: none;
   font-family: "Roboto";
-  font-size: 15px;
-  letter-spacing: 1px;
-  box-sizing: border-box;
+  color: #777777;
+  font-size: 16px;
+  letter-spacing: 0.15px;
 }
 
-.authForm input::placeholder {
-  font-family: "Roboto";
-  letter-spacing: 1px;
-  font-size: 15px;
+.AuthButtons {
+  text-align: right;
+  width: 470px;
+  height: 45px;
+  margin: 10px 57.5px 10px 73px;
 }
 
-.AuthButton {
-  display: inline;
-}
-
-.authForm button {
-  height: 55px;
-  border: 0px;
-  background: #1d499c;
+.AuthButtons button {
+  width: 200px;
+  height: 45px;
+  border: none;
+  background: #3d7bf7;
   color: #ffffff;
+  font-family: "Roboto";
   font-weight: bold;
-}
-
-.authForm button:hover {
-  background: #ffffff;
-  color: #1d499c;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+  border-radius: 2px;
 }
 
 @media (max-width: 375px) {
-  .Logo h1 {
-    display: none;
-  }
-
-  .AuthBox {
-    min-height: 400px;
-  }
-
-  .AuthBox h1 {
-    font-size: 30px;
-  }
 }

@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import NavigationItem from "../../components/Navigation/NavigationItem";
+import CloseButton from "./closeButton.svg";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../utils/utility";
 import "./Authenticate.css";
@@ -113,30 +113,23 @@ const Authenticate = props => {
   }
 
   return (
-    <div className="Auth">
-      <div className="Logo">
-        <NavigationItem link="/" exact>
-          <img src="/Logo.png" alt="Logo" />
-        </NavigationItem>
-        <NavigationItem link="/" exact>
-          <h1>Better World</h1>
-        </NavigationItem>
+    <form className="AuthBox" onSubmit={submitHandler}>
+      {authRedirect}
+      <div className="AuthTitle">
+        {isSignup ? "Sign Up" : "Sign In"}
+        <img src={CloseButton} alt="CloseButton" />
       </div>
-      <div className="AuthBox" onSubmit={submitHandler}>
-        <h1>{isSignup ? "Sign Up" : "Sign In"}</h1>
-        <form className="authForm">
-          {authRedirect}
-          {errorMessage}
-          <div className="Input">{form}</div>
-          <div className="AuthButtons">
-            <Button clicked={switchAuthModeHandler} btnType="Sign">
-              SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
-            </Button>
-            <Button btnType="Submit">SUBMIT</Button>
-          </div>
-        </form>
+      {errorMessage ? <div className="AuthError">{errorMessage}</div> : null}
+      <div className="AuthInput">{form}</div>
+      <div className="AuthButtons">
+        <Button onClick={switchAuthModeHandler} btnType="Sign" type="button">
+          SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
+        </Button>
+        <Button btnType="Submit" type="submit">
+          SUBMIT
+        </Button>
       </div>
-    </div>
+    </form>
   );
 };
 
