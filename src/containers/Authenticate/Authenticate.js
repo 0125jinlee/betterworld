@@ -42,7 +42,7 @@ const Authenticate = props => {
     }
   });
 
-  const [isSignup, setIsSignup] = useState(true);
+  const [isSignup, setIsSignup] = useState(false);
 
   const { searchResult, authRedirectPath, onSetAuthRedirectPath } = props;
 
@@ -113,7 +113,7 @@ const Authenticate = props => {
   }
 
   return (
-    <form className="AuthBox" onSubmit={submitHandler}>
+    <form className="AuthBox">
       {authRedirect}
       <div className="AuthTitle">
         {isSignup ? "Sign Up" : "Sign In"}
@@ -122,10 +122,10 @@ const Authenticate = props => {
       {errorMessage ? <div className="AuthError">{errorMessage}</div> : null}
       <div className="AuthInput">{form}</div>
       <div className="AuthButtons">
-        <Button onClick={switchAuthModeHandler} btnType="Sign" type="button">
+        <Button onClick={switchAuthModeHandler} btnType="Sign">
           SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
         </Button>
-        <Button btnType="Submit" type="submit">
+        <Button btnType="Submit" onClick={submitHandler}>
           SUBMIT
         </Button>
       </div>
