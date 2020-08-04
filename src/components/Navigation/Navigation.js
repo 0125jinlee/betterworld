@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import NavigationItem from "./NavigationItem";
 import Button from "../UI/Button/Button";
@@ -22,16 +21,4 @@ const Navigation = props => (
   </div>
 );
 
-const mapStateToProps = state => {
-  return {
-    modalType: state.modalReducer.modalType,
-    modalProps: state.modalReducer.modalProps,
-    isAuthenticated: state.authReducer.token !== null
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default Navigation;

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import Main from "../Main/Main";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import CloseButton from "./closeButton.svg";
 import * as actions from "../../store/actions/index";
 import { updateObject, checkValidity } from "../../utils/utility";
+import Modal from "../../components/UI/Modal/Modal";
+import CloseButton from "./closeButton.svg";
 import "./Authenticate.css";
 
 const Authenticate = props => {
@@ -43,6 +45,7 @@ const Authenticate = props => {
   });
 
   const [isSignup, setIsSignup] = useState(false);
+  const [modalToggle, setModalToggle] = useState(true);
 
   const { searchResult, authRedirectPath, onSetAuthRedirectPath } = props;
 
@@ -74,6 +77,11 @@ const Authenticate = props => {
   const switchAuthModeHandler = event => {
     event.preventDefault();
     setIsSignup(!isSignup);
+  };
+
+  const switchModal = event => {
+    event.preventDefault();
+    setModalToggle(!modalToggle);
   };
 
   const formElementsArray = [];
@@ -113,23 +121,34 @@ const Authenticate = props => {
   }
 
   return (
-    <form className="AuthBox">
-      {authRedirect}
-      <div className="AuthTitle">
-        {isSignup ? "Sign Up" : "Sign In"}
-        <img src={CloseButton} alt="CloseButton" />
+    <div>
+      <Modal show={modalToggle} modalClosed={switchModal}>
+        <form className="AuthBox">
+          {authRedirect}
+          <div className="AuthTitle">
+            {isSignup ? "Sign Up" : "Sign In"}
+            <Button btnType="Close">
+              <img src={CloseButton} alt="CloseButton" onClick={switchModal} />
+            </Button>
+          </div>
+          {errorMessage ? (
+            <div className="AuthError">{errorMessage}</div>
+          ) : null}
+          <div className="AuthInput">{form}</div>
+          <div className="AuthButtons">
+            <Button onClick={switchAuthModeHandler} btnType="Sign">
+              SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
+            </Button>
+            <Button btnType="Submit" onClick={submitHandler}>
+              SUBMIT
+            </Button>
+          </div>
+        </form>
+      </Modal>
+      <div className="Main">
+        <Main />
       </div>
-      {errorMessage ? <div className="AuthError">{errorMessage}</div> : null}
-      <div className="AuthInput">{form}</div>
-      <div className="AuthButtons">
-        <Button onClick={switchAuthModeHandler} btnType="Sign">
-          SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
-        </Button>
-        <Button btnType="Submit" onClick={submitHandler}>
-          SUBMIT
-        </Button>
-      </div>
-    </form>
+    </div>
   );
 };
 
