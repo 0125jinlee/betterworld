@@ -2,6 +2,8 @@
   position: absolute;
   z-index: 500;
   background-color: white;
+  top: 50%;
+  left: 50%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }

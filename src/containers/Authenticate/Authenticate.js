@@ -127,7 +127,7 @@ const Authenticate = props => {
           {authRedirect}
           <div className="AuthTitle">
             {isSignup ? "Sign Up" : "Sign In"}
-            <Button btnType="Close">
+            <Button btnType="Close" type="button">
               <img src={CloseButton} alt="CloseButton" onClick={switchModal} />
             </Button>
           </div>
@@ -136,10 +136,14 @@ const Authenticate = props => {
           ) : null}
           <div className="AuthInput">{form}</div>
           <div className="AuthButtons">
-            <Button onClick={switchAuthModeHandler} btnType="Sign">
+            <Button
+              onClick={switchAuthModeHandler}
+              btnType="Sign"
+              type="button"
+            >
               SWITCH TO {isSignup ? "SIGN IN" : "SIGN UP"}
             </Button>
-            <Button btnType="Submit" onClick={submitHandler}>
+            <Button btnType="Submit" type="submit" onClick={submitHandler}>
               SUBMIT
             </Button>
           </div>

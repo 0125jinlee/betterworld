@@ -8,7 +8,9 @@ import "./Main.css";
 
 const Main = props => {
   useEffect(() => {
-    props.dispatch(apiCallThunk("children"));
+    if (props.searchTerm === "") {
+      props.dispatch(apiCallThunk("children"));
+    }
   });
 
   return (
@@ -30,7 +32,7 @@ const Main = props => {
 
 const mapStateToProps = state => {
   return {
-    assignedSearchResult: state.searchReducer.assignedSearchResult
+    searchTerm: state.searchReducer.searchTerm
   };
 };
 
