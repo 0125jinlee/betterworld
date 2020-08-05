@@ -11,13 +11,15 @@ const Navigation = props => (
         <Button btnType="MyPage">MY PAGE</Button>
       </NavigationItem>
     )}
-    <Button btnType="Login">
-      {!props.isAuthenticated ? (
-        <NavigationItem link="/auth">LOG IN</NavigationItem>
-      ) : (
-        <NavigationItem link="/logout">LOG OUT</NavigationItem>
-      )}
-    </Button>
+    {!props.isAuthenticated ? (
+      <NavigationItem link="/auth">
+        <Button btnType="Login">LOG IN</Button>
+      </NavigationItem>
+    ) : (
+      <NavigationItem link="/logout">
+        <Button btnType="Login">LOG OUT</Button>
+      </NavigationItem>
+    )}
   </div>
 );
 

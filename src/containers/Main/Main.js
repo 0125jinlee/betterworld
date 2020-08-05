@@ -7,9 +7,19 @@ import NavigationItem from "../../components/Navigation/NavigationItem";
 import "./Main.css";
 
 const Main = props => {
+  let trendingWords = [
+    "children",
+    "women",
+    "elder",
+    "victim",
+    "virus",
+    "hunger",
+    "needs"
+  ];
+
   useEffect(() => {
     if (props.searchTerm === "") {
-      props.dispatch(apiCallThunk("children"));
+      props.dispatch(apiCallThunk(trendingWords[Math.ceil(Math.random() * 6)]));
     }
   });
 

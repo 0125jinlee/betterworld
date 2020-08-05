@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import Main from "../Main/Main";
+import NavigationItem from "../../components/Navigation/NavigationItem";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
@@ -127,8 +128,10 @@ const Authenticate = props => {
           {authRedirect}
           <div className="AuthTitle">
             {isSignup ? "Sign Up" : "Sign In"}
-            <Button btnType="Close" type="button">
-              <img src={CloseButton} alt="CloseButton" onClick={switchModal} />
+            <Button btnType="Close" type="button" onClick={switchModal}>
+              <NavigationItem link="/">
+                <img src={CloseButton} alt="CloseButton" />
+              </NavigationItem>
             </Button>
           </div>
           {errorMessage ? (
