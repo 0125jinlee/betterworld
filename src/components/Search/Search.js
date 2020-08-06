@@ -1,50 +1,43 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { apiCallThunk } from "../../store/thunk/searchThunk";
 
 import "./Search.css";
 
-class Search extends Component {
-  constructor() {
-    super();
-    this.state = { searchTerm: "" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Search = props => {
+  const [searchTerm, setSearchTerm] = useState();
 
-  handleChange = event => {
+  const handleChange = event => {
     event.preventDefault();
-    this.setState({ searchTerm: event.target.value });
+    setSearchTerm(event.target.value);
   };
 
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-    const searchTerm = this.state.searchTerm;
-    this.props.dispatch(apiCallThunk(searchTerm));
+    props.dispatch(apiCallThunk(searchTerm));
   };
 
-  render() {
-    return (
-      <div className="Container">
-        <h1 className="searchTitle">Show and support what you love</h1>
-        <form onSubmit={this.handleSubmit} className="searchForm">
-          <input
-            type="text"
-            placeholder="What do you want to support today?"
-            onChange={this.handleChange}
-          />
-          <button className="searchButton" onClick={this.handleSubmit}>
-            SEARCH
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="Container">
+      <h1 className="searchTitle">Show and support what you love</h1>
+      <form onSubmit={handleSubmit} className="searchForm">
+        <input
+          type="text"
+          placeholder="What do you want to support today?"
+          onChange={event => handleChange(event)}
+        />
+        <button className="searchButton" onClick={handleSubmit}>
+          SEARCH
+        </button>
+      </form>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
-    state: state.searchReducer
+    searchTerm: state.searchReducer.searchTerm,
+    searchCounter: state.searchReducer.searchCounter
   };
 };
 

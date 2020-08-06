@@ -1,4 +1,5 @@
 const initialState = {
+  searchCounter: 0,
   searchTerm: "",
   searchResult: [],
   isFetching: false,
