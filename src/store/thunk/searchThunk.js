@@ -2,7 +2,7 @@ import axios from "axios";
 
 import * as searchActions from "../actions/searchActions";
 
-export const apiCallThunk = searchTerm => {
+export const apiCallThunk = (searchTerm, searchCounter) => {
   return function(dispatch, getState) {
     return axios
       .get(
@@ -13,6 +13,7 @@ export const apiCallThunk = searchTerm => {
           dispatch(
             searchActions.receivedData({
               searchTerm: searchTerm,
+              searchCounter: searchCounter,
               result: response.data
             })
           );

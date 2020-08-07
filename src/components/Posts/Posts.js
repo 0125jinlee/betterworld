@@ -64,7 +64,11 @@ const posts = props => {
     return (
       <div className="Results">
         <div className="ResultsTopic">
-          SEARCH RESULTS FOR '{props.searchTerm.toUpperCase()}'
+          {props.searchCounter > 1
+            ? `SEARCH RESULTS FOR ${props.searchTerm.toUpperCase()}`
+            : `MOST TRENDING Donations for ${props.searchTerm
+                .charAt(0)
+                .toUpperCase() + props.searchTerm.slice(1)}`}
         </div>
         <div className="Posts">{updatedPosts}</div>
       </div>
@@ -77,6 +81,7 @@ const posts = props => {
 const mapStateToProps = state => {
   return {
     searchTerm: state.searchReducer.searchTerm,
+    searchCounter: state.searchReducer.searchCounter,
     searchResult: state.searchReducer.searchResult
   };
 };

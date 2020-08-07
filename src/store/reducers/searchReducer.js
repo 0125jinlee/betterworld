@@ -16,6 +16,7 @@ const searchReducer = (state = initialState, action) => {
       };
     case "RECEIVED_DATA":
       return {
+        searchCounter: state.searchCounter + 1,
         searchTerm: action.data.searchTerm,
         searchResult: action.data.result,
         isFetching: false,
