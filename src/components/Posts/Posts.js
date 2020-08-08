@@ -64,11 +64,20 @@ const posts = props => {
     return (
       <div className="Results">
         <div className="ResultsTopic">
-          {props.searchCounter > 1
-            ? `SEARCH RESULTS FOR ${props.searchTerm.toUpperCase()}`
-            : `MOST TRENDING Donations for ${props.searchTerm
-                .charAt(0)
-                .toUpperCase() + props.searchTerm.slice(1)}`}
+          {props.searchCounter > 1 ? (
+            <span>
+              <h4>SEARCH RESULTS FOR "{props.searchTerm.toUpperCase()}"</h4>
+            </span>
+          ) : (
+            <span>
+              <h4>MOST TRENDING</h4>
+              <h1>
+                Donations for{" "}
+                {props.searchTerm.charAt(0).toUpperCase() +
+                  props.searchTerm.slice(1)}
+              </h1>
+            </span>
+          )}
         </div>
         <div className="Posts">{updatedPosts}</div>
       </div>
