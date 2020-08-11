@@ -1,6 +1,7 @@
 .MyPage {
   display: flex;
   flex-direction: column;
+  height: 90px;
 }
 
 .Logo {
@@ -31,11 +32,6 @@
   margin: 0px;
 }
 
-.Page {
-  display: flex;
-  min-height: 450px;
-}
-
 .pageTitle h1 {
   font-family: "Roboto";
   font-weight: bold;
@@ -47,9 +43,5 @@
 @media (max-width: 375px) {
   .Logo h1 {
     display: none;
-  }
-
-  .Page {
-    min-height: 400px;
   }
 }

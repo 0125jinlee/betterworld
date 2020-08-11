@@ -1,11 +1,18 @@
 import React, { useEffect, Suspense } from "react";
-import { Route, Switch, withRouter, Redirect } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  withRouter,
+  Redirect,
+  useRouteMatch
+} from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import Posts from "./components/Posts/Posts";
+import SavedPosts from "./components/SavedPosts/SavedPosts";
 import * as actions from "./store/actions/index";
 import "./App.css";
 
@@ -19,6 +26,8 @@ const Authenticate = React.lazy(() => {
 
 const App = props => {
   const { onTryAutoSignup } = props;
+
+  let match = useRouteMatch("/mypage");
 
   useEffect(() => {
     onTryAutoSignup();
@@ -50,9 +59,7 @@ const App = props => {
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
         <Layout></Layout>
       </div>
-      <div className="Posts">
-        <Posts />
-      </div>
+      {!!match ? <SavedPosts /> : <Posts />}
     </div>
   );
 };

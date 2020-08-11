@@ -1,0 +1,10 @@
+.SavedPosts {
+  margin: 60px 60px;
+}
+
+.SavedPosts h1 {
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 36px;
+  color: #02133c;
+}
