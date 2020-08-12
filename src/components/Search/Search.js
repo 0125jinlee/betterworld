@@ -5,7 +5,7 @@ import { apiCallThunk } from "../../store/thunk/searchThunk";
 import "./Search.css";
 
 const Search = props => {
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = event => {
     event.preventDefault();
@@ -14,7 +14,9 @@ const Search = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.dispatch(apiCallThunk(searchTerm));
+    searchTerm.length > 0
+      ? props.dispatch(apiCallThunk(searchTerm))
+      : alert("Enter valid search terms!");
   };
 
   return (
