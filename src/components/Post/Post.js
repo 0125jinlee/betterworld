@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Button from "../UI/Button/Button";
+import { connect } from "react-redux";
 
+import * as actions from "../../store/actions/index";
+import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
 import "./Post.css";
@@ -24,15 +26,27 @@ const Post = props => {
     });
   };
 
-  const saveToMyPage = () => {
+  const savePostHandler = event => {
+    event.preventDefault();
     setSaveClicked(!saveClicked);
+    const post = {
+      charityName: props.charityName,
+      url: props.url,
+      city: props.city,
+      state: props.state,
+      zip: props.zip,
+      category: props.category,
+      missionStatement: props.missionStatement
+    };
+
+    props.onSavePost(post, props.token);
   };
 
   return (
     <div className="Post">
       <article>
         <div className="PostButtons">
-          <div className="Ribbon" onClick={saveToMyPage}>
+          <div className="Ribbon" onClick={savePostHandler}>
             <img src={saveClicked ? ribbonAfter : ribbonBefore} alt="Ribbon" />
           </div>
           <a href={props.url} target="to_blank">
@@ -71,4 +85,18 @@ const Post = props => {
   );
 };
 
-export default Post;
+const mapStateToProps = state => {
+  return {
+    loading: state.savePostReducer.loading,
+    token: state.authReducer.token,
+    userId: state.authReducer.userId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSavePost: (postData, token) => dispatch(actions.savePost(postData, token))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

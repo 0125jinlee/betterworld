@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import * as fetchPostsActions from "../actions/fetchPostsAction";
+import * as fetchPostsAction from "../actions/fetchPostsAction";
 
 export const fetchPosts = (token, userId) => {
   return (dispatch, getState) => {
-    dispatch(fetchPostsActions.fetchPostsStart());
+    dispatch(fetchPostsAction.fetchPostsStart());
     const queryParams =
       "?auth=" + token + "&savedBy=userId&equalTo=" + userId + '"';
     axios
@@ -17,10 +17,10 @@ export const fetchPosts = (token, userId) => {
             id: key
           });
         }
-        dispatch(fetchPostsActions.fetchPostsSuccess(fetchedPosts));
+        dispatch(fetchPostsAction.fetchPostsSuccess(fetchedPosts));
       })
       .catch(err => {
-        dispatch(fetchPostsActions.fetchPostsFail(err));
+        dispatch(fetchPostsAction.fetchPostsFail(err));
       });
   };
 };

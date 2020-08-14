@@ -3,8 +3,7 @@ import { updateObject } from "../../utils/utility";
 
 const initialState = {
   posts: [],
-  loading: false,
-  saved: false
+  loading: false
 };
 
 const fetchPostsStart = (state, action) => {
