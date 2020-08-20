@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 
-import * as actions from "../../store/actions/index";
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
+import * as actions from "../../store/actions/index";
 import "./Post.css";
 
 const Post = props => {
   const [saveClicked, setSaveClicked] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const isAuthenticated = useSelector(
+    state => state.authReducer.token !== null
+  );
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -26,27 +32,25 @@ const Post = props => {
     });
   };
 
-  const savePostHandler = event => {
-    event.preventDefault();
-    setSaveClicked(!saveClicked);
-    const post = {
-      charityName: props.charityName,
-      url: props.url,
-      city: props.city,
-      state: props.state,
-      zip: props.zip,
-      category: props.category,
-      missionStatement: props.missionStatement
-    };
+  const savePostHandler = () => {
+    if (isAuthenticated) {
+      setSaveClicked(true);
+      // dispatch(actions.saveInit());
+    }
+  };
 
-    props.onSavePost(post, props.token);
+  const savePostCancelHandler = () => {
+    setSaveClicked(false);
   };
 
   return (
     <div className="Post">
       <article>
         <div className="PostButtons">
-          <div className="Ribbon" onClick={savePostHandler}>
+          <div
+            className="Ribbon"
+            onClick={saveClicked ? savePostHandler : savePostCancelHandler}
+          >
             <img src={saveClicked ? ribbonAfter : ribbonBefore} alt="Ribbon" />
           </div>
           <a href={props.url} target="to_blank">
