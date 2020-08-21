@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
-import * as actions from "../../store/actions/index";
+import * as actions from "../../store/actions";
 import "./Post.css";
 
 const Post = props => {
@@ -12,9 +12,7 @@ const Post = props => {
 
   const dispatch = useDispatch();
 
-  const isAuthenticated = useSelector(
-    state => state.authReducer.token !== null
-  );
+  const isAuthenticated = props.token !== null;
 
   let category = true;
   if (props.category === "Not Provided") {
@@ -32,10 +30,65 @@ const Post = props => {
     });
   };
 
-  const savePostHandler = () => {
+  let arr = [];
+  let base = 0;
+
+  const displayImage = () => {
+    let num = Math.floor(Math.random() * 20);
+    if (arr[num] === undefined) {
+      arr[num] = 1;
+      return num;
+    } else if (arr[num] <= base) {
+      arr[num]++;
+      return num;
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === undefined) {
+          arr[i] = 1;
+          return i;
+        } else if (arr[i] <= base) {
+          arr[i]++;
+          return i;
+        }
+      }
+      let minIndex;
+      for (let k = 0; k < arr.length; k++) {
+        if (!minIndex) {
+          minIndex = k;
+        } else if (arr[minIndex] > arr[k]) {
+          minIndex = k;
+        }
+      }
+      arr[minIndex]++;
+      base++;
+      return minIndex;
+    }
+  };
+
+  const savePostHandler = event => {
     if (isAuthenticated) {
       setSaveClicked(true);
-      // dispatch(actions.saveInit());
+      dispatch(
+        actions.savePost(
+          {
+            charityName: props.charityName,
+            ein: props.ein,
+            url: props.url,
+            website: props.website,
+            city: props.city,
+            state: props.state,
+            zip: props.zipCode,
+            category: props.category,
+            score: props.score,
+            acceptingDonations: props.acceptingDonations,
+            missionStatement: props.missionStatement,
+            src: `/PostPictures/${displayImage() + ".jpg"}`,
+            alt: props.ein,
+            key: props.ein
+          },
+          props.token
+        )
+      );
     }
   };
 

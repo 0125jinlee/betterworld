@@ -6,7 +6,10 @@ export const savePost = (postData, token) => {
   return dispatch => {
     dispatch(savePostAction.savePostStart());
     axios
-      .post("/posts.json?auth=" + token, postData)
+      .post(
+        "https://betterworld-aac7e.firebaseio.com/posts.json?auth=" + token,
+        postData
+      )
       .then(response => {
         dispatch(savePostAction.savePostSuccess(response.data.name, postData));
       })

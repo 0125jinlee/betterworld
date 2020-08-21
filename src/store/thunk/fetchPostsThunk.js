@@ -8,7 +8,7 @@ export const fetchPosts = (token, userId) => {
     const queryParams =
       "?auth=" + token + "&savedBy=userId&equalTo=" + userId + '"';
     axios
-      .get("/posts.json" + queryParams)
+      .get("https://betterworld-aac7e.firebaseio.com/posts.json" + queryParams)
       .then(res => {
         const fetchedPosts = [];
         for (let key in res.data) {
