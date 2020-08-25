@@ -12,7 +12,6 @@ import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import Posts from "./components/Posts/Posts";
-import FetchPosts from "./components/FetchPosts/FetchPosts";
 import * as actions from "./store/actions/index";
 import "./App.css";
 
@@ -59,7 +58,7 @@ const App = props => {
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
         <Layout></Layout>
       </div>
-      {!!match ? <FetchPosts /> : <Posts />}
+      {!!match ? null : <Posts />}
     </div>
   );
 };

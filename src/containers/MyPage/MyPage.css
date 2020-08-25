@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 90px;
+  background-image: url("/Banner.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .Logo {

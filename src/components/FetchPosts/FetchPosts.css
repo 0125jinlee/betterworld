@@ -1,0 +1,44 @@
+.NoFetchedPosts {
+  text-align: center;
+}
+
+/* .ResultsTopic {
+  text-align: left;
+  padding: 35px 20px 20px 40px;
+  font-family: "Roboto";
+  font-weight: bold;
+  color: #4b4b4b;
+  letter-spacing: 2.5px;
+}
+
+.ResultTopic h1 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 900;
+  font-style: normal;
+  color: #02133c;
+}
+
+.ResultTopic h4 {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 2.5px;
+  color: #4b4b4b;
+}
+
+@media (max-width: 720px) {
+  .ResultsTopic {
+    padding: 35px 20px 20px 25px;
+  }
+}
+
+@media (max-width: 375px) {
+  .ResultsTopic {
+    padding: auto;
+  }
+
+  h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+} */
