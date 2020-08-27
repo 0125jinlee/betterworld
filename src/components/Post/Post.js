@@ -50,7 +50,8 @@ const Post = props => {
             alt: props.ein,
             key: props.ein
           },
-          props.token
+          props.token,
+          props.userId
         )
       );
     }

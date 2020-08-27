@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchPosts } from "../../store/thunk/fetchPostsThunk";
+import React from "react";
 
 import NavigationItem from "../../components/Navigation/NavigationItem";
-import FetchPosts from "../../components/FetchPosts/FetchPosts";
 import "./MyPage.css";
 
-const MyPage = props => {
-  useEffect(() => {
-    if (props.token) {
-      props.dispatch(fetchPosts(props.token, props.userId));
-    }
-  });
-
+const MyPage = () => {
   return (
     <div>
       <div className="MyPage">
@@ -25,19 +16,8 @@ const MyPage = props => {
           </NavigationItem>
         </div>
       </div>
-      <div>
-        <FetchPosts></FetchPosts>
-      </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    token: state.authReducer.token,
-    userId: state.authReducer.userId,
-    fetchedPosts: state.fetchPostsReducer.posts
-  };
-};
-
-export default connect(mapStateToProps)(MyPage);
+export default MyPage;

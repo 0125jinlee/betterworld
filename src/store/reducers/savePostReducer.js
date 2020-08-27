@@ -19,8 +19,8 @@ const savePostSuccess = (state, action) => {
   const newPost = updateObject(action.postData, { id: action.postId });
   return updateObject(state, {
     loading: false,
-    purchased: true,
-    posts: state.posts.concat(newPost)
+    saved: true,
+    posts: state.posts.push(newPost)
   });
 };
 

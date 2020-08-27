@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { fetchPosts } from "../../store/thunk/fetchPostsThunk";
 
 import Post from "../Post/Post";
 import "./FetchPosts.css";
@@ -40,6 +41,12 @@ const displayImage = () => {
 };
 
 const FetchPosts = props => {
+  useEffect(() => {
+    if (props.token) {
+      props.dispatch(fetchPosts(props.token, props.userId));
+    }
+  });
+
   if (Array.isArray(props.fetchedPosts) && props.fetchedPosts.length !== 0) {
     const fetchedPosts = props.fetchedPosts.map(post => {
       return (
@@ -73,7 +80,9 @@ const FetchPosts = props => {
 
 const mapStateToProps = state => {
   return {
-    fetchedPosts: state.searchReducer.searchTerm
+    token: state.authReducer.token,
+    userId: state.authReducer.userId,
+    fetchedPosts: state.fetchPostsReducer.posts
   };
 };
 

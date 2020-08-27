@@ -2,7 +2,7 @@ import axios from "axios";
 
 import * as savePostAction from "../actions/savePostAction";
 
-export const savePost = (postData, token) => {
+export const savePost = (postData, token, userId) => {
   return dispatch => {
     dispatch(savePostAction.savePostStart());
     axios
