@@ -5,9 +5,10 @@ import * as savePostAction from "../actions/savePostAction";
 export const savePost = (postData, token, userId) => {
   return dispatch => {
     dispatch(savePostAction.savePostStart());
+    const queryParams = "?auth=" + token + "&savedBy=userId&equalTo=" + userId;
     axios
       .post(
-        "https://betterworld-aac7e.firebaseio.com/posts.json?auth=" + token,
+        "https://betterworld-aac7e.firebaseio.com/posts.json" + queryParams,
         postData
       )
       .then(response => {
