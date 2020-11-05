@@ -3,14 +3,12 @@ import axios from "axios";
 import * as savePostAction from "../actions/savePostAction";
 
 export const savePost = (postData, token, userId) => {
+  const link = process.env.REACT_APP_FIREBASE_DATABASE_URL + "users/$<uid>";
+
   return dispatch => {
     dispatch(savePostAction.savePostStart());
-    const queryParams = "?auth=" + token + "&savedBy=userId&equalTo=" + userId;
     axios
-      .post(
-        "https://betterworld-aac7e.firebaseio.com/posts.json" + queryParams,
-        postData
-      )
+      .post(link, postData)
       .then(response => {
         dispatch(savePostAction.savePostSuccess(response.data.name, postData));
       })
