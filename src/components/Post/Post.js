@@ -7,8 +7,11 @@ import ribbonAfter from "./ribbon-after.svg";
 import * as actions from "../../store/actions";
 import "./Post.css";
 
+const uuid = require("uuid");
+
 const Post = props => {
   const [saveClicked, setSaveClicked] = useState(false);
+  const [uid] = useState(uuid.v1());
 
   const dispatch = useDispatch();
 
@@ -51,7 +54,7 @@ const Post = props => {
             key: props.ein
           },
           props.token,
-          props.userId
+          uid
         )
       );
     }
@@ -112,14 +115,14 @@ const Post = props => {
 const mapStateToProps = state => {
   return {
     loading: state.savePostReducer.loading,
-    token: state.authReducer.token,
-    userId: state.authReducer.userId
+    token: state.authReducer.token
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSavePost: (postData, token) => dispatch(actions.savePost(postData, token))
+    onSavePost: (postData, uid, token) =>
+      dispatch(actions.savePost(postData, uid, token))
   };
 };
 

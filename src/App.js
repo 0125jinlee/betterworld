@@ -7,7 +7,6 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import { connect } from "react-redux";
-import { FirebaseDatabaseProvider } from "@react-firebase/database";
 
 import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
@@ -55,15 +54,13 @@ const App = props => {
   }
 
   return (
-    <FirebaseDatabaseProvider>
-      <div className="App">
-        <div className="MainNav">
-          <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
-          <Layout></Layout>
-        </div>
-        {!!match ? <FetchPosts /> : <Posts />}
+    <div className="App">
+      <div className="MainNav">
+        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+        <Layout></Layout>
       </div>
-    </FirebaseDatabaseProvider>
+      {!!match ? <FetchPosts /> : <Posts />}
+    </div>
   );
 };
 
