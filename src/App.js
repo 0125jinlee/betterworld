@@ -7,6 +7,7 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import { connect } from "react-redux";
+import firebase from "firebase";
 
 import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
@@ -52,6 +53,26 @@ const App = props => {
       </Switch>
     );
   }
+
+  useEffect(() => {
+    window.addEventListener("mousemove", () => {
+      if (!firebase.apps.length) {
+        const config = {
+          apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+          authDomain: "betterworld-aac7e.firebaseapp.com",
+          databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+          projectId: "betterworld-aac7e",
+          storageBucket: "betterworld-aac7e.appspot.com",
+          messagingSenderId: "60751268485",
+          appId: "1:60751268485:web:6588111865a3f6e21b77ec",
+          measurementId: "G-ZLCGCXNM1B"
+        };
+        firebase.initializeApp(config);
+      } else {
+        firebase.app();
+      }
+    });
+  }, []);
 
   return (
     <div className="App">

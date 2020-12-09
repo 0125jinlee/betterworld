@@ -7,9 +7,7 @@ export const savePost = (postData, token, uid) => {
     dispatch(savePostAction.savePostStart());
     firebase
       .database()
-      .ref("post/" + uid)
-      .set({
-        post: postData
-      });
+      .ref(process.env.REACT_APP_FIREBASE_DATABASE_URL + "post/" + uid)
+      .set(postData);
   };
 };

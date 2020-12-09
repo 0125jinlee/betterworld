@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
+import firebase from "firebase";
+import axios from "axios";
 
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
-import * as actions from "../../store/actions";
 import "./Post.css";
-
-const uuid = require("uuid");
 
 const Post = props => {
   const [saveClicked, setSaveClicked] = useState(false);
-  const [uid] = useState(uuid.v1());
-
-  const dispatch = useDispatch();
 
   const isAuthenticated = props.token !== null;
 
@@ -33,30 +29,48 @@ const Post = props => {
     });
   };
 
+  const FIREBASE_DATABASE_URL = process.env.REACT_APP_FIREBASE_DATABASE_URL;
+
   const savePostHandler = () => {
+    const currentUser = firebase.auth();
+
     if (isAuthenticated) {
       setSaveClicked(true);
-      dispatch(
-        actions.savePost(
-          {
-            charityName: props.charityName,
-            ein: props.ein,
-            url: props.url,
-            website: props.website,
-            city: props.city,
-            state: props.state,
-            zip: props.zipCode,
-            category: props.category,
-            score: props.score,
-            acceptingDonations: props.acceptingDonations,
-            missionStatement: props.missionStatement,
-            alt: props.ein,
-            key: props.ein
-          },
-          props.token,
-          uid
-        )
-      );
+      return () => {
+        // firebase
+        //   .database()
+        //   .ref(`Users/${currentUser.uid}/posts`)
+        //   .set({
+        //     charityName: props.charityName,
+        //     ein: props.ein,
+        //     url: props.url,
+        //     website: props.website,
+        //     city: props.city,
+        //     state: props.state,
+        //     zip: props.zipCode,
+        //     category: props.category,
+        //     score: props.score,
+        //     acceptingDonations: props.acceptingDonations,
+        //     missionStatement: props.missionStatement,
+        //     alt: props.ein,
+        //     key: props.ein,
+        //   });
+        axios.post(FIREBASE_DATABASE_URL, {
+          charityName: "props.charityName",
+          ein: props.ein,
+          url: props.url,
+          website: props.website,
+          city: props.city,
+          state: props.state,
+          zip: props.zipCode,
+          category: props.category,
+          score: props.score,
+          acceptingDonations: props.acceptingDonations,
+          missionStatement: props.missionStatement,
+          alt: props.ein,
+          key: props.ein
+        });
+      };
     }
   };
 
@@ -119,11 +133,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onSavePost: (postData, uid, token) =>
-      dispatch(actions.savePost(postData, uid, token))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps)(Post);
