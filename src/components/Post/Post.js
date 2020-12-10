@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import firebase from "firebase";
-import axios from "axios";
 
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
+import * as actions from "../../store/actions/";
 import "./Post.css";
 
 const Post = props => {
@@ -29,48 +28,29 @@ const Post = props => {
     });
   };
 
-  const FIREBASE_DATABASE_URL = process.env.REACT_APP_FIREBASE_DATABASE_URL;
-
   const savePostHandler = () => {
-    const currentUser = firebase.auth();
+    const { savePost } = props;
 
     if (isAuthenticated) {
       setSaveClicked(true);
-      return () => {
-        // firebase
-        //   .database()
-        //   .ref(`Users/${currentUser.uid}/posts`)
-        //   .set({
-        //     charityName: props.charityName,
-        //     ein: props.ein,
-        //     url: props.url,
-        //     website: props.website,
-        //     city: props.city,
-        //     state: props.state,
-        //     zip: props.zipCode,
-        //     category: props.category,
-        //     score: props.score,
-        //     acceptingDonations: props.acceptingDonations,
-        //     missionStatement: props.missionStatement,
-        //     alt: props.ein,
-        //     key: props.ein,
-        //   });
-        axios.post(FIREBASE_DATABASE_URL, {
-          charityName: "props.charityName",
-          ein: props.ein,
-          url: props.url,
-          website: props.website,
-          city: props.city,
-          state: props.state,
-          zip: props.zipCode,
-          category: props.category,
-          score: props.score,
-          acceptingDonations: props.acceptingDonations,
-          missionStatement: props.missionStatement,
-          alt: props.ein,
-          key: props.ein
-        });
-      };
+      savePost(
+        {
+          charityName: props.charityName
+          // ein: props.ein,
+          // url: props.url,
+          // website: props.website,
+          // city: props.city,
+          // state: props.state,
+          // zip: props.zipCode,
+          // category: props.category,
+          // score: props.score,
+          // acceptingDonations: props.acceptingDonations,
+          // missionStatement: props.missionStatement,
+          // alt: props.ein,
+          // key: props.ein,
+        },
+        localStorage.getItem("userId")
+      );
     }
   };
 
@@ -133,4 +113,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Post);
+const mapDispatchToProps = dispatch => {
+  return {
+    savePost: (postData, uid) => dispatch(actions.savePost(postData, uid))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
