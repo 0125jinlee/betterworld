@@ -13,7 +13,7 @@ import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import Posts from "./components/Posts/Posts";
-import FetchPosts from "./components/FetchPosts/FetchPosts";
+import DisplaySavedPosts from "./components/DisplaySavedPosts/DisplaySavedPosts";
 import * as actions from "./store/actions/index";
 import "./App.css";
 
@@ -29,6 +29,21 @@ const App = props => {
   const { onTryAutoSignup } = props;
 
   let match = useRouteMatch("/mypage");
+
+  useEffect(() => {
+    const config = {
+      apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+      authDomain: "betterworld-aac7e.firebaseapp.com",
+      databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+      projectId: "betterworld-aac7e",
+      storageBucket: "betterworld-aac7e.appspot.com",
+      messagingSenderId: "60751268485",
+      appId: "1:60751268485:web:6588111865a3f6e21b77ec",
+      measurementId: "G-ZLCGCXNM1B"
+    };
+
+    firebase.initializeApp(config);
+  }, []);
 
   useEffect(() => {
     onTryAutoSignup();
@@ -54,28 +69,13 @@ const App = props => {
     );
   }
 
-  useEffect(() => {
-    const config = {
-      apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-      authDomain: "betterworld-aac7e.firebaseapp.com",
-      databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-      projectId: "betterworld-aac7e",
-      storageBucket: "betterworld-aac7e.appspot.com",
-      messagingSenderId: "60751268485",
-      appId: "1:60751268485:web:6588111865a3f6e21b77ec",
-      measurementId: "G-ZLCGCXNM1B"
-    };
-
-    firebase.initializeApp(config);
-  }, []);
-
   return (
     <div className="App">
       <div className="MainNav">
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
         <Layout></Layout>
       </div>
-      {!!match ? <FetchPosts /> : <Posts />}
+      {!!match ? <DisplaySavedPosts /> : <Posts />}
     </div>
   );
 };

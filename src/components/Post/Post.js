@@ -60,13 +60,13 @@ const Post = props => {
         props.ein
       );
     }
-    console.log(postData);
   };
 
   const deletePostHandler = () => {
     if (isAuthenticated) {
       setSaveClicked(false);
     }
+    props.deletePost(localStorage.getItem("userId"), props.ein);
   };
 
   return (
@@ -124,7 +124,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     savePost: (postData, uid, ein) =>
-      dispatch(actions.savePost(postData, uid, ein))
+      dispatch(actions.savePost(postData, uid, ein)),
+    deletePost: (uid, ein) => dispatch(actions.deletePost(uid, ein))
   };
 };
 

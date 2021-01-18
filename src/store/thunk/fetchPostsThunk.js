@@ -1,10 +1,17 @@
 import firebase from "firebase";
 
+import * as fetchActions from "../actions/fetchActions";
+
 export const fetchPosts = uid => {
-  return () => {
+  return dispatch => {
     firebase
       .database()
       .ref(`${uid}/posts/`)
-      .once("value");
+      .on("value", snapshot => {
+        const fetchedPosts = snapshot.val();
+        if (fetchedPosts !== null && fetchedPosts !== undefined) {
+          dispatch(fetchActions.fetchSuccess(fetchedPosts));
+        }
+      });
   };
 };
