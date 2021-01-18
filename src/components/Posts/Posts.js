@@ -52,8 +52,6 @@ const posts = props => {
           state={post.state}
           zip={post.zipCode}
           category={post.category}
-          score={post.score}
-          acceptingDonations={post.acceptingDonations}
           missionStatement={post.missionStatement}
           src={`/PostPictures/${displayImage() + ".jpg"}`}
           alt={post.ein}

@@ -66,10 +66,7 @@ const App = props => {
       measurementId: "G-ZLCGCXNM1B"
     };
 
-    const app = firebase.initializeApp(config);
-    console.log(app);
-
-    console.log(firebase.auth(app).currentUser);
+    firebase.initializeApp(config);
   }, []);
 
   return (

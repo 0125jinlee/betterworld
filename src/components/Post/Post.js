@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
 import ribbonAfter from "./ribbon-after.svg";
-import * as actions from "../../store/actions/";
+import * as actions from "../../store/actions/index";
 import "./Post.css";
 
 const Post = props => {
@@ -29,29 +29,38 @@ const Post = props => {
   };
 
   const savePostHandler = () => {
-    const { savePost } = props;
+    const postData = {
+      charityName: props.charityName,
+      ein: props.ein,
+      url: props.url,
+      website: props.website,
+      city: props.city,
+      state: props.state,
+      zip: props.zipCode,
+      category: props.category,
+      missionStatement: props.missionStatement,
+      alt: props.ein,
+      key: props.ein
+    };
+
+    const cleanObj = postData => {
+      for (let prop in postData) {
+        if (postData[prop] === null || postData[prop] === undefined) {
+          delete postData[prop];
+        }
+      }
+      return postData;
+    };
 
     if (isAuthenticated) {
       setSaveClicked(true);
-      savePost(
-        {
-          charityName: props.charityName
-          // ein: props.ein,
-          // url: props.url,
-          // website: props.website,
-          // city: props.city,
-          // state: props.state,
-          // zip: props.zipCode,
-          // category: props.category,
-          // score: props.score,
-          // acceptingDonations: props.acceptingDonations,
-          // missionStatement: props.missionStatement,
-          // alt: props.ein,
-          // key: props.ein,
-        },
-        localStorage.getItem("userId")
+      props.savePost(
+        cleanObj(postData),
+        localStorage.getItem("userId"),
+        props.ein
       );
     }
+    console.log(postData);
   };
 
   const deletePostHandler = () => {
@@ -108,14 +117,14 @@ const Post = props => {
 
 const mapStateToProps = state => {
   return {
-    loading: state.savePostReducer.loading,
     token: state.authReducer.token
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    savePost: (postData, uid) => dispatch(actions.savePost(postData, uid))
+    savePost: (postData, uid, ein) =>
+      dispatch(actions.savePost(postData, uid, ein))
   };
 };
 

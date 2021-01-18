@@ -1,26 +1,10 @@
-import axios from "axios";
+import firebase from "firebase";
 
-import * as fetchPostsAction from "../actions/fetchPostsAction";
-
-export const fetchPosts = (token, userId) => {
-  return (dispatch, getState) => {
-    dispatch(fetchPostsAction.fetchPostsStart());
-    const queryParams =
-      "?auth=" + token + "&savedBy=userId&equalTo=" + userId + '"';
-    axios
-      .get("https://betterworld-aac7e.firebaseio.com/posts.json" + queryParams)
-      .then(res => {
-        const fetchedPosts = [];
-        for (let key in res.data) {
-          fetchedPosts.push({
-            ...res.data[key],
-            id: key
-          });
-        }
-        dispatch(fetchPostsAction.fetchPostsSuccess(fetchedPosts));
-      })
-      .catch(err => {
-        dispatch(fetchPostsAction.fetchPostsFail(err));
-      });
+export const fetchPosts = uid => {
+  return () => {
+    firebase
+      .database()
+      .ref(`${uid}/posts/`)
+      .once("value");
   };
 };
