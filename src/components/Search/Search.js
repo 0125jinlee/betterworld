@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { apiCallThunk } from "../../store/thunk/searchThunk";
 
+import * as actions from "../../store/actions/index";
 import "./Search.css";
 
 const Search = props => {
@@ -15,7 +15,7 @@ const Search = props => {
   const handleSubmit = event => {
     event.preventDefault();
     searchTerm.length > 0
-      ? props.dispatch(apiCallThunk(searchTerm))
+      ? props.search(searchTerm)
       : alert("Enter valid search terms!");
   };
 
@@ -36,11 +36,10 @@ const Search = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
-    searchTerm: state.searchReducer.searchTerm,
-    searchCounter: state.searchReducer.searchCounter
+    search: searchTerm => dispatch(actions.search(searchTerm))
   };
 };
 
-export default connect(mapStateToProps)(Search);
+export default connect(null, mapDispatchToProps)(Search);

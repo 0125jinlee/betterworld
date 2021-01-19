@@ -1,43 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { displayImage } from "../../utils/utility";
 
 import Post from "../Post/Post";
 import "./Posts.css";
-
-let arr = [];
-let base = 0;
-
-const displayImage = () => {
-  let num = Math.floor(Math.random() * 20);
-  if (arr[num] === undefined) {
-    arr[num] = 1;
-    return num;
-  } else if (arr[num] <= base) {
-    arr[num]++;
-    return num;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === undefined) {
-        arr[i] = 1;
-        return i;
-      } else if (arr[i] <= base) {
-        arr[i]++;
-        return i;
-      }
-    }
-    let minIndex;
-    for (let k = 0; k < arr.length; k++) {
-      if (!minIndex) {
-        minIndex = k;
-      } else if (arr[minIndex] > arr[k]) {
-        minIndex = k;
-      }
-    }
-    arr[minIndex]++;
-    base++;
-    return minIndex;
-  }
-};
 
 const posts = props => {
   if (Array.isArray(props.searchResult) && props.searchResult.length !== 0) {
@@ -53,9 +19,10 @@ const posts = props => {
           zip={post.zipCode}
           category={post.category}
           missionStatement={post.missionStatement}
-          src={`/PostPictures/${displayImage() + ".jpg"}`}
+          src={`/PostPictures/${displayImage([], 0) + ".jpg"}`}
           alt={post.ein}
           key={post.ein}
+          // savePostClicked={props.savePostClicked}
         />
       );
     });
@@ -90,6 +57,7 @@ const mapStateToProps = state => {
     searchTerm: state.searchReducer.searchTerm,
     searchCounter: state.searchReducer.searchCounter,
     searchResult: state.searchReducer.searchResult
+    // savePostClicked: state.postReducer.savePostClicked,
   };
 };
 

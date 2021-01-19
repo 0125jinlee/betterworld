@@ -1,32 +1,24 @@
+import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../../utils/utility";
+
 const initialState = {
   searchCounter: 0,
   searchTerm: "",
-  searchResult: [],
-  isFetching: false,
-  isError: false
+  searchResult: []
+};
+
+const receivedData = (state, action) => {
+  return updateObject(state, {
+    searchCounter: state.searchCounter + 1,
+    searchTerm: action.searchTerm,
+    searchResult: action.searchResult
+  });
 };
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCHING_DATA":
-      return {
-        searchResult: [],
-        isFetching: true,
-        isError: false
-      };
-    case "RECEIVED_DATA":
-      return {
-        searchCounter: state.searchCounter + 1,
-        searchTerm: action.data.searchTerm,
-        searchResult: action.data.result,
-        isFetching: false,
-        isError: false
-      };
-    case "RECEIVED_ERROR":
-      return {
-        isFetching: false,
-        isError: true
-      };
+    case actionTypes.RECEIVED_DATA:
+      return receivedData(state, action);
     default:
       return state;
   }

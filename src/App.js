@@ -26,10 +26,6 @@ const Authenticate = React.lazy(() => {
 });
 
 const App = props => {
-  const { onTryAutoSignup } = props;
-
-  let match = useRouteMatch("/mypage");
-
   useEffect(() => {
     const config = {
       apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -46,8 +42,8 @@ const App = props => {
   }, []);
 
   useEffect(() => {
-    onTryAutoSignup();
-  }, [onTryAutoSignup]);
+    props.onTryAutoSignup();
+  }, [props.onTryAutoSignup]);
 
   let routes = (
     <Switch>
@@ -56,6 +52,8 @@ const App = props => {
       <Redirect to="/" />
     </Switch>
   );
+
+  let match = useRouteMatch("/mypage");
 
   if (props.isAuthenticated) {
     routes = (

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { apiCallThunk } from "../../store/thunk/searchThunk";
 
 import Search from "../../components/Search/Search";
 import NavigationItem from "../../components/Navigation/NavigationItem";
+import * as actions from "../../store/actions/index";
 import "./Main.css";
 
 const Main = props => {
-  let trendingWords = [
+  const trendingWords = [
     "children",
     "women",
     "elder",
@@ -18,10 +18,8 @@ const Main = props => {
   ];
 
   useEffect(() => {
-    if (props.searchTerm === "") {
-      props.dispatch(apiCallThunk(trendingWords[Math.ceil(Math.random() * 6)]));
-    }
-  });
+    props.search(trendingWords[Math.ceil(Math.random() * 6)]);
+  }, []);
 
   return (
     <div className="Main">
@@ -42,8 +40,15 @@ const Main = props => {
 
 const mapStateToProps = state => {
   return {
-    searchTerm: state.searchReducer.searchTerm
+    searchTerm: state.searchReducer.searchTerm,
+    searchCounter: state.searchReducer.searchCounter
   };
 };
 
-export default connect(mapStateToProps)(Main);
+const mapDispatchToProps = dispatch => {
+  return {
+    search: searchTerm => dispatch(actions.search(searchTerm))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
