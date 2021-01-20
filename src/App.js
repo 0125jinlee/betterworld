@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import {
   Route,
   Switch,
@@ -26,6 +26,18 @@ const Authenticate = React.lazy(() => {
 });
 
 const App = props => {
+  const [trendingWords] = useState([
+    "children",
+    "women",
+    "elder",
+    "victim",
+    "virus",
+    "hunger",
+    "needs"
+  ]);
+
+  const { search } = props;
+
   useEffect(() => {
     const config = {
       apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -37,13 +49,17 @@ const App = props => {
       appId: "1:60751268485:web:6588111865a3f6e21b77ec",
       measurementId: "G-ZLCGCXNM1B"
     };
-
     firebase.initializeApp(config);
-  }, []);
+    search(trendingWords[Math.ceil(Math.random() * 6)]);
+  }, [trendingWords, search]);
+
+  const { onTryAutoSignup } = props;
 
   useEffect(() => {
-    props.onTryAutoSignup();
-  }, [props.onTryAutoSignup]);
+    onTryAutoSignup();
+  }, [onTryAutoSignup]);
+
+  useEffect(() => {}, []);
 
   let routes = (
     <Switch>
@@ -86,7 +102,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState())
+    onTryAutoSignup: () => dispatch(actions.authCheckState()),
+    search: searchTerm => dispatch(actions.search(searchTerm))
   };
 };
 

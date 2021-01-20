@@ -73,3 +73,12 @@ export const toTitleCase = str => {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 };
+
+export const cleanObj = postData => {
+  for (let prop in postData) {
+    if (postData[prop] === null || postData[prop] === undefined) {
+      delete postData[prop];
+    }
+  }
+  return postData;
+};

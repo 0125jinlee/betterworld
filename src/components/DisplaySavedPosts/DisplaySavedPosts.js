@@ -7,11 +7,13 @@ import * as actions from "../../store/actions/index";
 import "./DisplaySavedPosts.css";
 
 const DisplaySavedPosts = props => {
+  const { fetchPosts } = props;
+
   useEffect(() => {
     if (props.isAuthenticated) {
-      props.fetchPosts(localStorage.getItem("userId"));
+      fetchPosts(localStorage.getItem("userId"));
     }
-  }, [props.isAuthenticated, props.fetchedPosts]);
+  }, [props.isAuthenticated, fetchPosts]);
 
   if (props.fetchedPosts) {
     const fetchedPosts = Object.keys(props.fetchedPosts).map(einKey => {
@@ -29,13 +31,22 @@ const DisplaySavedPosts = props => {
           src={`/PostPictures/${displayImage([], 0) + ".jpg"}`}
           alt={props.fetchedPosts[einKey].ein}
           key={props.fetchedPosts[einKey].ein}
-          // savePostClicked={props.savePostClicked}
+          saved={props.fetchedPosts[einKey].saved}
         />
       );
     });
-    return <div className="FetchedPosts">{fetchedPosts}</div>;
+    return (
+      <div className="FetchedPosts">
+        <h1>Saved Donations</h1>
+        {fetchedPosts}
+      </div>
+    );
   } else {
-    return null;
+    return (
+      <div className="NoPosts">
+        <h1 style={{ textAlign: "center" }}>You did not save any charities!</h1>
+      </div>
+    );
   }
 };
 

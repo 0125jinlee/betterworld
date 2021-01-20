@@ -1,26 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import Search from "../../components/Search/Search";
 import NavigationItem from "../../components/Navigation/NavigationItem";
-import * as actions from "../../store/actions/index";
 import "./Main.css";
 
-const Main = props => {
-  const trendingWords = [
-    "children",
-    "women",
-    "elder",
-    "victim",
-    "virus",
-    "hunger",
-    "needs"
-  ];
-
-  useEffect(() => {
-    props.search(trendingWords[Math.ceil(Math.random() * 6)]);
-  }, []);
-
+const Main = () => {
   return (
     <div className="Main">
       <div className="Logo">
@@ -45,10 +30,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    search: searchTerm => dispatch(actions.search(searchTerm))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);

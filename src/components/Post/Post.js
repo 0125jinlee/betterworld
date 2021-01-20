@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { toTitleCase } from "../../utils/utility";
+import { toTitleCase, cleanObj } from "../../utils/utility";
 
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
@@ -9,12 +9,11 @@ import * as actions from "../../store/actions/index";
 import "./Post.css";
 
 const Post = props => {
-  const [categoryCheck, setCategoryCheck] = useState(
-    props.category === "Not Provided"
-  );
-  const [missionStatementCheck, setMissionStatementCheck] = useState(
-    !props.missionStatement
-  );
+  const [categoryCheck] = useState(props.category.length !== 0);
+  const [missionStatementCheck] = useState(props.missionStatement.length !== 0);
+  const [saved, setSaved] = useState(false);
+  const { savePost } = props;
+  const { deletePost } = props;
 
   const savePostHandler = () => {
     const postData = {
@@ -28,46 +27,38 @@ const Post = props => {
       category: props.category,
       missionStatement: props.missionStatement,
       alt: props.ein,
-      key: props.ein
+      key: props.ein,
+      saved: true
     };
-
-    const cleanObj = postData => {
-      for (let prop in postData) {
-        if (postData[prop] === null || postData[prop] === undefined) {
-          delete postData[prop];
-        }
-      }
-      return postData;
-    };
-
     if (props.isAuthenticated) {
-      props.savePost(
-        cleanObj(postData),
-        localStorage.getItem("userId"),
-        props.ein
-      );
+      setSaved(true);
+      cleanObj(postData);
+      savePost(cleanObj(postData), localStorage.getItem("userId"), props.ein);
     }
   };
 
   const deletePostHandler = () => {
-    props.deletePost(localStorage.getItem("userId"), props.ein);
+    setSaved(false);
+    deletePost(localStorage.getItem("userId"), props.ein);
   };
 
   return (
     <div className="Post">
       <article>
         <div className="PostButtons">
-          <div
-            className="Ribbon"
-            onClick={
-              props.savePostClicked ? deletePostHandler : savePostHandler
-            }
-          >
-            <img
-              src={props.savePostClicked ? ribbonAfter : ribbonBefore}
-              alt="Ribbon"
-            />
-          </div>
+          {props.isAuthenticated ? (
+            <div
+              className="Ribbon"
+              onClick={
+                saved || props.saved ? deletePostHandler : savePostHandler
+              }
+            >
+              <img
+                src={saved || props.saved ? ribbonAfter : ribbonBefore}
+                alt="Ribbon"
+              />
+            </div>
+          ) : null}
           <a href={props.url} target="to_blank">
             <Button btnType="Website">VISIT WEBSITE</Button>
           </a>
@@ -89,13 +80,13 @@ const Post = props => {
             </small>
           </ul>
           <ul>
-            {categoryCheck && (
+            {categoryCheck ? (
               <>
                 <span>{`${props.category} Fields`}</span>
+                <br></br>
+                <br></br>
               </>
-            )}
-            <br></br>
-            <br></br>
+            ) : null}
             {missionStatementCheck ? props.missionStatement : null}
           </ul>
         </div>

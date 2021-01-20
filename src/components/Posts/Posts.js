@@ -22,7 +22,7 @@ const posts = props => {
           src={`/PostPictures/${displayImage([], 0) + ".jpg"}`}
           alt={post.ein}
           key={post.ein}
-          // savePostClicked={props.savePostClicked}
+          savePostClicked={props.savePostClicked}
         />
       );
     });
@@ -56,8 +56,8 @@ const mapStateToProps = state => {
   return {
     searchTerm: state.searchReducer.searchTerm,
     searchCounter: state.searchReducer.searchCounter,
-    searchResult: state.searchReducer.searchResult
-    // savePostClicked: state.postReducer.savePostClicked,
+    searchResult: state.searchReducer.searchResult,
+    savePostClicked: state.postReducer.savePostClicked
   };
 };
 
