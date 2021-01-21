@@ -1,21 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { displayImage } from "../../utils/utility";
 
 import Post from "../Post/Post";
-import * as actions from "../../store/actions/index";
 import "./DisplaySavedPosts.css";
 
 const DisplaySavedPosts = props => {
-  const { fetchPosts } = props;
+  const { fetchedPosts } = props;
 
-  useEffect(() => {
-    if (props.isAuthenticated) {
-      fetchPosts(localStorage.getItem("userId"));
-    }
-  }, [props.isAuthenticated, fetchPosts]);
-
-  if (props.fetchedPosts) {
+  if (fetchedPosts) {
     const fetchedPosts = Object.keys(props.fetchedPosts).map(einKey => {
       return (
         <Post
@@ -53,15 +46,8 @@ const DisplaySavedPosts = props => {
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.authReducer.token !== null,
-    fetchedPosts: state.fetchReducer.fetchedPosts,
-    savePostClicked: state.postReducer.savePostClicked
+    fetchedPosts: state.fetchReducer.fetchedPosts
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchPosts: uid => dispatch(actions.fetchPosts(uid))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(DisplaySavedPosts);
+export default connect(mapStateToProps)(DisplaySavedPosts);

@@ -11,19 +11,13 @@ import firebase from "firebase";
 
 import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
+import MyPage from "./containers/MyPage/MyPage";
+import Authenticate from "./containers/Authenticate/Authenticate";
 import Logout from "./containers/Authenticate/Logout/Logout";
 import Posts from "./components/Posts/Posts";
 import DisplaySavedPosts from "./components/DisplaySavedPosts/DisplaySavedPosts";
 import * as actions from "./store/actions/index";
 import "./App.css";
-
-const MyPage = React.lazy(() => {
-  return import("./containers/MyPage/MyPage");
-});
-
-const Authenticate = React.lazy(() => {
-  return import("./containers/Authenticate/Authenticate");
-});
 
 const App = props => {
   const [trendingWords] = useState([
@@ -61,6 +55,14 @@ const App = props => {
 
   useEffect(() => {}, []);
 
+  const { fetchPosts } = props;
+
+  useEffect(() => {
+    if (props.isAuthenticated) {
+      fetchPosts(localStorage.getItem("userId"));
+    }
+  }, [props.isAuthenticated, fetchPosts]);
+
   let routes = (
     <Switch>
       <Route path="/auth" render={props => <Authenticate {...props} />} />
@@ -68,8 +70,6 @@ const App = props => {
       <Redirect to="/" />
     </Switch>
   );
-
-  let match = useRouteMatch("/mypage");
 
   if (props.isAuthenticated) {
     routes = (
@@ -83,27 +83,31 @@ const App = props => {
     );
   }
 
+  let match = useRouteMatch("/mypage");
+
   return (
     <div className="App">
       <div className="MainNav">
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
         <Layout></Layout>
       </div>
-      {!!match ? <DisplaySavedPosts /> : <Posts />}
+      {match ? <DisplaySavedPosts /> : <Posts />}
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.authReducer.token !== null
+    isAuthenticated: state.authReducer.token !== null,
+    fetchedPosts: state.fetchReducer.fetchedPosts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState()),
-    search: searchTerm => dispatch(actions.search(searchTerm))
+    search: searchTerm => dispatch(actions.search(searchTerm)),
+    fetchPosts: uid => dispatch(actions.fetchPosts(uid))
   };
 };
 

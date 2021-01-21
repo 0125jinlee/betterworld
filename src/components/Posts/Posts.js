@@ -56,8 +56,7 @@ const mapStateToProps = state => {
   return {
     searchTerm: state.searchReducer.searchTerm,
     searchCounter: state.searchReducer.searchCounter,
-    searchResult: state.searchReducer.searchResult,
-    savePostClicked: state.postReducer.savePostClicked
+    searchResult: state.searchReducer.searchResult
   };
 };
 

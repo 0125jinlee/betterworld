@@ -16,6 +16,7 @@ const Post = props => {
   const { deletePost } = props;
 
   const savePostHandler = () => {
+    setSaved(true);
     const postData = {
       charityName: props.charityName,
       ein: props.ein,
@@ -31,13 +32,14 @@ const Post = props => {
       saved: true
     };
     if (props.isAuthenticated) {
-      setSaved(true);
+      // localStorage.setItem("saved", props.ein);
       cleanObj(postData);
       savePost(cleanObj(postData), localStorage.getItem("userId"), props.ein);
     }
   };
 
   const deletePostHandler = () => {
+    // localStorage.setItem("saved", null);
     setSaved(false);
     deletePost(localStorage.getItem("userId"), props.ein);
   };
