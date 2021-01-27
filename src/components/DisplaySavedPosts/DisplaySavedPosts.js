@@ -30,14 +30,16 @@ const DisplaySavedPosts = props => {
     });
     return (
       <div className="FetchedPosts">
-        <h1>Saved Donations</h1>
+        <div className="FetchedPostsTitle">
+          <h1>Saved Donations</h1>
+        </div>
         {fetchedPosts}
       </div>
     );
   } else {
     return (
       <div className="NoPosts">
-        <h1 style={{ textAlign: "center" }}>You did not save any charities!</h1>
+        <h1>You did not save any charities!</h1>
       </div>
     );
   }

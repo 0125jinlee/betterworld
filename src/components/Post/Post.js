@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { toTitleCase, cleanObj } from "../../utils/utility";
+import useLocalStorage from "react-use-localstorage";
 
 import Button from "../UI/Button/Button";
 import ribbonBefore from "./ribbon-before.svg";
@@ -11,12 +12,12 @@ import "./Post.css";
 const Post = props => {
   const [categoryCheck] = useState(props.category.length !== 0);
   const [missionStatementCheck] = useState(props.missionStatement.length !== 0);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useLocalStorage("saved");
+
   const { savePost } = props;
   const { deletePost } = props;
 
-  const savePostHandler = () => {
-    setSaved(true);
+  const savePostHandler = ein => {
     const postData = {
       charityName: props.charityName,
       ein: props.ein,
@@ -31,16 +32,34 @@ const Post = props => {
       key: props.ein,
       saved: true
     };
+
     if (props.isAuthenticated) {
-      // localStorage.setItem("saved", props.ein);
       cleanObj(postData);
       savePost(cleanObj(postData), localStorage.getItem("userId"), props.ein);
     }
+
+    let savedList;
+
+    try {
+      savedList = JSON.parse(saved);
+    } catch (e) {
+      savedList = {};
+    }
+    savedList[ein] = true;
+    setSaved(JSON.stringify(savedList));
   };
 
-  const deletePostHandler = () => {
-    // localStorage.setItem("saved", null);
-    setSaved(false);
+  const deletePostHandler = ein => {
+    let savedList;
+
+    try {
+      savedList = JSON.parse(saved);
+    } catch (e) {
+      savedList = {};
+    }
+    savedList[ein] = false;
+    setSaved(JSON.stringify(savedList));
+
     deletePost(localStorage.getItem("userId"), props.ein);
   };
 
@@ -52,11 +71,13 @@ const Post = props => {
             <div
               className="Ribbon"
               onClick={
-                saved || props.saved ? deletePostHandler : savePostHandler
+                saved[props.ein] === true
+                  ? () => deletePostHandler(props.ein)
+                  : () => savePostHandler(props.ein)
               }
             >
               <img
-                src={saved || props.saved ? ribbonAfter : ribbonBefore}
+                src={saved[props.ein] === true ? ribbonAfter : ribbonBefore}
                 alt="Ribbon"
               />
             </div>
