@@ -41,7 +41,7 @@ const Post = props => {
     let savedList;
 
     try {
-      savedList = JSON.parse(saved);
+      savedList = JSON.parse(saved) || {};
     } catch (e) {
       savedList = {};
     }
@@ -57,6 +57,7 @@ const Post = props => {
     } catch (e) {
       savedList = {};
     }
+
     savedList[ein] = false;
     setSaved(JSON.stringify(savedList));
 
@@ -71,13 +72,17 @@ const Post = props => {
             <div
               className="Ribbon"
               onClick={
-                saved[props.ein] === true
+                JSON.parse(saved)[props.ein] === true
                   ? () => deletePostHandler(props.ein)
                   : () => savePostHandler(props.ein)
               }
             >
               <img
-                src={saved[props.ein] === true ? ribbonAfter : ribbonBefore}
+                src={
+                  JSON.parse(saved)[props.ein] === true || props.saved
+                    ? ribbonAfter
+                    : ribbonBefore
+                }
                 alt="Ribbon"
               />
             </div>
