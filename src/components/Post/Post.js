@@ -12,12 +12,13 @@ import "./Post.css";
 const Post = props => {
   const [categoryCheck] = useState(props.category.length !== 0);
   const [missionStatementCheck] = useState(props.missionStatement.length !== 0);
-  const [saved, setSaved] = useLocalStorage("saved");
+  const [savedStr, setSaved] = useLocalStorage("saved", "{}");
 
   const { savePost } = props;
   const { deletePost } = props;
+  const saved = JSON.parse(savedStr);
 
-  const savePostHandler = ein => {
+  const savePostHandler = () => {
     const postData = {
       charityName: props.charityName,
       ein: props.ein,
@@ -41,27 +42,21 @@ const Post = props => {
     let savedList;
 
     try {
-      savedList = JSON.parse(saved) || {};
+      savedList = JSON.parse(window.localStorage.getItem("saved")) || {};
     } catch (e) {
       savedList = {};
     }
-    savedList[ein] = true;
+    savedList[props.ein] = true;
     setSaved(JSON.stringify(savedList));
   };
 
-  const deletePostHandler = ein => {
-    let savedList;
-
+  const deletePostHandler = () => {
     try {
-      savedList = JSON.parse(saved);
-    } catch (e) {
-      savedList = {};
-    }
-
-    savedList[ein] = false;
-    setSaved(JSON.stringify(savedList));
-
-    deletePost(localStorage.getItem("userId"), props.ein);
+      const savedList = JSON.parse(window.localStorage.getItem("saved")) || {};
+      savedList[props.ein] = false;
+      setSaved(JSON.stringify(savedList));
+      deletePost(localStorage.getItem("userId"), props.ein);
+    } catch {}
   };
 
   return (
@@ -72,14 +67,12 @@ const Post = props => {
             <div
               className="Ribbon"
               onClick={
-                JSON.parse(saved)[props.ein] === true
-                  ? () => deletePostHandler(props.ein)
-                  : () => savePostHandler(props.ein)
+                saved[props.ein] === true ? deletePostHandler : savePostHandler
               }
             >
               <img
                 src={
-                  JSON.parse(saved)[props.ein] === true || props.saved
+                  saved[props.ein] === true || props.saved
                     ? ribbonAfter
                     : ribbonBefore
                 }
